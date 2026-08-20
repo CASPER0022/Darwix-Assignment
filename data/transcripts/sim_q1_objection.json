@@ -1,0 +1,349 @@
+{
+  "call_id": "sim_q1_objection",
+  "locale": "en-IN",
+  "started_at": "2026-08-18T10:57:40.074557+00:00",
+  "ended_at": "2026-08-18T11:03:02.759618+00:00",
+  "ended_reason": "",
+  "consent": true,
+  "disclosures_given": [
+    "ai_disclosure",
+    "purpose_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {
+    "business_name": "Deshpande printers",
+    "entity_type": "private_limited",
+    "industry": "offset and digital printing",
+    "business_vintage_months": 128,
+    "annual_turnover_inr": 5400000,
+    "loan_amount_inr": 500000,
+    "loan_purpose": "Buy a second printing machine for the shop",
+    "existing_emi_inr": 28000,
+    "gst_registered": true
+  },
+  "qualification": {
+    "disposition": "pass",
+    "reason_codes": [
+      "ENTITY_OK",
+      "VINTAGE_OK",
+      "TURNOVER_OK",
+      "AMOUNT_OK",
+      "GST_OK"
+    ],
+    "rules_fired": [
+      "QR001",
+      "QR003",
+      "QR006",
+      "QR009",
+      "QR014"
+    ],
+    "missing_slots": [],
+    "conflicts": [],
+    "customer_messages": [
+      "Your business structure is eligible for our unsecured business loan.",
+      "Your business vintage meets our requirement.",
+      "Your turnover is within our lending range.",
+      "That amount is within the range we offer without collateral.",
+      "GST registration helps us verify turnover quickly."
+    ]
+  },
+  "escalation": null,
+  "lead": null,
+  "latency_summary": {
+    "tts_ms": {
+      "n": 13,
+      "min_ms": 10995.5,
+      "p50_ms": 11235.9,
+      "p95_ms": 12908.6,
+      "max_ms": 13116.1,
+      "mean_ms": 11498.4
+    },
+    "asr_ms": {
+      "n": 12,
+      "min_ms": 339.8,
+      "p50_ms": 489.1,
+      "p95_ms": 758.6,
+      "max_ms": 789.6,
+      "mean_ms": 508.7
+    },
+    "understand_ms": {
+      "n": 12,
+      "min_ms": 431.9,
+      "p50_ms": 686.4,
+      "p95_ms": 2222.7,
+      "max_ms": 2485.3,
+      "mean_ms": 946.9
+    },
+    "agent_turn_total_ms": {
+      "n": 12,
+      "min_ms": 553.6,
+      "p50_ms": 823.7,
+      "p95_ms": 2223.2,
+      "max_ms": 2486.1,
+      "mean_ms": 1138.2
+    },
+    "retrieval_answer_ms": {
+      "n": 2,
+      "min_ms": 1136.9,
+      "p50_ms": 1145.8,
+      "p95_ms": 1153.7,
+      "max_ms": 1154.6,
+      "mean_ms": 1145.8
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, this is Anaya from U GRO Capital. Am I speaking with the owner of the business, or someone who handles the business finances? Just so you know, I'm an AI assistant, not a human agent. This call is recorded for quality and training purposes. I'm calling about your business loan enquiry. Is this a good time to take two or three minutes? I just need a few details about your business to check what you'd be eligible for.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, this is Nikhil Deshpadeh. What do you want?",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "What's the name of your business?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 553.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 553.5
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "For anything else, your interest rate is too high. Bajaj has offered me 15.2%, why should I go with you?",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "We look at the total cost, including fees and turnaround, not just the headline rate, and can review the competing offer in detail. Coming back to where we were - What's the name of your business?",
+      "phase": "qualification",
+      "intent": "objection",
+      "latency_ms": 1858.0,
+      "grounded": {
+        "text": "We look at the total cost, including fees and turnaround, not just the headline rate, and can review the competing offer in detail.",
+        "answered": true,
+        "top_score": 0.968,
+        "used_record_ids": [
+          "objection_handbook__005",
+          "web_pricing-policy-and-schedule-of-charges__003"
+        ],
+        "citations": [
+          "Rate Of Interest | section: Rate Of Interest | https://www.ugrocapital.com/pricing-policy-and-schedule-of-charges",
+          "OBJ-05 \"Another lender offered me a better rate\" | section: OBJ-05 \"Another lender offered me a better rate\" | internal document (synthetic, authored for this assessment): Telecalling objection handbook (internal, synthetic)"
+        ],
+        "rejected_reason": "",
+        "attempts": 1,
+        "retrieved": [
+          "web_pricing-policy-and-schedule-of-charges__003",
+          "objection_handbook__005",
+          "web_loan-against-property__002",
+          "web_pricing-policy-and-schedule-of-charges__001"
+        ]
+      },
+      "meta": {
+        "stages": {
+          "understand_ms": 720.9,
+          "retrieval_answer_ms": 1136.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "business name is Deshpande printers.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "And is that registered as a proprietorship, a partnership, an LLP, or a private limited company?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 636.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 636.1
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "And are there any hidden charges you are not telling me about?",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "We only charge what’s in our schedule – processing fee, bounce charge, penal charge on overdue instalments and foreclosure charge as published. Coming back to where we were - Is the business registered in your own name, or as a firm or company?",
+      "phase": "qualification",
+      "intent": "objection",
+      "latency_ms": 1586.7,
+      "grounded": {
+        "text": "We only charge what’s in our schedule – processing fee, bounce charge, penal charge on overdue instalments and foreclosure charge as published.",
+        "answered": true,
+        "top_score": 1.0,
+        "used_record_ids": [
+          "objection_handbook__006",
+          "webpdf_front-assets_images_Privacy_schedule_of_charges__006"
+        ],
+        "citations": [
+          "OBJ-06 \"Are there hidden charges?\" | section: OBJ-06 \"Are there hidden charges?\" | internal document (synthetic, authored for this assessment): Telecalling objection handbook (internal, synthetic)",
+          "Schedule of Charges - Schedule of Charges (SOC) | page 5 | https://www.ugrocapital.com/front-assets/images/Privacy/schedule_of_charges.pdf"
+        ],
+        "rejected_reason": "",
+        "attempts": 1,
+        "retrieved": [
+          "objection_handbook__006",
+          "webpdf_front-assets_images_Privacy_schedule_of_charges__006",
+          "webpdf_front-assets_images_Privacy_schedule_of_charges__016",
+          "webpdf_front-assets_images_Privacy_schedule_of_charges__003"
+        ]
+      },
+      "meta": {
+        "stages": {
+          "understand_ms": 431.9,
+          "retrieval_answer_ms": 1154.6
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "a private limited company.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "What line of business are you in?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 652.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 651.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "We are in offset and digital printing",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "How long has the business been running?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 993.4,
+      "meta": {
+        "stages": {
+          "understand_ms": 993.3
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Since 2016",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Roughly what was your turnover in the last financial year?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 840.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 839.5
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "about 54 lakh rupees last year.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "And how much are you looking to borrow?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 2486.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 2485.3
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "5 lakh rupees",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "What would you be using the funds for?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 807.3,
+      "meta": {
+        "stages": {
+          "understand_ms": 806.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Buy a second printing machine for the shop",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Do you have any business loan EMIs running at the moment?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 2008.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 2007.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "we have an existing EMI of about 28,000 rupees a month",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Is the business GST registered?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 648.4,
+      "meta": {
+        "stages": {
+          "understand_ms": 648.1
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, we are GST registered.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Based on what you've told me, this looks like it fits our criteria, so I'll pass it to a credit officer for an in-principle review. Your business structure is eligible for our unsecured business loan. Before I arrange that, is there anything you want to ask me?",
+      "phase": "next_step",
+      "intent": "answer",
+      "latency_ms": 587.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 587.5
+        }
+      }
+    }
+  ]
+}

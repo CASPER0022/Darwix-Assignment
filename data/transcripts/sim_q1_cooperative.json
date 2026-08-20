@@ -1,0 +1,339 @@
+{
+  "call_id": "sim_q1_cooperative",
+  "locale": "en-IN",
+  "started_at": "2026-08-19T17:34:03.949496+00:00",
+  "ended_at": "2026-08-19T17:36:10.242998+00:00",
+  "ended_reason": "completed:pass",
+  "consent": true,
+  "disclosures_given": [
+    "ai_disclosure",
+    "purpose_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {
+    "business_name": "Sharada Textiles",
+    "entity_type": "proprietorship",
+    "industry": "fabric and textile trading, mainly selling sarees and other ",
+    "business_vintage_months": 104,
+    "annual_turnover_inr": 7200000,
+    "loan_amount_inr": 1500000,
+    "loan_purpose": "working capital",
+    "existing_emi_inr": 0,
+    "gst_registered": true
+  },
+  "qualification": {
+    "disposition": "pass",
+    "reason_codes": [
+      "ENTITY_OK",
+      "VINTAGE_OK",
+      "TURNOVER_OK",
+      "AMOUNT_OK",
+      "GST_OK"
+    ],
+    "rules_fired": [
+      "QR001",
+      "QR003",
+      "QR006",
+      "QR009",
+      "QR014"
+    ],
+    "missing_slots": [],
+    "conflicts": [],
+    "customer_messages": [
+      "Your business structure is eligible for our unsecured business loan.",
+      "Your business vintage meets our requirement.",
+      "Your turnover is within our lending range.",
+      "That amount is within the range we offer without collateral.",
+      "GST registration helps us verify turnover quickly."
+    ]
+  },
+  "escalation": null,
+  "lead": {
+    "lead_id": "LD-PERATIVE",
+    "call_id": "sim_q1_cooperative",
+    "created_at": "2026-08-19T17:36:07.031844+00:00",
+    "channel": "ai_voice_agent",
+    "locale": "en-IN",
+    "consent_captured": true,
+    "disclosures_given": [
+      "ai_disclosure",
+      "purpose_disclosure",
+      "recording_disclosure"
+    ],
+    "slots": {
+      "business_name": "Sharada Textiles",
+      "entity_type": "proprietorship",
+      "industry": "fabric and textile trading, mainly selling sarees and other ",
+      "business_vintage_months": 104,
+      "annual_turnover_inr": 7200000,
+      "loan_amount_inr": 1500000,
+      "loan_purpose": "working capital",
+      "existing_emi_inr": 0,
+      "gst_registered": true
+    },
+    "qualification": {
+      "disposition": "pass",
+      "reason_codes": [
+        "ENTITY_OK",
+        "VINTAGE_OK",
+        "TURNOVER_OK",
+        "AMOUNT_OK",
+        "GST_OK"
+      ],
+      "rules_fired": [
+        "QR001",
+        "QR003",
+        "QR006",
+        "QR009",
+        "QR014"
+      ],
+      "missing_slots": [],
+      "conflicts": [],
+      "customer_messages": [
+        "Your business structure is eligible for our unsecured business loan.",
+        "Your business vintage meets our requirement.",
+        "Your turnover is within our lending range.",
+        "That amount is within the range we offer without collateral.",
+        "GST registration helps us verify turnover quickly."
+      ]
+    },
+    "disposition": "pass",
+    "escalation": null,
+    "callback_slot": "Thursday at 10 am",
+    "transcript_ref": "data/transcripts/sim_q1_cooperative.json",
+    "turns": 23
+  },
+  "latency_summary": {
+    "tts_ms": {
+      "n": 13,
+      "min_ms": 848.7,
+      "p50_ms": 1171.8,
+      "p95_ms": 11961.9,
+      "max_ms": 13198.6,
+      "mean_ms": 4332.1
+    },
+    "asr_ms": {
+      "n": 11,
+      "min_ms": 287.8,
+      "p50_ms": 343.5,
+      "p95_ms": 671.0,
+      "max_ms": 690.8,
+      "mean_ms": 441.0
+    },
+    "understand_ms": {
+      "n": 11,
+      "min_ms": 434.0,
+      "p50_ms": 631.8,
+      "p95_ms": 895.6,
+      "max_ms": 905.6,
+      "mean_ms": 664.1
+    },
+    "agent_turn_total_ms": {
+      "n": 11,
+      "min_ms": 434.4,
+      "p50_ms": 632.8,
+      "p95_ms": 895.7,
+      "max_ms": 905.7,
+      "mean_ms": 664.5
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, this is Anaya from U GRO Capital. Am I speaking with the owner, or whoever handles the finances? Just so you know, I'm an AI assistant, not a human agent.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "This call is recorded for quality and training purposes. I'm calling about your business loan enquiry. Is now a good time? It takes about two minutes to check what you'd be eligible for.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, yes, this is a good time. Please go ahead.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "What's the name of your business?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 905.7,
+      "meta": {
+        "stages": {
+          "understand_ms": 905.6
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Sharada Textiles",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "And is that registered as a proprietorship, a partnership, an LLP, or a private limited company?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 885.7,
+      "meta": {
+        "stages": {
+          "understand_ms": 885.5
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, it's a proprietorship",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "What line of business are you in?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 573.8,
+      "meta": {
+        "stages": {
+          "understand_ms": 573.6
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "We deal in fabric and textile trading, mainly selling sarees and other home textiles",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "How long has the business been running?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 833.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 833.4
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "We have been running since 2018, so about 7 years now",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Roughly what was your turnover in the last financial year?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 706.3,
+      "meta": {
+        "stages": {
+          "understand_ms": 706.0
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Around 72 lakh rupees last financial year",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "And how much are you looking to borrow?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 533.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 531.8
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "We need about 15 lakh rupees for working capital before the festive season",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Do you have any business loan EMIs running at the moment?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 434.4,
+      "meta": {
+        "stages": {
+          "understand_ms": 434.0
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "No, we do not have any business loan EMIs running at the moment",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Coming back to where we were - Any loan instalments going out each month at the moment?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 694.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 694.4
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "No, no installments going out each month right now",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Is the business GST registered?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 526.7,
+      "meta": {
+        "stages": {
+          "understand_ms": 526.5
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, we are GST registered",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Based on what you've told me, this looks like it fits our criteria, so I'll pass it to a credit officer for an in-principle review. Your business structure is eligible for our unsecured business loan. Before I arrange that, is there anything you want to ask me?",
+      "phase": "next_step",
+      "intent": "answer",
+      "latency_ms": 582.8,
+      "meta": {
+        "stages": {
+          "understand_ms": 582.6
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "No, that's all. Thank you.",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "I'll have someone call you back on this number. Does Thursday at 10 am work for you? Thanks for your time, and all the best with the business.",
+      "phase": "closed",
+      "intent": "confirm",
+      "latency_ms": 632.8,
+      "meta": {
+        "stages": {
+          "understand_ms": 631.8
+        }
+      }
+    }
+  ]
+}

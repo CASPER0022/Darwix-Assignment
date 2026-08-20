@@ -1,0 +1,303 @@
+{
+  "call_id": "sim_q1_conflicting",
+  "locale": "en-IN",
+  "started_at": "2026-08-18T11:03:04.793295+00:00",
+  "ended_at": "2026-08-18T11:09:13.692581+00:00",
+  "ended_reason": "",
+  "consent": true,
+  "disclosures_given": [
+    "ai_disclosure",
+    "purpose_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {
+    "business_name": "Bose interiors",
+    "entity_type": "partnership",
+    "industry": "interior design and fit out for homes and offices",
+    "business_vintage_months": 24252,
+    "annual_turnover_inr": 3900000,
+    "loan_amount_inr": 4500000
+  },
+  "qualification": null,
+  "escalation": null,
+  "lead": null,
+  "latency_summary": {
+    "tts_ms": {
+      "n": 15,
+      "min_ms": 10840.2,
+      "p50_ms": 11240.9,
+      "p95_ms": 12622.5,
+      "max_ms": 13713.4,
+      "mean_ms": 11515.8
+    },
+    "asr_ms": {
+      "n": 14,
+      "min_ms": 325.5,
+      "p50_ms": 471.2,
+      "p95_ms": 595.1,
+      "max_ms": 599.3,
+      "mean_ms": 448.6
+    },
+    "understand_ms": {
+      "n": 14,
+      "min_ms": 492.6,
+      "p50_ms": 734.2,
+      "p95_ms": 1040.7,
+      "max_ms": 1082.7,
+      "mean_ms": 793.0
+    },
+    "agent_turn_total_ms": {
+      "n": 14,
+      "min_ms": 492.8,
+      "p50_ms": 735.0,
+      "p95_ms": 1040.8,
+      "max_ms": 1082.8,
+      "mean_ms": 793.2
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, this is Anaya from U GRO Capital. Am I speaking with the owner of the business, or someone who handles the business finances? Just so you know, I'm an AI assistant, not a human agent. This call is recorded for quality and training purposes. I'm calling about your business loan enquiry. Is this a good time to take two or three minutes? I just need a few details about your business to check what you'd be eligible for.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "This is Ananya from Bose Interiors, how can I help you?",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "What's the name of your business?",
+      "phase": "qualification",
+      "intent": "smalltalk",
+      "latency_ms": 1082.8,
+      "meta": {
+        "stages": {
+          "understand_ms": 1082.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "both interiors",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more?",
+      "phase": "qualification",
+      "intent": "unclear",
+      "latency_ms": 668.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 668.8
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "We've been doing this about three years. Well, the firm was actually registered last year, but I was doing it before that also.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more? What's the name of your business?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 748.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 746.8
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "both interiors",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more?",
+      "phase": "qualification",
+      "intent": "unclear",
+      "latency_ms": 1018.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 1018.1
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Bulls and DDS",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more?",
+      "phase": "qualification",
+      "intent": "unclear",
+      "latency_ms": 701.4,
+      "meta": {
+        "stages": {
+          "understand_ms": 701.3
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Bose interiors, that's right.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "And is that registered as a proprietorship, a partnership, an LLP, or a private limited company?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 620.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 620.3
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "a partnership, I think.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "What line of business are you in?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 675.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 675.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Do interior design and fit out for homes and offices.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "How long has the business been running?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 1016.5,
+      "meta": {
+        "stages": {
+          "understand_ms": 1016.2
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "about three years but the firm was actually registered last year.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more? Roughly which year did the business start?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 976.3,
+      "meta": {
+        "stages": {
+          "understand_ms": 976.0
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "started around 2021, give or take a bit.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Roughly what was your turnover in the last financial year?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 835.0,
+      "meta": {
+        "stages": {
+          "understand_ms": 834.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "about 39 lakh rupees, give or take.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "And how much are you looking to borrow?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 492.8,
+      "meta": {
+        "stages": {
+          "understand_ms": 492.6
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "I need about 45 lakh rupees for the loan",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "I want to make sure I've noted this correctly - you mentioned a turnover of 39 lakh rupees, and also a loan requirement of 45 lakh rupees. Could you help me understand which one I should record?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 721.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 721.5
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, that's correct, 39 lakh for turnover and 45 lakh for the loan. Record both as they are separate figures.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "I want to make sure I've noted this correctly - you mentioned the business vintage, and also the year you started. Could you help me understand which one I should record?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 918.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 918.8
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Sure, the business was registered last year, but we really started operations around 2021. Record 2021 as the start year, but not the registration was in 2022.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "What would you be using the funds for?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 628.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 628.0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "call_id": "sim_q1_human_request",
+  "locale": "en-IN",
+  "started_at": "2026-08-18T11:12:57.518928+00:00",
+  "ended_at": "2026-08-18T11:13:09.006711+00:00",
+  "ended_reason": "escalated:explicit_request",
+  "consent": null,
+  "disclosures_given": [
+    "ai_disclosure",
+    "purpose_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {},
+  "qualification": null,
+  "escalation": {
+    "reason": "explicit_request",
+    "detail": "Customer asked to speak to a person.",
+    "created_at": "2026-08-18T11:13:06.570472+00:00"
+  },
+  "lead": {
+    "lead_id": "LD-_REQUEST",
+    "call_id": "sim_q1_human_request",
+    "created_at": "2026-08-18T11:13:06.570472+00:00",
+    "channel": "ai_voice_agent",
+    "locale": "en-IN",
+    "consent_captured": null,
+    "disclosures_given": [
+      "ai_disclosure",
+      "purpose_disclosure",
+      "recording_disclosure"
+    ],
+    "slots": {},
+    "qualification": {},
+    "disposition": "incomplete",
+    "escalation": {
+      "reason": "explicit_request",
+      "detail": "Customer asked to speak to a person.",
+      "created_at": "2026-08-18T11:13:06.570472+00:00"
+    },
+    "callback_slot": "Tuesday at 6 pm",
+    "transcript_ref": "data/transcripts/sim_q1_human_request.json",
+    "turns": 2
+  },
+  "latency_summary": {
+    "tts_ms": {
+      "n": 2,
+      "min_ms": 1204.1,
+      "p50_ms": 1305.6,
+      "p95_ms": 1397.0,
+      "max_ms": 1407.1,
+      "mean_ms": 1305.6
+    },
+    "asr_ms": {
+      "n": 1,
+      "min_ms": 455.5,
+      "p50_ms": 455.5,
+      "p95_ms": 455.5,
+      "max_ms": 455.5,
+      "mean_ms": 455.5
+    },
+    "understand_ms": {
+      "n": 1,
+      "min_ms": 593.6,
+      "p50_ms": 593.6,
+      "p95_ms": 593.6,
+      "max_ms": 593.6,
+      "mean_ms": 593.6
+    },
+    "agent_turn_total_ms": {
+      "n": 1,
+      "min_ms": 595.0,
+      "p50_ms": 595.0,
+      "p95_ms": 595.0,
+      "max_ms": 595.0,
+      "mean_ms": 595.0
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, this is Anaya from U GRO Capital. Am I speaking with the owner of the business, or someone who handles the business finances? Just so you know, I'm an AI assistant, not a human agent. This call is recorded for quality and training purposes. I'm calling about your business loan enquiry. Is this a good time to take two or three minutes? I just need a few details about your business to check what you'd be eligible for.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "Hello, this is Meena Krishnan from Krishnan Pharma Distributors. I am the owner. I prefer not to talk to an automated system. Please speak to a human representative. Thanks.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "Of course - I'll get a person to call you. Let me just confirm the best number and time. I've noted this for our team, and someone will call you on the number on file at Tuesday at 6 pm.",
+      "phase": "escalated",
+      "intent": "request_human",
+      "latency_ms": 595.0,
+      "meta": {
+        "stages": {
+          "understand_ms": 593.6
+        }
+      }
+    }
+  ]
+}

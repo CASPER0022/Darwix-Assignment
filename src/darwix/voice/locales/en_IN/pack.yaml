@@ -1,0 +1,152 @@
+# ---------------------------------------------------------------------------
+# Locale pack: India / English (Q1 - knowledge-grounded lead qualification)
+#
+# Everything the agent SAYS lives here. Everything it KNOWS lives in the KB.
+# The system prompt contains behaviour rules only - no FAQs, no objection
+# scripts, no policy thresholds - which is the separation the assessment asks
+# for.
+# ---------------------------------------------------------------------------
+locale: en-IN
+language_name: English (India)
+market: India
+sector: SME lending (NBFC)
+use_case: business_loan_qualification
+product: unsecured_business_loan
+market_code: IN
+
+# The conversation flow, declared as data. India underwrites, so it loads the
+# rules engine; the other markets do not.
+flow:
+  rules_product: unsecured_business_loan
+
+brand:
+  display_name: "U GRO Capital"
+  disclaimer: >-
+    Prototype built for a technical assessment. Not affiliated with, endorsed
+    by, or operated by the company whose public information it cites.
+  agent_name: "Anaya"
+
+voice:
+  tts_voice: agent_en_in_f
+  asr_language: null        # let Whisper auto-detect; Indian English + Hindi numerals
+  # Auto-detect is what Taglish and Hindi numerals need, but it also means
+  # Whisper picks *some* language for noise - a turn on this locale came
+  # back as Japanese, another as Spanish, both from room noise. A caller
+  # on this market speaks one of these; anything else is not a caller.
+  asr_languages: [English, Hindi, Urdu, Marathi, Gujarati, Punjabi,
+                  Bengali, Tamil, Telugu, Kannada, Malayalam, Nepali]
+  asr_prompt: >-
+    business loan, EMI, GST, Udyam, turnover, lakh, crore, CIBIL, NBFC,
+    proprietorship, partnership, LLP, private limited, collateral, tenure,
+    processing fee, foreclosure, disbursal, NACH mandate
+
+# Compliance items the agent MUST say. `required_before` is enforced by the
+# dialog policy, not by hoping the model remembers.
+disclosures:
+  - id: ai_disclosure
+    required_before: qualification
+    text: "Just so you know, I'm an AI assistant, not a human agent."
+  - id: recording_disclosure
+    required_before: qualification
+    text: "This call is recorded for quality and training purposes."
+  - id: purpose_disclosure
+    required_before: qualification
+    text: "I'm calling about your business loan enquiry."
+
+script:
+  greeting: >-
+    Hello, this is {agent_name} from {brand}. Am I speaking with the owner, or
+    whoever handles the finances?
+  # "a few details about your business" is dropped: the purpose disclosure one
+  # line earlier already says what the call is about, and on a cold call every
+  # second before the caller may speak is a second they did not agree to.
+  consent: >-
+    Is now a good time? It takes about two minutes to check what you'd be
+    eligible for.
+  consent_declined: >-
+    No problem at all. When would be a better time for me to call you back?
+  slot_questions:
+    business_name: "What's the name of your business?"
+    entity_type: >-
+      And is that registered as a proprietorship, a partnership, an LLP, or a
+      private limited company?
+    industry: "What line of business are you in?"
+    business_vintage_months: "How long has the business been running?"
+    annual_turnover_inr: "Roughly what was your turnover in the last financial year?"
+    loan_amount_inr: "And how much are you looking to borrow?"
+    loan_purpose: "What would you be using the funds for?"
+    existing_emi_inr: "Do you have any business loan EMIs running at the moment?"
+    gst_registered: "Is the business GST registered?"
+    city: "Which city is the business based in?"
+    applicant_age: "May I know your age, for the eligibility check?"
+    credit_score: "Do you happen to know your CIBIL score, roughly?"
+  clarify: "Sorry, I didn't catch that - could you say it once more?"
+  resume: "Coming back to where we were -"
+  # second attempt at a slot: rephrase rather than repeat the same words
+  slot_retry:
+    entity_type: "Is the business registered in your own name, or as a firm or company?"
+    business_vintage_months: "Roughly which year did the business start?"
+    annual_turnover_inr: "A rough figure is fine - was it under a crore, or above?"
+    loan_amount_inr: "Even a ballpark helps - are we talking a few lakh, or more?"
+    existing_emi_inr: "Any loan instalments going out each month at the moment?"
+    gst_registered: "Do you file GST returns for the business?"
+    industry: "What do you sell, broadly?"
+  conflict_probe: >-
+    I want to make sure I've noted this correctly - you mentioned {a}, and also
+    {b}. Could you help me understand which one I should record?
+  outcome:
+    pass: >-
+      Based on what you've told me, this looks like it fits our criteria, so
+      I'll pass it to a credit officer for an in-principle review.
+    refer: >-
+      This one is close to our criteria but needs a credit officer to look at
+      it properly, so I'll get it reviewed rather than give you an answer now.
+    reject: >-
+      Going by what you've shared, I don't think we'd be able to help with this
+      one right now, and I'd rather tell you that straight away than waste your
+      time.
+  outcome_check: >-
+    Before I arrange that, is there anything you want to ask me?
+  next_step: >-
+    I'll have someone call you back on this number. Does {callback_slot} work
+    for you?
+  closing: "Thanks for your time, and all the best with the business."
+
+fallback:
+  unknown: >-
+    I don't have that information, and I don't want to guess on something like
+    this. Let me get a colleague to confirm it and come back to you.
+  low_confidence: >-
+    I'd rather not give you a half-answer on that one. I'll have someone who
+    handles this confirm it for you.
+  out_of_scope: >-
+    That's outside what I can help with on this call - I only handle business
+    loan enquiries. I can note it down and have the right team reach you.
+  asr_failure: "Sorry, the line broke up there. Could you repeat that?"
+  repeated_failure: >-
+    The line doesn't seem great. Let me arrange for a colleague to call you
+    back instead.
+
+escalation:
+  triggers_note: >-
+    Handled in code (voice/escalation.py), not by the model: explicit request,
+    complaint or ombudsman mention, distress, three low-confidence turns, or
+    the same question asked three times.
+  acknowledge: >-
+    Of course - I'll get a person to call you. Let me just confirm the best
+    number and time.
+  closing: >-
+    I've noted this for our team, and someone will call you on {phone} at
+    {callback_slot}.
+
+style:
+  register: "Professional, warm, direct. Indian English business register."
+  sentence_length: "Short. One question at a time. Never stack two questions."
+  numbers: >-
+    Speak amounts the way Indian business owners do - lakh and crore, not
+    millions. "Forty five lakh", not "4.5 million".
+  do_not:
+    - "Never quote a final interest rate; only the published band, and only from the KB."
+    - "Never promise sanction or disbursal."
+    - "Never read a customer's PAN, Aadhaar or account number back on a recorded line."
+    - "Never repeat a question the customer has already answered."

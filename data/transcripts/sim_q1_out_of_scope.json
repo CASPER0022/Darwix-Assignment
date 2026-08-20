@@ -1,0 +1,412 @@
+{
+  "call_id": "sim_q1_out_of_scope",
+  "locale": "en-IN",
+  "started_at": "2026-08-19T18:21:23.329696+00:00",
+  "ended_at": "2026-08-19T18:26:58.068545+00:00",
+  "ended_reason": "completed:pass",
+  "consent": true,
+  "disclosures_given": [
+    "ai_disclosure",
+    "purpose_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {
+    "loan_amount_inr": 1800000,
+    "loan_purpose": "buying two more trucks",
+    "business_name": "Chauhan Logistics",
+    "entity_type": "proprietorship",
+    "industry": "road freight and logistics, handling truck transport across ",
+    "business_vintage_months": 92,
+    "annual_turnover_inr": 6700000,
+    "existing_emi_inr": null,
+    "gst_registered": true
+  },
+  "qualification": {
+    "disposition": "pass",
+    "reason_codes": [
+      "ENTITY_OK",
+      "VINTAGE_OK",
+      "TURNOVER_OK",
+      "AMOUNT_OK",
+      "GST_OK"
+    ],
+    "rules_fired": [
+      "QR001",
+      "QR003",
+      "QR006",
+      "QR009",
+      "QR014"
+    ],
+    "missing_slots": [],
+    "conflicts": [],
+    "customer_messages": [
+      "Your business structure is eligible for our unsecured business loan.",
+      "Your business vintage meets our requirement.",
+      "Your turnover is within our lending range.",
+      "That amount is within the range we offer without collateral.",
+      "GST registration helps us verify turnover quickly."
+    ]
+  },
+  "escalation": null,
+  "lead": {
+    "lead_id": "LD-OF_SCOPE",
+    "call_id": "sim_q1_out_of_scope",
+    "created_at": "2026-08-19T18:26:43.365923+00:00",
+    "channel": "ai_voice_agent",
+    "locale": "en-IN",
+    "consent_captured": true,
+    "disclosures_given": [
+      "ai_disclosure",
+      "purpose_disclosure",
+      "recording_disclosure"
+    ],
+    "slots": {
+      "loan_amount_inr": 1800000,
+      "loan_purpose": "buying two more trucks",
+      "business_name": "Chauhan Logistics",
+      "entity_type": "proprietorship",
+      "industry": "road freight and logistics, handling truck transport across ",
+      "business_vintage_months": 92,
+      "annual_turnover_inr": 6700000,
+      "existing_emi_inr": null,
+      "gst_registered": true
+    },
+    "qualification": {
+      "disposition": "pass",
+      "reason_codes": [
+        "ENTITY_OK",
+        "VINTAGE_OK",
+        "TURNOVER_OK",
+        "AMOUNT_OK",
+        "GST_OK"
+      ],
+      "rules_fired": [
+        "QR001",
+        "QR003",
+        "QR006",
+        "QR009",
+        "QR014"
+      ],
+      "missing_slots": [],
+      "conflicts": [],
+      "customer_messages": [
+        "Your business structure is eligible for our unsecured business loan.",
+        "Your business vintage meets our requirement.",
+        "Your turnover is within our lending range.",
+        "That amount is within the range we offer without collateral.",
+        "GST registration helps us verify turnover quickly."
+      ]
+    },
+    "disposition": "pass",
+    "escalation": null,
+    "callback_slot": "Thursday at 10 am",
+    "transcript_ref": "data/transcripts/sim_q1_out_of_scope.json",
+    "turns": 25
+  },
+  "latency_summary": {
+    "tts_ms": {
+      "n": 14,
+      "min_ms": 11031.3,
+      "p50_ms": 11196.2,
+      "p95_ms": 12423.5,
+      "max_ms": 12647.3,
+      "mean_ms": 11449.5
+    },
+    "asr_ms": {
+      "n": 12,
+      "min_ms": 342.6,
+      "p50_ms": 420.9,
+      "p95_ms": 760.6,
+      "max_ms": 819.9,
+      "mean_ms": 489.7
+    },
+    "understand_ms": {
+      "n": 12,
+      "min_ms": 335.7,
+      "p50_ms": 677.6,
+      "p95_ms": 893.5,
+      "max_ms": 902.3,
+      "mean_ms": 695.8
+    },
+    "agent_turn_total_ms": {
+      "n": 12,
+      "min_ms": 336.1,
+      "p50_ms": 781.2,
+      "p95_ms": 1983.1,
+      "max_ms": 2079.0,
+      "mean_ms": 971.7
+    },
+    "retrieval_answer_ms": {
+      "n": 3,
+      "min_ms": 539.4,
+      "p50_ms": 1313.5,
+      "p95_ms": 1438.0,
+      "max_ms": 1451.8,
+      "mean_ms": 1101.6
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, this is Anaya from U GRO Capital. Am I speaking with the owner, or whoever handles the finances? Just so you know, I'm an AI assistant, not a human agent.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "This call is recorded for quality and training purposes. I'm calling about your business loan enquiry. Is now a good time? It takes about two minutes to check what you'd be eligible for.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "Hello, yes, this is a good time, I can talk for a minute. I need to know if you can lend me 18 lakh rupees for buying to more trucks as we have no existing EMIs.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "What's the name of your business?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 903.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 902.3
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Also, do you offer loans or a proprietorship like mine? Quick question first, do you also give home loans? And what is your fixed deposit interest rate right now?",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "I don't have that information, and I don't want to guess on something like this. Let me get a colleague to confirm it and come back to you. Coming back to where we were - What's the name of your business?",
+      "phase": "qualification",
+      "intent": "question",
+      "latency_ms": 1904.7,
+      "grounded": {
+        "text": "I don't have that information, and I don't want to guess on something like this. Let me get a colleague to confirm it and come back to you.",
+        "answered": false,
+        "top_score": 0.461,
+        "used_record_ids": [],
+        "citations": [],
+        "rejected_reason": "model_declined",
+        "attempts": 1,
+        "retrieved": [
+          "web_pricing-policy-and-schedule-of-charges__004",
+          "web_pricing-policy-and-schedule-of-charges__003",
+          "web_lead-form__000",
+          "web_pricing-policy-and-schedule-of-charges__006"
+        ]
+      },
+      "meta": {
+        "stages": {
+          "understand_ms": 591.1,
+          "retrieval_answer_ms": 1313.5
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Sure, the business name is Chauhan Logistics",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "And is that registered as a proprietorship, a partnership, an LLP, or a private limited company?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 655.4,
+      "meta": {
+        "stages": {
+          "understand_ms": 655.2
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "And can you finance a petrol pump I want to open in Dubai?",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "That's outside what I can help with on this call - I only handle business loan enquiries. I can note it down and have the right team reach you. Coming back to where we were - Is the business registered in your own name, or as a firm or company?",
+      "phase": "qualification",
+      "intent": "out_of_scope",
+      "latency_ms": 2079.0,
+      "grounded": {
+        "text": "I don't have that information, and I don't want to guess on something like this. Let me get a colleague to confirm it and come back to you.",
+        "answered": false,
+        "top_score": 0.387,
+        "used_record_ids": [],
+        "citations": [],
+        "rejected_reason": "model_declined",
+        "attempts": 1,
+        "retrieved": [
+          "web_eclgs__007",
+          "web_lending-service-provider__001",
+          "application_form__001",
+          "web_machinery-equipment-finance__000"
+        ]
+      },
+      "meta": {
+        "stages": {
+          "understand_ms": 627.0,
+          "retrieval_answer_ms": 1451.8
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, it's registered in my own name as a proprietorship",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "What line of business are you in?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 564.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 564.4
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "We are in road freight and logistics, handling truck transport across Rajasthan and beyond",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "How long has the business been running?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 886.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 886.3
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "We've been running since 2019.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Roughly what was your turnover in the last financial year?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 721.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 721.3
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "About 67 lakh rupees last year",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Do you have any business loan EMIs running at the moment?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 700.5,
+      "meta": {
+        "stages": {
+          "understand_ms": 700.1
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "No, we don't have any EMIs running right now",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Coming back to where we were - Any loan instalments going out each month at the moment?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 654.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 654.1
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "No, we don't have any loan installments going out each month",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Is the business GST registered?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 840.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 840.2
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, our business is GST registered",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Based on what you've told me, this looks like it fits our criteria, so I'll pass it to a credit officer for an in-principle review. Your business structure is eligible for our unsecured business loan. Before I arrange that, is there anything you want to ask me?",
+      "phase": "next_step",
+      "intent": "answer",
+      "latency_ms": 336.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 335.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Thanks for the update, but I was wondering if you also offer any kind of insurance or warranty for the trucks we are planning to buy, just to be safe.",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "I don't have that information, and I don't want to guess on something like this. Let me get a colleague to confirm it and come back to you. I'll have someone call you back on this number. Does Thursday at 10 am work for you? Thanks for your time, and all the best with the business.",
+      "phase": "closed",
+      "intent": "question",
+      "latency_ms": 1413.8,
+      "grounded": {
+        "text": "I don't have that information, and I don't want to guess on something like this. Let me get a colleague to confirm it and come back to you.",
+        "answered": false,
+        "top_score": 0.273,
+        "used_record_ids": [],
+        "citations": [],
+        "rejected_reason": "retrieval_below_threshold",
+        "attempts": 0,
+        "retrieved": [
+          "web_terms-and-condition__001",
+          "credit_policy__003",
+          "web_business-info__001",
+          "webpdf_download-fair-practice_13__021"
+        ]
+      },
+      "meta": {
+        "stages": {
+          "understand_ms": 872.4,
+          "retrieval_answer_ms": 539.4
+        }
+      }
+    }
+  ]
+}
