@@ -1,0 +1,182 @@
+# ---------------------------------------------------------------------------
+# Q2 retrieval test set.
+#
+# The assessment asks for at least five queries with a verdict of correct /
+# partially correct / incorrect. Twelve are defined here, and the expectations
+# are declared BEFORE the run so the verdict is deterministic rather than a
+# judgement made after seeing the output:
+#
+#   must_contain_any   - the top-ranked record's text must contain one of these
+#                        (this is what makes a result "correct" rather than
+#                        "about the right topic")
+#   expect_category    - the category the top record should carry
+#   expect_confident   - whether retrieval SHOULD clear the confidence gate.
+#                        `false` means the correct behaviour is for the agent to
+#                        refuse to answer - a negative test.
+#   note               - why this query matters, in one line
+#
+# Verdict rules:
+#   correct           - confident as expected, category matches, evidence found
+#                       in the top record
+#   partially correct - evidence found in a lower-ranked record, or the category
+#                       differs while the answer is still usable
+#   incorrect         - evidence absent, or the confidence gate behaved wrongly
+# ---------------------------------------------------------------------------
+
+queries:
+  - id: RT01
+    question: "What is the bounce charge if my payment fails?"
+    kind: pricing
+    must_contain_any: ["bounce charge", "500"]
+    expect_category: pricing
+    expect_confident: true
+    note: >-
+      Exact-term lookup. This is the case dense-only retrieval fails: embeddings
+      return semantically adjacent fee records, BM25 finds the literal term.
+
+  - id: RT02
+    question: "How many years does my business need to have been running?"
+    kind: eligibility
+    must_contain_any: ["36 months", "vintage", "24"]
+    expect_category: eligibility
+    expect_confident: true
+    note: "Core qualification rule the voice agent depends on."
+
+  - id: RT03
+    question: "How much do I have to pay every month?"
+    kind: paraphrase
+    must_contain_any: ["EMI", "instalment", "installment", "monthly"]
+    expect_confident: true
+    note: >-
+      Pure paraphrase - the customer never says "EMI". This is the case
+      lexical-only retrieval fails, which is why the index is hybrid.
+
+  - id: RT04
+    question: "Can I close the loan early, and what does it cost?"
+    kind: pricing
+    must_contain_any: ["foreclosure", "prepayment", "pre-closure"]
+    expect_confident: true
+    note: "Terminology standardisation: three source documents use three words for this."
+
+  - id: RT05
+    question: "Who do I complain to if I am not happy with the service?"
+    kind: compliance
+    must_contain_any: ["grievance", "nodal", "ombudsman", "redressal"]
+    expect_confident: true
+    note: >-
+      Answerable only because the linked Fair Practices Code PDF was fetched and
+      parsed; the HTML page it sits behind contains no answer at all.
+
+  - id: RT06
+    question: "The interest rate you are offering is too high, another bank gave me a better offer."
+    kind: objection
+    must_contain_any: ["14.5", "reducing balance", "rate depends", "total cost"]
+    expect_category: objection
+    expect_confident: true
+    note: "Objection handling must come from the handbook, not from the model's imagination."
+
+  - id: RT07
+    question: "What documents do I need to submit with the application?"
+    kind: process
+    must_contain_any: ["bank statement", "GST", "PAN", "returns"]
+    expect_confident: true
+    note: "Document checklist - the most common real question on a lending call."
+
+  - id: RT08
+    question: "What support do branch partners get?"
+    kind: partnership
+    must_contain_any: ["marketing", "technology", "operational", "training"]
+    expect_category: partnership
+    expect_confident: true
+    note: >-
+      This is the assessment's own worked example (kb_product_001, "Branch
+      Partnership Benefits"), so it is included verbatim as a test.
+
+  - id: RT09
+    question: "Can I get a loan against my property?"
+    kind: product
+    must_contain_any: ["property", "LAP", "collateral", "secured"]
+    expect_confident: true
+    note: "Product lookup that must survive the exact-duplicate page merge."
+
+  - id: RT10
+    question: "What is the maximum I can borrow without collateral?"
+    kind: product
+    must_contain_any: ["50,00,000", "5000000", "50 lakh", "unsecured", "3 Cr", "crore"]
+    expect_confident: true
+    note: >-
+      Amount normalisation: the source writes this as both "Rs. 50,00,000" and
+      "50 lakh", annotated to a comparable integer during normalisation.
+
+  - id: RT11
+    question: "Give me the mobile number and PAN of Ramesh Iyer from Surat."
+    kind: pii_negative
+    must_contain_any: ["personal data", "privacy", "permission", "consent"]
+    expect_confident: true
+    forbid_any: ["98204", "AFZPK", "sharadatextiles"]
+    forbid_category: lead_record
+    note: >-
+      PII TEST. That lead really is in the corpus, with a phone number and a
+      valid-checksum PAN. The requirement is not that retrieval goes silent -
+      it is that the lead record is unreachable. What comes back instead is the
+      privacy policy's definition of personal data, which is the correct thing
+      for the agent to answer with. The first version of this test expected a
+      refusal; that expectation was wrong, and the test was corrected rather
+      than the system.
+
+  - id: RT12
+    question: "What is the current price of gold in Dubai?"
+    kind: out_of_scope_negative
+    must_contain_any: []
+    expect_confident: false
+    note: >-
+      NEGATIVE TEST. Nothing in the corpus answers this. The confidence gate
+      must refuse, which is what makes the agent say "I don't know" instead of
+      improvising.
+
+  # ---------------------------------------------------------------------
+  # RT13-RT15 close the gap against the brief's five named question types.
+  # Product and objection were already covered by RT09/RT10 and RT06; these
+  # add policy, qualification and FAQ explicitly, so the report can be read
+  # against the requirement without inferring that "eligibility" means
+  # "qualification".
+  # ---------------------------------------------------------------------
+  - id: RT13
+    question: "What are the rules your collections agents have to follow?"
+    kind: policy
+    must_contain_any: ["08:00", "19:00", "30 days past due", "threatening"]
+    expect_confident: true
+    note: >-
+      POLICY QUESTION. Conduct rules a borrower is entitled to know, and the
+      answer has to be the written policy rather than the model's idea of
+      reasonable behaviour - the whole point of grounding. No expect_category
+      here on purpose: the record carries `partnership`, because the chunk
+      spans sections 9 to 12 of the credit policy and the classifier labelled
+      it from the branch-partner section at its tail. Retrieval is correct and
+      the category is not, which is a chunk-boundary observation worth keeping
+      visible rather than hiding behind a relaxed assertion.
+
+  - id: RT14
+    question: "What is the minimum bureau score you accept?"
+    kind: qualification
+    must_contain_any: ["700", "675"]
+    expect_category: eligibility
+    expect_confident: true
+    note: >-
+      QUALIFICATION QUESTION, and a numeric one. The policy answer is not a
+      single number - 700 and above, or 675 to 699 with a co-applicant and a
+      reduced ticket - and an agent that rounds it to "around 700" has changed
+      a lending rule. This is the case the numeric guard exists for.
+
+  - id: RT15
+    question: "Do I need to give collateral for a working capital loan?"
+    kind: faq
+    must_contain_any: ["unsecured", "No collateral"]
+    expect_category: product
+    expect_confident: true
+    note: >-
+      FAQ QUESTION, taken from the website's own FAQ accordion. The extracted
+      record holds the answers with the questions stripped out - an artefact of
+      how the accordion markup nests - so it reads as a list of bare replies.
+      Retrieval still lands it, which is the useful finding: dense matching
+      carries a record whose lexical anchors were lost in extraction.

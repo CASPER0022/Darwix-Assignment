@@ -1,0 +1,914 @@
+{
+  "generated_at": "2026-08-19T18:40:06.104127+00:00",
+  "records_searchable": 352,
+  "dense_enabled": true,
+  "threshold": 0.35,
+  "top_k": 4,
+  "counts": {
+    "correct": 14,
+    "partially correct": 1,
+    "incorrect": 0
+  },
+  "results": [
+    {
+      "id": "RT01",
+      "question": "What is the bounce charge if my payment fails?",
+      "kind": "pricing",
+      "note": "Exact-term lookup. This is the case dense-only retrieval fails: embeddings return semantically adjacent fee records, BM25 finds the literal term.",
+      "confident": true,
+      "top_score": 0.585,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence and category, cited to internal document (synthetic, authored for this assessment): SME Credit Policy v2.1 (internal, synthetic).",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "credit_policy__002",
+          "title": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Pricing and charges",
+          "category": "pricing",
+          "version": "1.1",
+          "score": 0.585,
+          "citation": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Pricing and charges | page 3 | internal document (synthetic, authored for this assessment): SME Credit Policy v2.1 (internal, synthetic)",
+          "lexical_rank": 2,
+          "dense_rank": 2,
+          "excerpt": "SME Credit Policy v2.1 - Pricing and charges 5. PRICING GRID (INDICATIVE) Risk grade A: 14.5% to 16.0% per annum. Processing fee 1.5% plus taxes. Risk grade B: 16.0% to 19.0% per annum. Processing fee 2.0% plus taxes. Risk grade C: 19.0% to 24.0% per annum. Processing fee 2.5% plus taxes. Interest is charged on a reducing balance basis. The monthly payment is collected by NACH mandate on the 5th of each month. 6. OTH"
+        },
+        {
+          "rank": 2,
+          "record_id": "webpdf_front-assets_images_Privacy_schedule_of_charges__003",
+          "title": "Schedule of Charges - Schedule of Charges",
+          "category": "pricing",
+          "version": "1.1",
+          "score": 0.488,
+          "citation": "Schedule of Charges - Schedule of Charges | page 3 | https://www.ugrocapital.com/front-assets/images/Privacy/schedule_of_charges.pdf",
+          "lexical_rank": 5,
+          "dense_rank": 4,
+          "excerpt": "Schedule of Charges (SOC) Unsecured Loans (Sanjeevani, Doctor's program and Small Business Loan)* Processing Fees Upto 4% of the loan amount sanctioned. This is a non-refundable fee File Charges / Initial Money Deposit (IMD) NA Document Handling and RCU charges NA Foreclosure Charges 6% of Principal outstanding for loan foreclosed within 12 months of loan disbursal date and 5% of Principal outstanding for loan forecl"
+        },
+        {
+          "rank": 3,
+          "record_id": "objection_handbook__006",
+          "title": "OBJ-06 \"Are there hidden charges?\"",
+          "category": "objection",
+          "version": "1.0",
+          "score": 0.48,
+          "citation": "OBJ-06 \"Are there hidden charges?\" | section: OBJ-06 \"Are there hidden charges?\" | internal document (synthetic, authored for this assessment): Telecalling objection handbook (internal, synthetic)",
+          "lexical_rank": 1,
+          "dense_rank": 10,
+          "excerpt": "Answer directly and completely: processing fee, bounce charge, penal charge on overdue instalments and foreclosure charge, all listed in the published schedule of charges. Offer to send the schedule. Transparency here reduces later disputes. [canonical terms: processing_fee, foreclosure, overdue, penal_charge]"
+        },
+        {
+          "rank": 4,
+          "record_id": "webpdf_front-assets_images_Privacy_schedule_of_charges__011",
+          "title": "Schedule of Charges - Schedule of Charges (SOC)",
+          "category": "pricing",
+          "version": "1.1",
+          "score": 0.486,
+          "citation": "Schedule of Charges - Schedule of Charges (SOC) | page 8 | https://www.ugrocapital.com/front-assets/images/Privacy/schedule_of_charges.pdf",
+          "lexical_rank": 8,
+          "dense_rank": 5,
+          "excerpt": "Schedule of Charges (SOC) GRO Micro (Secured)* Processing Fees Upto 4% of the loan amount sanctioned. This is a non-refundable fee File Charges / Initial Money Deposit (IMD) Rs. 2000 (INR 2000)/- This is a non-refundable fee. (Max capping upto Rs.5000 (INR 5000)/- + GST) Document Handling and RCU charges Upto Rs. 3000 (INR 3000)/- This is a non-refundable fee. Foreclosure Charges 6% of Principal outstanding for loan "
+        }
+      ]
+    },
+    {
+      "id": "RT02",
+      "question": "How many years does my business need to have been running?",
+      "kind": "eligibility",
+      "note": "Core qualification rule the voice agent depends on.",
+      "confident": true,
+      "top_score": 0.621,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence and category, cited to internal document (synthetic, authored for this assessment): Loan qualification rules matrix (internal, synthetic).",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "qualification_rules__002",
+          "title": "Loan qualification rules matrix (internal, synthetic)",
+          "category": "eligibility",
+          "version": "1.0",
+          "score": 0.621,
+          "citation": "Loan qualification rules matrix (internal, synthetic) | section: Loan qualification rules matrix (internal, synthetic) | internal document (synthetic, authored for this assessment): Loan qualification rules matrix (internal, synthetic)",
+          "lexical_rank": 5,
+          "dense_rank": 2,
+          "excerpt": "| rule_id: QR013 | product: unsecured_business_loan | slot: credit_score | operator: lt | value: 675 | disposition: reject | reason_code: BUREAU_LOW | customer_message: At present we are not able to proceed with a bureau score below 675. | rule_id: QR014 | product: unsecured_business_loan | slot: gst_registered | operator: eq | value: true | disposition: pass | reason_code: GST_OK | customer_message: GST registration"
+        },
+        {
+          "rank": 2,
+          "record_id": "qualification_rules__000",
+          "title": "Loan qualification rules matrix (internal, synthetic)",
+          "category": "eligibility",
+          "version": "1.0",
+          "score": 0.591,
+          "citation": "Loan qualification rules matrix (internal, synthetic) | section: Loan qualification rules matrix (internal, synthetic) | internal document (synthetic, authored for this assessment): Loan qualification rules matrix (internal, synthetic)",
+          "lexical_rank": 3,
+          "dense_rank": 5,
+          "excerpt": "| rule_id: QR001 | product: unsecured_business_loan | slot: entity_type | operator: in | value: proprietorship|partnership|llp|private_limited | disposition: pass | reason_code: ENTITY_OK | customer_message: Your business structure is eligible for our unsecured business loan. | rule_id: QR002 | product: unsecured_business_loan | slot: entity_type | operator: in | value: trust|society|huf | disposition: reject | reaso"
+        },
+        {
+          "rank": 3,
+          "record_id": "web_machinery-equipment-finance__011",
+          "title": "Machinery & Equipment Finance Loan Process",
+          "category": "eligibility",
+          "version": "1.0",
+          "score": 0.504,
+          "citation": "Machinery & Equipment Finance Loan Process | section: Machinery & Equipment Finance Loan Process | https://www.ugrocapital.com/machinery-equipment-finance",
+          "lexical_rank": 6,
+          "dense_rank": 3,
+          "excerpt": "documents depending on Loan amount and type: - KYC Documents (Business PAN, UDYAM Certificate, Business vintage proof etc) - Bank Statement - Proforma Invoice for the proposed Machinery Yes, UGRO Capital may offer financing for used or old machinery, subject to certain conditions. The eligibility for financing old machinery depends on factors like the type of machinery, age of the equipment, its working condition , a"
+        },
+        {
+          "rank": 4,
+          "record_id": "credit_policy__001",
+          "title": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Eligibility",
+          "category": "eligibility",
+          "version": "1.1",
+          "score": 0.557,
+          "citation": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Eligibility | page 2 | internal document (synthetic, authored for this assessment): SME Credit Policy v2.1 (internal, synthetic)",
+          "lexical_rank": 10,
+          "dense_rank": 1,
+          "excerpt": "SME Credit Policy v2.1 - Eligibility 3. ELIGIBILITY NORMS (UNSECURED BUSINESS LOAN) 3.1 Business vintage: minimum 36 months of continuous operations under the same ownership, evidenced by GST registration or Udyam certificate. 3.2 Annual turnover: minimum Rs. 40,00,000 (INR 4000000) for the last completed financial year, supported by GST returns. 3.3 Applicant age: 24 years at application and not more than 65 years a"
+        }
+      ]
+    },
+    {
+      "id": "RT03",
+      "question": "How much do I have to pay every month?",
+      "kind": "paraphrase",
+      "note": "Pure paraphrase - the customer never says \"EMI\". This is the case lexical-only retrieval fails, which is why the index is hybrid.",
+      "confident": true,
+      "top_score": 0.496,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence, cited to https://www.ugrocapital.com/emi-calculator.",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "web_emi-calculator__000",
+          "title": "View Full Monthly",
+          "category": "process",
+          "version": "1.0",
+          "score": 0.496,
+          "citation": "View Full Monthly | section: View Full Monthly | https://www.ugrocapital.com/emi-calculator",
+          "lexical_rank": 2,
+          "dense_rank": 1,
+          "excerpt": "Break-Up | Month | EMI | Principal | Interest | Balance [canonical terms: emi]"
+        },
+        {
+          "rank": 2,
+          "record_id": "credit_policy__002",
+          "title": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Pricing and charges",
+          "category": "pricing",
+          "version": "1.1",
+          "score": 0.579,
+          "citation": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Pricing and charges | page 3 | internal document (synthetic, authored for this assessment): SME Credit Policy v2.1 (internal, synthetic)",
+          "lexical_rank": 3,
+          "dense_rank": 5,
+          "excerpt": "SME Credit Policy v2.1 - Pricing and charges 5. PRICING GRID (INDICATIVE) Risk grade A: 14.5% to 16.0% per annum. Processing fee 1.5% plus taxes. Risk grade B: 16.0% to 19.0% per annum. Processing fee 2.0% plus taxes. Risk grade C: 19.0% to 24.0% per annum. Processing fee 2.5% plus taxes. Interest is charged on a reducing balance basis. The monthly payment is collected by NACH mandate on the 5th of each month. 6. OTH"
+        },
+        {
+          "rank": 3,
+          "record_id": "webpdf_front-assets_images_Privacy_schedule_of_charges__021",
+          "title": "Schedule of Charges - Schedule of Charges (SOC)",
+          "category": "pricing",
+          "version": "1.1",
+          "score": 0.397,
+          "citation": "Schedule of Charges - Schedule of Charges (SOC) | page 14 | https://www.ugrocapital.com/front-assets/images/Privacy/schedule_of_charges.pdf",
+          "lexical_rank": 13,
+          "dense_rank": 12,
+          "excerpt": "Schedule of Charges (SOC) GRO X Penal Charges Upto 42% p.a. on overdue amount, accrued on daily basis NACH Bounce / Return Charges ₹1,250, (INR 1250) capped up to 3 bounces per calendar month Cheque Return Charges Upto ₹500 (INR 500) + applicable GST Cheque Swapping Charges Upto ₹500 (INR 500) + applicable GST per swap Collection / Pickup Charges As per actuals + applicable taxes Loan Cancellation / Reschedule Charge"
+        },
+        {
+          "rank": 4,
+          "record_id": "webpdf_front-assets_images_Privacy_schedule_of_charges__016",
+          "title": "Schedule of Charges - tstanding principal amount",
+          "category": "pricing",
+          "version": "1.1",
+          "score": 0.41,
+          "citation": "Schedule of Charges - tstanding principal amount | page 10 | https://www.ugrocapital.com/front-assets/images/Privacy/schedule_of_charges.pdf",
+          "lexical_rank": 20,
+          "dense_rank": 7,
+          "excerpt": "tstanding principal amount Lock in Period A lock-in period will be applicable on the loan until the first twelve (12) EMIs are fully paid (Pre- EMI will not be considered in EMI), during which the Borrower shall not be entitled to make part prepayment or foreclosure unless otherwise specifically approved or permitted by the Lender, at its sole discretion, subject to payment of the applicable charges as mentioned abov"
+        }
+      ]
+    },
+    {
+      "id": "RT04",
+      "question": "Can I close the loan early, and what does it cost?",
+      "kind": "pricing",
+      "note": "Terminology standardisation: three source documents use three words for this.",
+      "confident": true,
+      "top_score": 0.451,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence, cited to https://www.ugrocapital.com/front-assets/images/Privacy/schedule_of_charges.pdf.",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "webpdf_front-assets_images_Privacy_schedule_of_charges__003",
+          "title": "Schedule of Charges - Schedule of Charges",
+          "category": "pricing",
+          "version": "1.1",
+          "score": 0.451,
+          "citation": "Schedule of Charges - Schedule of Charges | page 3 | https://www.ugrocapital.com/front-assets/images/Privacy/schedule_of_charges.pdf",
+          "lexical_rank": 13,
+          "dense_rank": 1,
+          "excerpt": "Schedule of Charges (SOC) Unsecured Loans (Sanjeevani, Doctor's program and Small Business Loan)* Processing Fees Upto 4% of the loan amount sanctioned. This is a non-refundable fee File Charges / Initial Money Deposit (IMD) NA Document Handling and RCU charges NA Foreclosure Charges 6% of Principal outstanding for loan foreclosed within 12 months of loan disbursal date and 5% of Principal outstanding for loan forecl"
+        },
+        {
+          "rank": 2,
+          "record_id": "webpdf_front-assets_images_Privacy_schedule_of_charges__015",
+          "title": "Schedule of Charges - Schedule of Charges (SOC)",
+          "category": "pricing",
+          "version": "1.1",
+          "score": 0.45,
+          "citation": "Schedule of Charges - Schedule of Charges (SOC) | page 10 | https://www.ugrocapital.com/front-assets/images/Privacy/schedule_of_charges.pdf",
+          "lexical_rank": 11,
+          "dense_rank": 3,
+          "excerpt": "Schedule of Charges (SOC) Plant & Machinery Loan, Roof Top Solar, and Electric Vehicle (EV)* Processing Fees Upto 4% of the loan amount sanctioned. This is a non-refundable fee File Charges / Initial Money Deposit (IMD) 2950/- (GST included). This is a non-refundable fee. (Max capping upto Rs.5000 (INR 5000)/- + GST) Document Handling and RCU charges NA Foreclosure Charges 6% of Principal outstanding for loan foreclo"
+        },
+        {
+          "rank": 3,
+          "record_id": "webpdf_front-assets_images_Privacy_schedule_of_charges__011",
+          "title": "Schedule of Charges - Schedule of Charges (SOC)",
+          "category": "pricing",
+          "version": "1.1",
+          "score": 0.451,
+          "citation": "Schedule of Charges - Schedule of Charges (SOC) | page 8 | https://www.ugrocapital.com/front-assets/images/Privacy/schedule_of_charges.pdf",
+          "lexical_rank": 19,
+          "dense_rank": 2,
+          "excerpt": "Schedule of Charges (SOC) GRO Micro (Secured)* Processing Fees Upto 4% of the loan amount sanctioned. This is a non-refundable fee File Charges / Initial Money Deposit (IMD) Rs. 2000 (INR 2000)/- This is a non-refundable fee. (Max capping upto Rs.5000 (INR 5000)/- + GST) Document Handling and RCU charges Upto Rs. 3000 (INR 3000)/- This is a non-refundable fee. Foreclosure Charges 6% of Principal outstanding for loan "
+        },
+        {
+          "rank": 4,
+          "record_id": "web_terms-and-condition__007",
+          "title": "Terms And Conditions For Loan Application",
+          "category": "pricing",
+          "version": "1.0",
+          "score": 0.405,
+          "citation": "Terms And Conditions For Loan Application | section: Terms And Conditions For Loan Application | https://www.ugrocapital.com/terms-and-condition",
+          "lexical_rank": 2,
+          "dense_rank": 27,
+          "excerpt": "ion, and is non-refundable to me/us under any circumstances whatsoever, irrespective of whether UGRO Capital Ltd sanctions this loan application of mine or not. 8. The executive collecting the application/documents has informed me/us of the rate of interest and approach for gradation of risk and rational of charging different rates of interest to different categories of borrowers, the particulars whereof are specifie"
+        }
+      ]
+    },
+    {
+      "id": "RT05",
+      "question": "Who do I complain to if I am not happy with the service?",
+      "kind": "compliance",
+      "note": "Answerable only because the linked Fair Practices Code PDF was fetched and parsed; the HTML page it sits behind contains no answer at all.",
+      "confident": true,
+      "top_score": 0.448,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence, cited to https://www.ugrocapital.com/download-fair-practice/13.",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "webpdf_download-fair-practice_13__017",
+          "title": "Fair Practices Code - \"Pursuant to Reserve Bank - Integrated Ombudsman Scheme, 2026 dated 20",
+          "category": "compliance",
+          "version": "1.1",
+          "score": 0.448,
+          "citation": "Fair Practices Code - \"Pursuant to Reserve Bank - Integrated Ombudsman Scheme, 2026 dated 20 | page 11 | https://www.ugrocapital.com/download-fair-practice/13",
+          "lexical_rank": 18,
+          "dense_rank": 2,
+          "excerpt": "11 • \"Pursuant to Reserve Bank - Integrated Ombudsman Scheme, 2026 dated 2026-01-16, as amended from time to time, the Company has appointed Nodal Officers/Principal Nodal Officer. The Nodal Officers/Principal Nodal Officer will have the following responsibilities, - - Representing the company and furnishing information to the Ombudsman and the Appellate Authority in respect of complaints filed against the company. -"
+        },
+        {
+          "rank": 2,
+          "record_id": "credit_policy__003",
+          "title": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Collections and grievance",
+          "category": "partnership",
+          "version": "1.1",
+          "score": 0.411,
+          "citation": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Collections and grievance | page 4 | internal document (synthetic, authored for this assessment): SME Credit Policy v2.1 (internal, synthetic)",
+          "lexical_rank": 12,
+          "dense_rank": 7,
+          "excerpt": "SME Credit Policy v2.1 - Collections and grievance 9. COLLECTIONS CONDUCT Contact is permitted between 08:00 and 19:00 local time only. Agents may not use threatening language, may not contact references before the account is 30 days past due, and must offer the documented restructuring options before any escalation. Where a borrower states an inability to pay, the agent must offer the approved payment support path -"
+        },
+        {
+          "rank": 3,
+          "record_id": "web_business-info__002",
+          "title": "Agreement and Privacy",
+          "category": "compliance",
+          "version": "1.0",
+          "score": 0.353,
+          "citation": "Agreement and Privacy | section: Agreement and Privacy | https://www.ugrocapital.com/business-info",
+          "lexical_rank": 7,
+          "dense_rank": 24,
+          "excerpt": "t limited to CIBIL/Bureau Report, Perfios Report etc, or for any other regulatory & compliance related matters, prior to sanction/post sanction. - Any fault or misrepresentation in the document will be my/ our sole responsibility and UGRO Capital Ltd has the authority to take rightful action against any such fault/ misrepresentation - I/ We hereby authorise and give consent to UGRO Capital Ltd to disclose, without no"
+        },
+        {
+          "rank": 4,
+          "record_id": "webpdf_download-fair-practice_13__018",
+          "title": "Fair Practices Code - the resolution",
+          "category": "compliance",
+          "version": "1.1",
+          "score": 0.422,
+          "citation": "Fair Practices Code - the resolution | page 11 | https://www.ugrocapital.com/download-fair-practice/13",
+          "lexical_rank": 41,
+          "dense_rank": 1,
+          "excerpt": "the resolution provided on their complaints, they may escalate their complaint to the 'Internal Grievance Redressal in writing, at the below mentioned address: Customer Grievance Committee UGRO Capital, B-17, Fourth Floor, Art Guild House, Phoenix Market City, Kurla (West), Mumbai, Maharashtra - 400070 Within 30 days of date of receipt of complaint. Level 4 Officer in Charge of the Regional Office of Department of Su"
+        }
+      ]
+    },
+    {
+      "id": "RT06",
+      "question": "The interest rate you are offering is too high, another bank gave me a better offer.",
+      "kind": "objection",
+      "note": "Objection handling must come from the handbook, not from the model's imagination.",
+      "confident": true,
+      "top_score": 0.668,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence and category, cited to internal document (synthetic, authored for this assessment): Telecalling objection handbook (internal, synthetic).",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "objection_handbook__005",
+          "title": "OBJ-05 \"Another lender offered me a better rate\"",
+          "category": "objection",
+          "version": "1.0",
+          "score": 0.668,
+          "citation": "OBJ-05 \"Another lender offered me a better rate\" | section: OBJ-05 \"Another lender offered me a better rate\" | internal document (synthetic, authored for this assessment): Telecalling objection handbook (internal, synthetic)",
+          "lexical_rank": 1,
+          "dense_rank": 1,
+          "excerpt": "Do not disparage the competitor. Ask what the offer includes: processing fee, foreclosure charge, insurance loading and the disbursal timeline. Position on total cost and turnaround, and offer to have a credit officer review the competing sanction letter. [canonical terms: processing_fee, foreclosure, disbursal]"
+        },
+        {
+          "rank": 2,
+          "record_id": "objection_handbook__001",
+          "title": "OBJ-01 \"Your interest rate is too high\"",
+          "category": "objection",
+          "version": "1.0",
+          "score": 0.578,
+          "citation": "OBJ-01 \"Your interest rate is too high\" | section: OBJ-01 \"Your interest rate is too high\" | internal document (synthetic, authored for this assessment): Telecalling objection handbook (internal, synthetic)",
+          "lexical_rank": 2,
+          "dense_rank": 2,
+          "excerpt": "Acknowledge, then reframe on total cost and speed rather than arguing. Say: the rate depends on the credit grade, turnover and banking conduct, and the band starts at 14.5 percent per annum on a reducing balance basis. Point out that there is no collateral requirement and that an in-principle decision comes within 48 working hours. Never quote a single fixed rate on the call. [canonical terms: turnover, collateral]"
+        },
+        {
+          "rank": 3,
+          "record_id": "web_pricing-policy-and-schedule-of-charges__004",
+          "title": "Rate Of Interest",
+          "category": "pricing",
+          "version": "1.0",
+          "score": 0.384,
+          "citation": "Rate Of Interest | section: Rate Of Interest | https://www.ugrocapital.com/pricing-policy-and-schedule-of-charges",
+          "lexical_rank": 3,
+          "dense_rank": 5,
+          "excerpt": "types: The loans and advances will be offered at fixed or floating rate of interest. Interest resets: In case of floating rate of interest, the interest rate would be reviewed and reset on quarterly basis, subject to the approval from ALCO. Changes in the interest rate and other charges will take effect prospectively and such change will be intimated to the customers in the manner as may be decided by the Company. Th"
+        },
+        {
+          "rank": 4,
+          "record_id": "web_pricing-policy-and-schedule-of-charges__003",
+          "title": "Rate Of Interest",
+          "category": "product",
+          "version": "1.0",
+          "score": 0.385,
+          "citation": "Rate Of Interest | section: Rate Of Interest | https://www.ugrocapital.com/pricing-policy-and-schedule-of-charges",
+          "lexical_rank": 4,
+          "dense_rank": 4,
+          "excerpt": "The Chief Executive Officer, Chief Risk Officer, Chief Revenue Officer, Chief Financial Officer shall jointly have the authority to determine the interest rates to be charged for the loan products offered by the Company. The rate of interest shall be determined based on the cost of funds, administrative costs, rates offered by competitors, length of relationship with the customers. In addition to the cost of funds, t"
+        }
+      ]
+    },
+    {
+      "id": "RT07",
+      "question": "What documents do I need to submit with the application?",
+      "kind": "process",
+      "note": "Document checklist - the most common real question on a lending call.",
+      "confident": true,
+      "top_score": 0.634,
+      "verdict": "partially correct",
+      "explanation": "The expected evidence is present at rank 3, not rank 1. The agent would still see it (top-k is 4) but the strongest record is not the most relevant one.",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "web_business-info__003",
+          "title": "Agreement and Privacy",
+          "category": "policy",
+          "version": "1.0",
+          "score": 0.634,
+          "citation": "Agreement and Privacy | section: Agreement and Privacy | https://www.ugrocapital.com/business-info",
+          "lexical_rank": 2,
+          "dense_rank": 4,
+          "excerpt": "ication as per its own parameters and is not refundable to me/us under any circumstances whatsoever, irrespective of whether UGRO capital Ltd sanctions this loan application of mine or not. No cash has been given by me/us to any person for whatsoever reason related to the loan application. - I/We hereby represent and warrant that I / we have full and adequate authority/legal competency to submit application and such "
+        },
+        {
+          "rank": 2,
+          "record_id": "web_terms-and-condition__005",
+          "title": "Terms And Conditions For Loan Application",
+          "category": "product",
+          "version": "1.0",
+          "score": 0.624,
+          "citation": "Terms And Conditions For Loan Application | section: Terms And Conditions For Loan Application | https://www.ugrocapital.com/terms-and-condition",
+          "lexical_rank": 1,
+          "dense_rank": 8,
+          "excerpt": "I/We hereby acknowledge and confirm that: 1. I hereby declare that I am not involved in any type of production or trading activity that comes under International Finance Corporation exclusion list. *Production or trade in any product or activity deemed illegal, pharmaceuticals, pesticides/herbicides, ozone-depleting substances, PCB's, wildlife, weapons, munitions, alcoholic beverages (excluding beer and wine), tobacc"
+        },
+        {
+          "rank": 3,
+          "record_id": "web_terms-and-condition__006",
+          "title": "Terms And Conditions For Loan Application",
+          "category": "compliance",
+          "version": "1.0",
+          "score": 0.49,
+          "citation": "Terms And Conditions For Loan Application | section: Terms And Conditions For Loan Application | https://www.ugrocapital.com/terms-and-condition",
+          "lexical_rank": 3,
+          "dense_rank": 6,
+          "excerpt": "information/documents provided by me/us are true and complete in all respects and I/we have not withheld/suppressed any information/document whatsoever. Any misrepresentation therein or incorrect/incomplete application will be my/our sole responsibility and Lender may take suitable action. I/We shall inform Lender regarding any deviation from the information provided by me/us. 6. I/We authorise Lender to use the docu"
+        },
+        {
+          "rank": 4,
+          "record_id": "web_terms-and-condition__009",
+          "title": "Terms And Conditions For Loan Application",
+          "category": "compliance",
+          "version": "1.0",
+          "score": 0.495,
+          "citation": "Terms And Conditions For Loan Application | section: Terms And Conditions For Loan Application | https://www.ugrocapital.com/terms-and-condition",
+          "lexical_rank": 6,
+          "dense_rank": 5,
+          "excerpt": "ss the bureau reports/ credit information from the credit information companies, download records from CKYCR using the KYC identifier submitted, video record the KYC document, personal discussion, use the documents submitted and any other information provided herewith to extract additional information from various public domains. [canonical terms: kyc]"
+        }
+      ]
+    },
+    {
+      "id": "RT08",
+      "question": "What support do branch partners get?",
+      "kind": "partnership",
+      "note": "This is the assessment's own worked example (kb_product_001, \"Branch Partnership Benefits\"), so it is included verbatim as a test.",
+      "confident": true,
+      "top_score": 0.877,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence and category, cited to internal document (synthetic, authored for this assessment): Branch partner FAQ (internal, synthetic).",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "partner_faq__001",
+          "title": "What support do branch partners receive?",
+          "category": "partnership",
+          "version": "1.0",
+          "score": 0.877,
+          "citation": "What support do branch partners receive? | section: What support do branch partners receive? | internal document (synthetic, authored for this assessment): Branch partner FAQ (internal, synthetic)",
+          "lexical_rank": 1,
+          "dense_rank": 1,
+          "excerpt": "Operational, marketing and technology support is provided to branch partners, including lead management tooling, co-branded campaign material and product training. Partner payouts are processed monthly against disbursed and non-delinquent business. [canonical terms: overdue]"
+        },
+        {
+          "rank": 2,
+          "record_id": "partner_faq__005",
+          "title": "Do partners get access to the qualification rules?",
+          "category": "partnership",
+          "version": "1.0",
+          "score": 0.621,
+          "citation": "Do partners get access to the qualification rules? | section: Do partners get access to the qualification rules? | internal document (synthetic, authored for this assessment): Branch partner FAQ (internal, synthetic)",
+          "lexical_rank": 2,
+          "dense_rank": 5,
+          "excerpt": "Yes. Partners receive the current qualification matrix and the schedule of charges, and must use only the approved communication templates."
+        },
+        {
+          "rank": 3,
+          "record_id": "partner_faq__004",
+          "title": "What is the difference between a branch partner and a DSA?",
+          "category": "partnership",
+          "version": "1.0",
+          "score": 0.58,
+          "citation": "What is the difference between a branch partner and a DSA? | section: What is the difference between a branch partner and a DSA? | internal document (synthetic, authored for this assessment): Branch partner FAQ (internal, synthetic)",
+          "lexical_rank": 7,
+          "dense_rank": 2,
+          "excerpt": "A direct selling agent sources leads only. A branch partner additionally handles first-level document collection and customer servicing, and operates under a co-branded identity in the assigned territory."
+        },
+        {
+          "rank": 4,
+          "record_id": "partner_faq__000",
+          "title": "Branch partner FAQ (internal, synthetic)",
+          "category": "partnership",
+          "version": "1.0",
+          "score": 0.558,
+          "citation": "Branch partner FAQ (internal, synthetic) | section: Branch partner FAQ (internal, synthetic) | internal document (synthetic, authored for this assessment): Branch partner FAQ (internal, synthetic)",
+          "lexical_rank": 8,
+          "dense_rank": 4,
+          "excerpt": "SYNTHETIC DOCUMENT - AUTHORED FOR A TECHNICAL ASSESSMENT. This is not a real lender's document and is not issued by, affiliated with, or endorsed by any company named in this repository. Figures are illustrative. # Branch Partner Programme - FAQ Version 1.1. Effective 2026-04-01."
+        }
+      ]
+    },
+    {
+      "id": "RT09",
+      "question": "Can I get a loan against my property?",
+      "kind": "product",
+      "note": "Product lookup that must survive the exact-duplicate page merge.",
+      "confident": true,
+      "top_score": 0.665,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence, cited to https://www.ugrocapital.com/loan-against-property.",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "web_loan-against-property__004",
+          "title": "Loan Against Property Loan Process",
+          "category": "pricing",
+          "version": "1.0",
+          "score": 0.665,
+          "citation": "Loan Against Property Loan Process | section: Loan Against Property Loan Process | https://www.ugrocapital.com/loan-against-property",
+          "lexical_rank": 2,
+          "dense_rank": 1,
+          "excerpt": "You can apply for a Loan Against Property by following these three simple steps: Step 1 Click on Apply Now and enter your contact details. Step 2 Enter Your PAN and other relevant details, and click Apply Now. Step 3 The application will then proceed for verification and assessment Empowering Your Financial Decisions: Calculate Your Loan EMI Today! Loan Against Property (LAP) is a type of secured loan that allows you"
+        },
+        {
+          "rank": 2,
+          "record_id": "qualification_rules__003",
+          "title": "Loan qualification rules matrix (internal, synthetic)",
+          "category": "eligibility",
+          "version": "1.0",
+          "score": 0.593,
+          "citation": "Loan qualification rules matrix (internal, synthetic) | section: Loan qualification rules matrix (internal, synthetic) | internal document (synthetic, authored for this assessment): Loan qualification rules matrix (internal, synthetic)",
+          "lexical_rank": 1,
+          "dense_rank": 5,
+          "excerpt": "| rule_id: QR019 | product: loan_against_property | slot: loan_amount_inr | operator: between | value: 1000000|50000000 | disposition: pass | reason_code: LAP_AMOUNT_OK | customer_message: That is within the range for a loan against property. | rule_id: QR020 | product: loan_against_property | slot: property_type | operator: in | value: residential|commercial|industrial | disposition: pass | reason_code: LAP_PROPERTY"
+        },
+        {
+          "rank": 3,
+          "record_id": "web_loan-against-property__003",
+          "title": "Please provide your information",
+          "category": "product",
+          "version": "1.1",
+          "score": 0.651,
+          "citation": "Please provide your information | section: Please provide your information | https://www.ugrocapital.com/loan-against-property",
+          "lexical_rank": 4,
+          "dense_rank": 2,
+          "excerpt": "Loan Against Property, with funding up to 5 Cr Flexible loan tenure up to 180 months Properties Include residential, commercial or industrial. It can be self-occupied or tenanted Impressive Loan-to-Value ratio Quick Approvals via Score-Based Assessment Digital & Minimal Documentation Attractive Interest Rates Doorstep Service KYC Documentation (Business + Individual) Udyam Certificate Bank Statement & GST Property De"
+        },
+        {
+          "rank": 4,
+          "record_id": "web_loan-against-property__000",
+          "title": "Apply for Property-Backed Business Loans | Ugro Capital",
+          "category": "process",
+          "version": "1.1",
+          "score": 0.635,
+          "citation": "Apply for Property-Backed Business Loans | Ugro Capital | section: Apply for Property-Backed Business Loans | Ugro Capital | https://www.ugrocapital.com/loan-against-property",
+          "lexical_rank": 3,
+          "dense_rank": 3,
+          "excerpt": "Products - Overview - Product Specifications - Product Benefit - Documents Required - Loan Process - EMI Calculator - Popular FAQS A Loan Against Property is a financial arrangement wherein a business entity secures a loan by pledging a property, typically an immovable asset. The loan amount is generally a percentage of the property's market value, and the funds obtained can be Utilised for operational expenses or an"
+        }
+      ]
+    },
+    {
+      "id": "RT10",
+      "question": "What is the maximum I can borrow without collateral?",
+      "kind": "product",
+      "note": "Amount normalisation: the source writes this as both \"Rs. 50,00,000\" and \"50 lakh\", annotated to a comparable integer during normalisation.",
+      "confident": true,
+      "top_score": 0.514,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence, cited to https://www.ugrocapital.com/machinery-equipment-finance.",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "web_machinery-equipment-finance__001",
+          "title": "Up to INR 3 Cr (INR 30000000 (INR 30000000))",
+          "category": "product",
+          "version": "1.1",
+          "score": 0.514,
+          "citation": "Up to INR 3 Cr (INR 30000000 (INR 30000000)) | section: Up to INR 3 Cr (INR 30000000 (INR 30000000)) | https://www.ugrocapital.com/machinery-equipment-finance",
+          "lexical_rank": 1,
+          "dense_rank": 1,
+          "excerpt": "Loan Amount No additional collateral required [canonical terms: collateral]"
+        },
+        {
+          "rank": 2,
+          "record_id": "web_lending-service-provider__004",
+          "title": "Type of Product",
+          "category": "product",
+          "version": "1.1",
+          "score": 0.508,
+          "citation": "Type of Product | section: Type of Product | https://www.ugrocapital.com/lending-service-provider",
+          "lexical_rank": 2,
+          "dense_rank": 2,
+          "excerpt": "Unsecured Business Loan [canonical terms: collateral]"
+        },
+        {
+          "rank": 3,
+          "record_id": "web_embedded-financing__003",
+          "title": "Apply now via your trusted merchant app",
+          "category": "product",
+          "version": "1.0",
+          "score": 0.478,
+          "citation": "Apply now via your trusted merchant app | section: Apply now via your trusted merchant app | https://www.ugrocapital.com/embedded-financing",
+          "lexical_rank": 4,
+          "dense_rank": 3,
+          "excerpt": "Working capital loans designed for short-term and revolving business needs. No. These are unsecured loans. No collateral needed. In most cases, within minutes of approval. Based on transaction data, banking behaviour, and credit profile. Yes, you can choose from daily, weekly, or monthly repayment options. No, all charges are clearly disclosed upfront with full transparency. Yes, your data is protected with secure sy"
+        },
+        {
+          "rank": 4,
+          "record_id": "qualification_rules__001",
+          "title": "Loan qualification rules matrix (internal, synthetic)",
+          "category": "eligibility",
+          "version": "1.0",
+          "score": 0.534,
+          "citation": "Loan qualification rules matrix (internal, synthetic) | section: Loan qualification rules matrix (internal, synthetic) | internal document (synthetic, authored for this assessment): Loan qualification rules matrix (internal, synthetic)",
+          "lexical_rank": 6,
+          "dense_rank": 4,
+          "excerpt": "| rule_id: QR007 | product: unsecured_business_loan | slot: annual_turnover_inr | operator: between | value: 2500000|3999999 | disposition: refer | reason_code: TURNOVER_BORDERLINE | customer_message: Your turnover is close to our threshold, so this needs a credit officer to review. | rule_id: QR008 | product: unsecured_business_loan | slot: annual_turnover_inr | operator: lt | value: 2500000 | disposition: reject | "
+        }
+      ]
+    },
+    {
+      "id": "RT11",
+      "question": "Give me the mobile number and PAN of Ramesh Iyer from Surat.",
+      "kind": "pii_negative",
+      "note": "PII TEST. That lead really is in the corpus, with a phone number and a valid-checksum PAN. The requirement is not that retrieval goes silent - it is that the lead record is unreachable. What comes back instead is the privacy policy's definition of personal data, which is the correct thing for the agent to answer with. The first version of this test expected a refusal; that expectation was wrong, and the test was corrected rather than the system.",
+      "confident": true,
+      "top_score": 0.418,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence, cited to https://www.ugrocapital.com/privacy-policy.",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "web_privacy-policy__002",
+          "title": "2.1. Personal Information \"Definition\"",
+          "category": "compliance",
+          "version": "1.0",
+          "score": 0.418,
+          "citation": "2.1. Personal Information \"Definition\" | section: 2.1. Personal Information \"Definition\" | https://www.ugrocapital.com/privacy-policy",
+          "lexical_rank": 3,
+          "dense_rank": 1,
+          "excerpt": "Personal Data - personal data' means any information relating to an identified or identifiable natural person ('data subject'); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number such as Aadhaar card, PAN, Driving license no., Electoral card number etc, location data, or other online identifiers, cel"
+        },
+        {
+          "rank": 2,
+          "record_id": "web_business-info__000",
+          "title": "Business Information at Ugro Capital",
+          "category": "compliance",
+          "version": "1.0",
+          "score": 0.342,
+          "citation": "Business Information at Ugro Capital | section: Business Information at Ugro Capital | https://www.ugrocapital.com/business-info",
+          "lexical_rank": 6,
+          "dense_rank": 2,
+          "excerpt": "UGRO requires your permission to run background checks against you PAN. Plase mark the checkbox to proceed."
+        },
+        {
+          "rank": 3,
+          "record_id": "application_form__000",
+          "title": "Business loan application form (internal, synthetic) - Business Loan Application Form",
+          "category": "process",
+          "version": "1.1",
+          "score": 0.37,
+          "citation": "Business loan application form (internal, synthetic) - Business Loan Application Form | page 1 | internal document (synthetic, authored for this assessment): Business loan application form (internal, synthetic)",
+          "lexical_rank": 1,
+          "dense_rank": 8,
+          "excerpt": "Business Loan Application Form SYNTHETIC DOCUMENT - AUTHORED FOR A TECHNICAL ASSESSMENT. This is not a real lender's document and is not issued by, affiliated with, or endorsed by any company named in this repository. Figures are illustrative. FORM BL-01 | Version 4 | Effective 2026-04-01 SECTION A - APPLICANT DETAILS A1. Full name of applicant (as per PAN): ______________________ A2. Date of birth (DD-MM-YYYY): ____"
+        },
+        {
+          "rank": 4,
+          "record_id": "web_important-updates__000",
+          "title": "Important Updates - UGRO Capital",
+          "category": "compliance",
+          "version": "1.0",
+          "score": 0.257,
+          "citation": "Important Updates - UGRO Capital | section: Important Updates - UGRO Capital | https://www.ugrocapital.com/important-updates",
+          "lexical_rank": 7,
+          "dense_rank": 21,
+          "excerpt": "| Sr. | Action | ECLGS | View | CKYCR Awareness | Financial Fraud Awareness | Registration / Amendments / Cancellation of NACH Mandate | Benefits of Updating Mobile Nos. / E-Mail IDs with UGRO Capital | Provident Fund Form 5A - EPFO"
+        }
+      ]
+    },
+    {
+      "id": "RT12",
+      "question": "What is the current price of gold in Dubai?",
+      "kind": "out_of_scope_negative",
+      "note": "NEGATIVE TEST. Nothing in the corpus answers this. The confidence gate must refuse, which is what makes the agent say \"I don't know\" instead of improvising.",
+      "confident": false,
+      "top_score": 0.17,
+      "verdict": "correct",
+      "explanation": "Retrieval stayed below the confidence threshold as required, so the agent says it does not have the information and offers a human.",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "partner_faq__005",
+          "title": "Do partners get access to the qualification rules?",
+          "category": "partnership",
+          "version": "1.0",
+          "score": 0.17,
+          "citation": "Do partners get access to the qualification rules? | section: Do partners get access to the qualification rules? | internal document (synthetic, authored for this assessment): Branch partner FAQ (internal, synthetic)",
+          "lexical_rank": 1,
+          "dense_rank": 30,
+          "excerpt": "Yes. Partners receive the current qualification matrix and the schedule of charges, and must use only the approved communication templates."
+        },
+        {
+          "rank": 2,
+          "record_id": "web_about__012",
+          "title": "2.6% and 1.9%",
+          "category": "unclassified",
+          "version": "1.1",
+          "score": 0.186,
+          "citation": "2.6% and 1.9% | section: 2.6% and 1.9% | https://www.ugrocapital.com/about",
+          "lexical_rank": null,
+          "dense_rank": 1,
+          "excerpt": "GNPA/NNPA"
+        },
+        {
+          "rank": 3,
+          "record_id": "objection_handbook__002",
+          "title": "OBJ-02 \"I already have a loan running\"",
+          "category": "objection",
+          "version": "1.0",
+          "score": 0.203,
+          "citation": "OBJ-02 \"I already have a loan running\" | section: OBJ-02 \"I already have a loan running\" | internal document (synthetic, authored for this assessment): Telecalling objection handbook (internal, synthetic)",
+          "lexical_rank": 2,
+          "dense_rank": null,
+          "excerpt": "This is not a disqualifier. Existing obligations are allowed as long as the total fixed obligation to income ratio after the new monthly payment stays within 55 percent. Ask for the current EMI amount and the remaining tenure, then continue qualification. [canonical terms: emi, tenure]"
+        },
+        {
+          "rank": 4,
+          "record_id": "web_about__048",
+          "title": "Over 1.35 lac",
+          "category": "unclassified",
+          "version": "1.0",
+          "score": 0.184,
+          "citation": "Over 1.35 lac | section: Over 1.35 lac | https://www.ugrocapital.com/about",
+          "lexical_rank": null,
+          "dense_rank": 2,
+          "excerpt": "Customers served"
+        }
+      ]
+    },
+    {
+      "id": "RT13",
+      "question": "What are the rules your collections agents have to follow?",
+      "kind": "policy",
+      "note": "POLICY QUESTION. Conduct rules a borrower is entitled to know, and the answer has to be the written policy rather than the model's idea of reasonable behaviour - the whole point of grounding. No expect_category here on purpose: the record carries `partnership`, because the chunk spans sections 9 to 12 of the credit policy and the classifier labelled it from the branch-partner section at its tail. Retrieval is correct and the category is not, which is a chunk-boundary observation worth keeping visible rather than hiding behind a relaxed assertion.",
+      "confident": true,
+      "top_score": 0.604,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence, cited to internal document (synthetic, authored for this assessment): SME Credit Policy v2.1 (internal, synthetic).",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "credit_policy__003",
+          "title": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Collections and grievance",
+          "category": "partnership",
+          "version": "1.1",
+          "score": 0.604,
+          "citation": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Collections and grievance | page 4 | internal document (synthetic, authored for this assessment): SME Credit Policy v2.1 (internal, synthetic)",
+          "lexical_rank": 1,
+          "dense_rank": 1,
+          "excerpt": "SME Credit Policy v2.1 - Collections and grievance 9. COLLECTIONS CONDUCT Contact is permitted between 08:00 and 19:00 local time only. Agents may not use threatening language, may not contact references before the account is 30 days past due, and must offer the documented restructuring options before any escalation. Where a borrower states an inability to pay, the agent must offer the approved payment support path -"
+        },
+        {
+          "rank": 2,
+          "record_id": "partner_faq__005",
+          "title": "Do partners get access to the qualification rules?",
+          "category": "partnership",
+          "version": "1.0",
+          "score": 0.417,
+          "citation": "Do partners get access to the qualification rules? | section: Do partners get access to the qualification rules? | internal document (synthetic, authored for this assessment): Branch partner FAQ (internal, synthetic)",
+          "lexical_rank": 2,
+          "dense_rank": 3,
+          "excerpt": "Yes. Partners receive the current qualification matrix and the schedule of charges, and must use only the approved communication templates."
+        },
+        {
+          "rank": 3,
+          "record_id": "objection_handbook__000",
+          "title": "Telecalling objection handbook (internal, synthetic)",
+          "category": "objection",
+          "version": "1.0",
+          "score": 0.38,
+          "citation": "Telecalling objection handbook (internal, synthetic) | section: Telecalling objection handbook (internal, synthetic) | internal document (synthetic, authored for this assessment): Telecalling objection handbook (internal, synthetic)",
+          "lexical_rank": 7,
+          "dense_rank": 6,
+          "excerpt": "SYNTHETIC DOCUMENT - AUTHORED FOR A TECHNICAL ASSESSMENT. This is not a real lender's document and is not issued by, affiliated with, or endorsed by any company named in this repository. Figures are illustrative. # Telecalling Objection Handbook - SME Lending Version 1.3. Last revised 2026-04-01. Owner: Sales Enablement. Every response below must stay inside policy. Agents may not quote a final interest rate on the q"
+        },
+        {
+          "rank": 4,
+          "record_id": "web_privacy-policy__011",
+          "title": "3. Compliance",
+          "category": "policy",
+          "version": "1.0",
+          "score": 0.376,
+          "citation": "3. Compliance | section: 3. Compliance | https://www.ugrocapital.com/privacy-policy",
+          "lexical_rank": 5,
+          "dense_rank": 12,
+          "excerpt": "Any violation to this policy is subject to disciplinary action. The specific disciplinary action depends upon the nature of the violation, the impact of the violation on informational assets and related facilities, etc. Violations shall be handled as per the existing HR processes and could range from a verbal reprimand, to termination of employment/contract and/or legal action. If a department or function is unable t"
+        }
+      ]
+    },
+    {
+      "id": "RT14",
+      "question": "What is the minimum bureau score you accept?",
+      "kind": "qualification",
+      "note": "QUALIFICATION QUESTION, and a numeric one. The policy answer is not a single number - 700 and above, or 675 to 699 with a co-applicant and a reduced ticket - and an agent that rounds it to \"around 700\" has changed a lending rule. This is the case the numeric guard exists for.",
+      "confident": true,
+      "top_score": 0.692,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence and category, cited to internal document (synthetic, authored for this assessment): SME Credit Policy v2.1 (internal, synthetic).",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "credit_policy__001",
+          "title": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Eligibility",
+          "category": "eligibility",
+          "version": "1.1",
+          "score": 0.692,
+          "citation": "SME Credit Policy v2.1 (internal, synthetic) - SME Credit Policy v2.1 - Eligibility | page 2 | internal document (synthetic, authored for this assessment): SME Credit Policy v2.1 (internal, synthetic)",
+          "lexical_rank": 2,
+          "dense_rank": 1,
+          "excerpt": "SME Credit Policy v2.1 - Eligibility 3. ELIGIBILITY NORMS (UNSECURED BUSINESS LOAN) 3.1 Business vintage: minimum 36 months of continuous operations under the same ownership, evidenced by GST registration or Udyam certificate. 3.2 Annual turnover: minimum Rs. 40,00,000 (INR 4000000) for the last completed financial year, supported by GST returns. 3.3 Applicant age: 24 years at application and not more than 65 years a"
+        },
+        {
+          "rank": 2,
+          "record_id": "web_business-info__004",
+          "title": "You are just few steps away from getting your GRO Score",
+          "category": "product",
+          "version": "1.0",
+          "score": 0.576,
+          "citation": "You are just few steps away from getting your GRO Score | section: You are just few steps away from getting your GRO Score | https://www.ugrocapital.com/business-info",
+          "lexical_rank": 1,
+          "dense_rank": 3,
+          "excerpt": "Check your credit health Get customised product offers basis your GRO Score Get tips on improving your credit score [canonical terms: bureau_score]"
+        },
+        {
+          "rank": 3,
+          "record_id": "qualification_rules__002",
+          "title": "Loan qualification rules matrix (internal, synthetic)",
+          "category": "eligibility",
+          "version": "1.0",
+          "score": 0.593,
+          "citation": "Loan qualification rules matrix (internal, synthetic) | section: Loan qualification rules matrix (internal, synthetic) | internal document (synthetic, authored for this assessment): Loan qualification rules matrix (internal, synthetic)",
+          "lexical_rank": 4,
+          "dense_rank": 2,
+          "excerpt": "| rule_id: QR013 | product: unsecured_business_loan | slot: credit_score | operator: lt | value: 675 | disposition: reject | reason_code: BUREAU_LOW | customer_message: At present we are not able to proceed with a bureau score below 675. | rule_id: QR014 | product: unsecured_business_loan | slot: gst_registered | operator: eq | value: true | disposition: pass | reason_code: GST_OK | customer_message: GST registration"
+        },
+        {
+          "rank": 4,
+          "record_id": "web_privacy-policy__006",
+          "title": "2.5. Sharing Of Personal Data",
+          "category": "eligibility",
+          "version": "1.0",
+          "score": 0.531,
+          "citation": "2.5. Sharing Of Personal Data | section: 2.5. Sharing Of Personal Data | https://www.ugrocapital.com/privacy-policy",
+          "lexical_rank": 5,
+          "dense_rank": 6,
+          "excerpt": "Personal data collected and / or stored with UGRO is shared in the manner described in this Privacy Policy may involve the transfer of your personal information to UGRO or to authorised third parties of UGRO such as Digital Lending Agents (DLA) or Loan Service providers (LSP) or business partners for the purpose of accepting applications, process and management of user experience or customer data to deliver requisite"
+        }
+      ]
+    },
+    {
+      "id": "RT15",
+      "question": "Do I need to give collateral for a working capital loan?",
+      "kind": "faq",
+      "note": "FAQ QUESTION, taken from the website's own FAQ accordion. The extracted record holds the answers with the questions stripped out - an artefact of how the accordion markup nests - so it reads as a list of bare replies. Retrieval still lands it, which is the useful finding: dense matching carries a record whose lexical anchors were lost in extraction.",
+      "confident": true,
+      "top_score": 0.664,
+      "verdict": "correct",
+      "explanation": "Top result carries the expected evidence and category, cited to https://www.ugrocapital.com/embedded-financing.",
+      "hits": [
+        {
+          "rank": 1,
+          "record_id": "web_embedded-financing__003",
+          "title": "Apply now via your trusted merchant app",
+          "category": "product",
+          "version": "1.0",
+          "score": 0.664,
+          "citation": "Apply now via your trusted merchant app | section: Apply now via your trusted merchant app | https://www.ugrocapital.com/embedded-financing",
+          "lexical_rank": 2,
+          "dense_rank": 1,
+          "excerpt": "Working capital loans designed for short-term and revolving business needs. No. These are unsecured loans. No collateral needed. In most cases, within minutes of approval. Based on transaction data, banking behaviour, and credit profile. Yes, you can choose from daily, weekly, or monthly repayment options. No, all charges are clearly disclosed upfront with full transparency. Yes, your data is protected with secure sy"
+        },
+        {
+          "rank": 2,
+          "record_id": "web_eclgs__004",
+          "title": "Nature of Facility",
+          "category": "product",
+          "version": "1.1",
+          "score": 0.54,
+          "citation": "Nature of Facility | section: Nature of Facility | https://www.ugrocapital.com/eclgs",
+          "lexical_rank": 1,
+          "dense_rank": 3,
+          "excerpt": "Fund Based: Working Capital Term Loan"
+        },
+        {
+          "rank": 3,
+          "record_id": "web_lending-service-provider__004",
+          "title": "Type of Product",
+          "category": "product",
+          "version": "1.1",
+          "score": 0.533,
+          "citation": "Type of Product | section: Type of Product | https://www.ugrocapital.com/lending-service-provider",
+          "lexical_rank": 4,
+          "dense_rank": 2,
+          "excerpt": "Unsecured Business Loan [canonical terms: collateral]"
+        },
+        {
+          "rank": 4,
+          "record_id": "web_embedded-financing__001",
+          "title": "Up to INR 50L",
+          "category": "product",
+          "version": "1.0",
+          "score": 0.508,
+          "citation": "Up to INR 50L | section: Up to INR 50L | https://www.ugrocapital.com/embedded-financing",
+          "lexical_rank": 3,
+          "dense_rank": 5,
+          "excerpt": "Loan Amount Up to 24 Months Tenure Daily revolving working capital loans Short-term working capital loans (up to 1 month) Working capital term loans (3-24 months) Access multiple financial solutions in one flow Apply in your preferred local language Secure data with compliant systems No hidden charges with transparent pricing Build and strengthen your credit history Repay based on your business cash flow Minimal docu"
+        }
+      ]
+    }
+  ]
+}
