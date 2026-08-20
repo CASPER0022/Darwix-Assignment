@@ -1,0 +1,637 @@
+{
+  "generated_at": "2026-08-19T06:31:54.857758+00:00",
+  "providers": [
+    "groq_turbo",
+    "groq_large",
+    "gemini"
+  ],
+  "results": [
+    {
+      "id": "IN-1",
+      "locale": "en-IN",
+      "voice": "caller_en_in_m",
+      "text": "Our turnover was seventy two lakh rupees last year and I need fifteen lakh for working capital.",
+      "tests": "Indian numerals (lakh) and finance vocabulary",
+      "audio_seconds": 7.22,
+      "providers": {
+        "gemini": {
+          "text": "Our turnover was 72 lakh rupees last year and I need 15 lakh for working capital.",
+          "wer": 0.176,
+          "edits": 3,
+          "ref_words": 17,
+          "latency_ms": 6496,
+          "missed_words": [
+            "seventy",
+            "two",
+            "fifteen"
+          ],
+          "error": "",
+          "ok": true
+        },
+        "groq_turbo": {
+          "text": "Our turnover was 72 lakh rupees last year and I need 15 lakh for working capital.",
+          "wer": 0.176,
+          "edits": 3,
+          "ref_words": 17,
+          "latency_ms": 446,
+          "missed_words": [
+            "seventy",
+            "two",
+            "fifteen"
+          ],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "Our turnover was 72 lakh rupees last year and I need 15 lakh for working capital.",
+          "wer": 0.176,
+          "edits": 3,
+          "ref_words": 17,
+          "latency_ms": 381,
+          "missed_words": [
+            "seventy",
+            "two",
+            "fifteen"
+          ],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "IN-2",
+      "locale": "en-IN",
+      "voice": "caller_en_in_f",
+      "text": "What is the processing fee and the foreclosure charge on this loan?",
+      "tests": "domain terms that drive retrieval",
+      "audio_seconds": 4.18,
+      "providers": {
+        "gemini": {
+          "text": "",
+          "wer": null,
+          "edits": null,
+          "ref_words": null,
+          "latency_ms": 763,
+          "missed_words": [],
+          "error": "gemini asr 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+          "ok": false
+        },
+        "groq_turbo": {
+          "text": "What is the processing fee and the foreclosure charge on this loan?",
+          "wer": 0.0,
+          "edits": 0,
+          "ref_words": 12,
+          "latency_ms": 310,
+          "missed_words": [],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "What is the processing fee and the foreclosure charge on this loan?",
+          "wer": 0.0,
+          "edits": 0,
+          "ref_words": 12,
+          "latency_ms": 332,
+          "missed_words": [],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "PH-1",
+      "locale": "fil-PH",
+      "voice": "caller_fil_f",
+      "text": "Opo, nabayaran ko po yung premium last month through auto-debit.",
+      "tests": "Taglish: Tagalog frame with English financial nouns",
+      "audio_seconds": 4.08,
+      "providers": {
+        "gemini": {
+          "text": "",
+          "wer": null,
+          "edits": null,
+          "ref_words": null,
+          "latency_ms": 615,
+          "missed_words": [],
+          "error": "gemini asr 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+          "ok": false
+        },
+        "groq_turbo": {
+          "text": "Opo, nabayaran ko po yung premium last month through auto-debit.",
+          "wer": 0.0,
+          "edits": 0,
+          "ref_words": 11,
+          "latency_ms": 325,
+          "missed_words": [],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "Opo, nabayaran ko po yung premium last month through auto-debit.",
+          "wer": 0.0,
+          "edits": 0,
+          "ref_words": 11,
+          "latency_ms": 388,
+          "missed_words": [],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "PH-2",
+      "locale": "fil-PH",
+      "voice": "caller_fil_m",
+      "text": "Sino po ito? Scam ba ito? Hindi po ako nagbibigay ng OTP sa telepono.",
+      "tests": "scam-suspicion objection, the most common opening in this market",
+      "audio_seconds": 6.22,
+      "providers": {
+        "gemini": {
+          "text": "",
+          "wer": null,
+          "edits": null,
+          "ref_words": null,
+          "latency_ms": 465,
+          "missed_words": [],
+          "error": "gemini asr 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+          "ok": false
+        },
+        "groq_turbo": {
+          "text": "Sino po ito? Scam ba ito? Hindi po ako nagbibigay ng gii sa telepono.",
+          "wer": 0.071,
+          "edits": 1,
+          "ref_words": 14,
+          "latency_ms": 351,
+          "missed_words": [
+            "otp"
+          ],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "Sino po ito? Scam ba ito? Hindi po ako nagbibigay ng gii sa telepono.",
+          "wer": 0.071,
+          "edits": 1,
+          "ref_words": 14,
+          "latency_ms": 792,
+          "missed_words": [
+            "otp"
+          ],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "PH-3",
+      "locale": "fil-PH",
+      "voice": "caller_fil_f",
+      "text": "Wala po akong pambayad ngayon, next week na lang po ba ang premium?",
+      "tests": "payment difficulty in natural Tagalog",
+      "audio_seconds": 4.01,
+      "providers": {
+        "gemini": {
+          "text": "Wala po akong pambayad ngayon. Next week na lang po ba ang premium?",
+          "wer": 0.0,
+          "edits": 0,
+          "ref_words": 13,
+          "latency_ms": 13868,
+          "missed_words": [],
+          "error": "",
+          "ok": true
+        },
+        "groq_turbo": {
+          "text": "Wala po akong pambayad ngayon, next week na lang po ba ang premium?",
+          "wer": 0.0,
+          "edits": 0,
+          "ref_words": 13,
+          "latency_ms": 307,
+          "missed_words": [],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "Wala po akong pambayad ngayon, next week na lang po ba ang premium?",
+          "wer": 0.0,
+          "edits": 0,
+          "ref_words": 13,
+          "latency_ms": 352,
+          "missed_words": [],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "PH-4",
+      "locale": "en-PH",
+      "voice": "caller_en_ph_m",
+      "text": "I want to talk to a real person, hindi ako komportable sa robot.",
+      "tests": "mid-sentence English to Tagalog switch",
+      "audio_seconds": 5.18,
+      "providers": {
+        "gemini": {
+          "text": "",
+          "wer": 1.0,
+          "edits": 13,
+          "ref_words": 13,
+          "latency_ms": 22645,
+          "missed_words": [
+            "i",
+            "want",
+            "to",
+            "talk",
+            "to",
+            "a",
+            "real",
+            "person"
+          ],
+          "error": "",
+          "ok": true
+        },
+        "groq_turbo": {
+          "text": "I want to talk to a real person, Hindi a.k.o. Comportable SA robot.",
+          "wer": 0.308,
+          "edits": 4,
+          "ref_words": 13,
+          "latency_ms": 332,
+          "missed_words": [
+            "ako",
+            "komportable"
+          ],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "I want to talk to a real person, Hindi aka Comfortable SA Robot.",
+          "wer": 0.154,
+          "edits": 2,
+          "ref_words": 13,
+          "latency_ms": 346,
+          "missed_words": [
+            "ako",
+            "komportable"
+          ],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "ID-1",
+      "locale": "id-ID",
+      "voice": "caller_id_m",
+      "text": "Cicilan saya jatuh tempo tanggal lima, tapi duitnya belum ada bulan ini.",
+      "tests": "core multifinance vocabulary",
+      "audio_seconds": 4.56,
+      "providers": {
+        "gemini": {
+          "text": "",
+          "wer": null,
+          "edits": null,
+          "ref_words": null,
+          "latency_ms": 490,
+          "missed_words": [],
+          "error": "gemini asr 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+          "ok": false
+        },
+        "groq_turbo": {
+          "text": "Cicilan saya jatuh tempo tanggal 5, tapi duitnya belum ada bulan ini.",
+          "wer": 0.083,
+          "edits": 1,
+          "ref_words": 12,
+          "latency_ms": 466,
+          "missed_words": [
+            "lima"
+          ],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "Cicilan saya jatuh tempo tanggal 5, tapi duitnya belum ada bulan ini.",
+          "wer": 0.083,
+          "edits": 1,
+          "ref_words": 12,
+          "latency_ms": 416,
+          "missed_words": [
+            "lima"
+          ],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "ID-2",
+      "locale": "id-ID",
+      "voice": "caller_id_f",
+      "text": "Berapa dendanya kalau telat bayar angsuran? Tenornya tiga puluh enam bulan.",
+      "tests": "denda, angsuran, tenor",
+      "audio_seconds": 6.72,
+      "providers": {
+        "gemini": {
+          "text": "",
+          "wer": null,
+          "edits": null,
+          "ref_words": null,
+          "latency_ms": 586,
+          "missed_words": [],
+          "error": "gemini asr 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+          "ok": false
+        },
+        "groq_turbo": {
+          "text": "Berapa dendanya kalau telat bayar angsuran? Tenornya 36 bulan.",
+          "wer": 0.273,
+          "edits": 3,
+          "ref_words": 11,
+          "latency_ms": 413,
+          "missed_words": [
+            "tiga",
+            "puluh",
+            "enam"
+          ],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "Berapa dendanya kalau telat bayar angsuran? Tenornya 36 bulan.",
+          "wer": 0.273,
+          "edits": 3,
+          "ref_words": 11,
+          "latency_ms": 371,
+          "missed_words": [
+            "tiga",
+            "puluh",
+            "enam"
+          ],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "ID-3",
+      "locale": "id-ID",
+      "voice": "caller_id_m",
+      "text": "Nanti saya kabari deh kalau sudah ada, sekarang belum bisa transfer.",
+      "tests": "indirect refusal - must be transcribed exactly to be detected",
+      "audio_seconds": 4.27,
+      "providers": {
+        "gemini": {
+          "text": "",
+          "wer": null,
+          "edits": null,
+          "ref_words": null,
+          "latency_ms": 870,
+          "missed_words": [],
+          "error": "gemini asr 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+          "ok": false
+        },
+        "groq_turbo": {
+          "text": "Nanti saya kabari deh kalau sudah ada, sekarang belum bisa transfer.",
+          "wer": 0.0,
+          "edits": 0,
+          "ref_words": 11,
+          "latency_ms": 408,
+          "missed_words": [],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "Nanti saya kabari deh kalau sudah ada. Sekarang belum bisa transfer.",
+          "wer": 0.0,
+          "edits": 0,
+          "ref_words": 11,
+          "latency_ms": 437,
+          "missed_words": [],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "JV-1",
+      "locale": "jv-ID",
+      "voice": "caller_jv_m",
+      "text": "Nggih Bu, sampun saya bayar minggu kemarin lewat transfer, monggo dicek malih.",
+      "tests": "Javanese-accented Indonesian with Javanese interjections",
+      "audio_seconds": 5.35,
+      "providers": {
+        "gemini": {
+          "text": "",
+          "wer": null,
+          "edits": null,
+          "ref_words": null,
+          "latency_ms": 521,
+          "missed_words": [],
+          "error": "gemini asr 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+          "ok": false
+        },
+        "groq_turbo": {
+          "text": "Gihbu, sampun soya bayar minggu kemarin lewat transfer, monggo dicek malih.",
+          "wer": 0.25,
+          "edits": 3,
+          "ref_words": 12,
+          "latency_ms": 362,
+          "missed_words": [
+            "nggih",
+            "bu",
+            "saya"
+          ],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "Gihbu Sampun Soyo bayar minggu kemarin lewat transfer, monggo dicek malih.",
+          "wer": 0.25,
+          "edits": 3,
+          "ref_words": 12,
+          "latency_ms": 362,
+          "missed_words": [
+            "nggih",
+            "bu",
+            "saya"
+          ],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "JV-2",
+      "locale": "jv-ID",
+      "voice": "caller_jv_f",
+      "text": "Matur nuwun Bu, angsuran kula sampun lunas nggih.",
+      "tests": "heavier Javanese lexical content",
+      "audio_seconds": 4.22,
+      "providers": {
+        "gemini": {
+          "text": "",
+          "wer": null,
+          "edits": null,
+          "ref_words": null,
+          "latency_ms": 459,
+          "missed_words": [],
+          "error": "gemini asr 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+          "ok": false
+        },
+        "groq_turbo": {
+          "text": "Matur nuun bu, angsuran kulo sampun lunas nggih.",
+          "wer": 0.25,
+          "edits": 2,
+          "ref_words": 8,
+          "latency_ms": 371,
+          "missed_words": [
+            "nuwun",
+            "kula"
+          ],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "Maturnuun Bu, Angsuran Kulo Sampun Luna Senggih",
+          "wer": 0.625,
+          "edits": 5,
+          "ref_words": 8,
+          "latency_ms": 345,
+          "missed_words": [
+            "matur",
+            "nuwun",
+            "kula",
+            "lunas",
+            "nggih"
+          ],
+          "error": ""
+        }
+      }
+    },
+    {
+      "id": "SU-1",
+      "locale": "su-ID",
+      "voice": "caller_su_m",
+      "text": "Punten Bu, hatur nuhun, cicilan abdi tos dibayar minggu kamari.",
+      "tests": "Sundanese-accented Indonesian",
+      "audio_seconds": 5.06,
+      "providers": {
+        "gemini": {
+          "text": "",
+          "wer": null,
+          "edits": null,
+          "ref_words": null,
+          "latency_ms": 815,
+          "missed_words": [],
+          "error": "gemini asr 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex",
+          "ok": false
+        },
+        "groq_turbo": {
+          "text": "Punten Bu Haturnuhun cicilan abdi tos dibayar Minggu Kamari.",
+          "wer": 0.2,
+          "edits": 2,
+          "ref_words": 10,
+          "latency_ms": 414,
+          "missed_words": [
+            "hatur",
+            "nuhun"
+          ],
+          "error": ""
+        },
+        "groq_large": {
+          "text": "Puntenbu Haturnuhun Cicilan Abditos dibayar Minggu Kamari.",
+          "wer": 0.6,
+          "edits": 6,
+          "ref_words": 10,
+          "latency_ms": 369,
+          "missed_words": [
+            "punten",
+            "bu",
+            "hatur",
+            "nuhun",
+            "abdi",
+            "tos"
+          ],
+          "error": ""
+        }
+      }
+    }
+  ],
+  "summary": {
+    "India (en-IN)": {
+      "phrases": 2,
+      "groq_turbo": {
+        "n": 2,
+        "failed": 0,
+        "mean_wer": 0.088,
+        "mean_latency_ms": 378
+      },
+      "groq_large": {
+        "n": 2,
+        "failed": 0,
+        "mean_wer": 0.088,
+        "mean_latency_ms": 356
+      },
+      "gemini": {
+        "n": 1,
+        "failed": 1,
+        "mean_wer": 0.176,
+        "mean_latency_ms": 6496
+      }
+    },
+    "Philippines (Taglish)": {
+      "phrases": 4,
+      "groq_turbo": {
+        "n": 4,
+        "failed": 0,
+        "mean_wer": 0.095,
+        "mean_latency_ms": 329
+      },
+      "groq_large": {
+        "n": 4,
+        "failed": 0,
+        "mean_wer": 0.056,
+        "mean_latency_ms": 470
+      },
+      "gemini": {
+        "n": 2,
+        "failed": 2,
+        "mean_wer": 0.5,
+        "mean_latency_ms": 18256
+      }
+    },
+    "Indonesia (standard)": {
+      "phrases": 3,
+      "groq_turbo": {
+        "n": 3,
+        "failed": 0,
+        "mean_wer": 0.119,
+        "mean_latency_ms": 429
+      },
+      "groq_large": {
+        "n": 3,
+        "failed": 0,
+        "mean_wer": 0.119,
+        "mean_latency_ms": 408
+      },
+      "gemini": {
+        "n": 0,
+        "failed": 3
+      }
+    },
+    "Indonesia (Javanese)": {
+      "phrases": 2,
+      "groq_turbo": {
+        "n": 2,
+        "failed": 0,
+        "mean_wer": 0.25,
+        "mean_latency_ms": 366
+      },
+      "groq_large": {
+        "n": 2,
+        "failed": 0,
+        "mean_wer": 0.438,
+        "mean_latency_ms": 354
+      },
+      "gemini": {
+        "n": 0,
+        "failed": 2
+      }
+    },
+    "Indonesia (Sundanese)": {
+      "phrases": 1,
+      "groq_turbo": {
+        "n": 1,
+        "failed": 0,
+        "mean_wer": 0.2,
+        "mean_latency_ms": 414
+      },
+      "groq_large": {
+        "n": 1,
+        "failed": 0,
+        "mean_wer": 0.6,
+        "mean_latency_ms": 369
+      },
+      "gemini": {
+        "n": 0,
+        "failed": 1
+      }
+    }
+  }
+}
