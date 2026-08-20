@@ -1,0 +1,42 @@
+id: q4_missed_cross_sell
+description: >-
+  Required Q4 coverage: missed cross-sell. The customer twice signals a second
+  vehicle and an expansion plan; the agent stays on script and never responds to
+  either. The nudge must fire DURING the call, while there is still time to act.
+agent_voice: agent_en_in_f
+customer_voice: caller_en_in_m
+expected_nudges: [missed_cross_sell]
+must_not_nudge: [compliance_gap]
+turns:
+  - speaker: agent
+    text: >-
+      Good afternoon, this is Anaya from the business loans team. Just so you know,
+      I'm an AI assistant, not a human agent, and this call is recorded for quality
+      purposes. Is this a good time?
+  - speaker: customer
+    text: "Yes, go ahead."
+  - speaker: agent
+    text: "Thank you. Could you tell me the name of your business and how long it has been running?"
+  - speaker: customer
+    text: >-
+      It's Chauhan Logistics, running about six years now. Actually we just bought a
+      second truck last month, and we're planning another vehicle next quarter.
+  - speaker: agent
+    text: "Understood. And what was your turnover in the last financial year?"
+    pause_s: 0.5
+  - speaker: customer
+    text: >-
+      About sixty seven lakhs. The second vehicle is really stretching our working
+      capital, that's the whole problem.
+  - speaker: agent
+    text: "Right. And how much were you looking to borrow?"
+  - speaker: customer
+    text: "Around eighteen lakhs. We also want to expand to a new depot if things go well."
+  - speaker: agent
+    text: "Noted. Is the business GST registered?"
+  - speaker: customer
+    text: "Yes it is."
+  - speaker: agent
+    text: >-
+      Thank you. I'll pass this to a credit officer for review and someone will call
+      you back. Thanks for your time.

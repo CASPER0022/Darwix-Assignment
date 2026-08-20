@@ -1,0 +1,32 @@
+# Required coverage: out-of-scope question, and the bot admitting it does not know
+id: q1_out_of_scope
+locale: en-IN
+voice: caller_en_in_m
+scenario: out_of_scope_question
+description: >-
+  Customer asks things the knowledge base genuinely does not cover. The bot must
+  say it does not have the information rather than inventing an answer - the
+  single behaviour the assessment calls out as a rejection condition.
+persona: >-
+  Vikram Chauhan, 41, runs Chauhan Logistics in Jaipur. Curious and a bit
+  scattered, asks about products the lender does not offer.
+style: "Indian English, conversational, asks tangential questions."
+language: English (Indian)
+code_switch: ""
+facts:
+  business_name: Chauhan Logistics
+  entity_type: proprietorship
+  industry: road freight and logistics
+  running_since: "2019"
+  annual_turnover: "about 67 lakh rupees"
+  loan_needed: "18 lakh rupees for two more trucks"
+  existing_emi: "no"
+  gst_registered: "yes"
+  city: Jaipur
+beats:
+  1: "Quick question first - do you also give home loans, and what is your fixed deposit interest rate right now?"
+  3: "And can you finance a petrol pump I want to open in Dubai?"
+expect:
+  declined_to_answer: true
+  escalated: false
+max_turns: 12

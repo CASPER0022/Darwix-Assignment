@@ -1,0 +1,38 @@
+# Indonesia call 2 of 2: REGIONAL ACCENT (Javanese) - the assessment's explicit requirement
+id: q3_id_javanese
+locale: id-ID
+voice: caller_jv_m
+scenario: id_regional_accent_javanese
+description: >-
+  Required coverage: a regional accent outside standard Jakarta speech. The
+  customer is voiced with jv-ID-DimasNeural (Javanese) and uses Javanese
+  interjections - nggih, monggo, sampun - inside Indonesian sentences. Tests
+  whether ASR survives the accent and whether the agent understands the regional
+  vocabulary WITHOUT mimicking it back.
+persona: >-
+  Pak Slamet Wibowo, 57, from Solo, Central Java. Financing farm equipment.
+  Older, formal, respectful. Speaks Indonesian with heavy Javanese influence and
+  sprinkles Javanese politeness words into every sentence.
+style: >-
+  Formal, deferential Indonesian with Javanese interjections - nggih (yes),
+  monggo (please/go ahead), sampun (already), matur nuwun (thank you). Slower,
+  longer sentences. Uses Bapak/Ibu.
+language: Bahasa Indonesia with strong Javanese influence
+code_switch: >-
+  Insert Javanese words naturally into Indonesian sentences, e.g. "Nggih Bu,
+  sampun saya bayar minggu kemarin." Also use a few English finance loanwords
+  like transfer and leasing.
+facts:
+  name: Slamet Wibowo
+  product: "pembiayaan alat pertanian"
+  cicilan: "dua juta lima ratus ribu per bulan"
+  tenor: "dua puluh empat bulan"
+  jatuh_tempo: "tanggal 10"
+  situation: "sudah transfer minggu lalu tapi belum masuk sistem"
+  city: "Solo, Jawa Tengah"
+beats:
+  1: "Nggih Bu, sampun saya bayar minggu kemarin lewat transfer. Monggo dicek malih."
+  3: "Lha kok belum masuk nggih? Kalau begitu saya mau bicara dengan petugasnya saja."
+expect:
+  escalated: true
+max_turns: 9

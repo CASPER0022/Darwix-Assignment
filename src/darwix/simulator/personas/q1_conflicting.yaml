@@ -1,0 +1,33 @@
+# Required coverage: incomplete or conflicting details
+id: q1_conflicting
+locale: en-IN
+voice: caller_en_in_f
+scenario: incomplete_and_conflicting_details
+description: >-
+  Customer gives a loan requirement larger than her stated turnover, and is
+  vague about vintage. Tests the conflict probe and the refusal to score an
+  unverified value as a pass.
+persona: >-
+  Ananya Bose, 35, runs Bose Interiors in Kolkata. Distracted, giving rough
+  figures, not deliberately misleading - she is thinking of her order book
+  rather than her filed turnover.
+style: >-
+  Indian English, hesitant, self-correcting. Says things like "actually" and
+  "no no, I mean".
+language: English (Indian)
+code_switch: ""
+facts:
+  business_name: Bose Interiors
+  entity_type: partnership
+  industry: interior design and fit-out
+  running_since: "she says three years, then says the firm was registered last year"
+  annual_turnover: "about 39 lakh rupees"
+  loan_needed: "45 lakh rupees - deliberately more than her turnover"
+  existing_emi: "not sure, maybe 10 thousand"
+  gst_registered: "she is not sure"
+  city: Kolkata
+beats:
+  2: "We've been doing this about three years. Well - the firm was actually registered last year, but I was doing it before that also."
+expect:
+  escalated: false
+max_turns: 14

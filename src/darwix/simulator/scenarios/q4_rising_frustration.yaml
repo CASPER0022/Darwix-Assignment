@@ -1,0 +1,34 @@
+id: q4_rising_frustration
+description: >-
+  Required Q4 coverage: rising frustration. A customer with a payment problem is
+  bounced around; irritation builds across turns rather than appearing in one
+  sharp phrase, which is why this needs the LLM layer and not just a keyword.
+agent_voice: agent_en_in_f
+customer_voice: caller_en_in_m
+expected_nudges: [frustration, payment_difficulty]
+turns:
+  - speaker: agent
+    text: >-
+      Good morning, this is Anaya, an AI assistant from the collections support team.
+      This call is recorded. I'm calling about the instalment due on your account.
+  - speaker: customer
+    text: "Yes, I know. I already spoke to someone about this last week."
+  - speaker: agent
+    text: "I see. The instalment is showing as pending. When can we expect the payment?"
+  - speaker: customer
+    text: >-
+      I explained this already. Business has been very slow this season, I don't have
+      the money right now.
+  - speaker: agent
+    text: "I understand. Can you make the payment by the fifth of this month?"
+    pause_s: 0.4
+  - speaker: customer
+    text: >-
+      This is the third time I'm telling someone the same thing. Nobody is listening.
+      I said I don't have it.
+  - speaker: agent
+    text: "Right. So can I note down the fifth as the payment date?"
+  - speaker: customer
+    text: >-
+      Are you even listening to me? This is a complete waste of my time. Every week
+      somebody calls and asks the same question.

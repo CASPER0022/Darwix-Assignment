@@ -1,0 +1,676 @@
+[
+  {
+    "persona": "q1_human_request",
+    "scenario": "human_escalation_request",
+    "description": "Customer asks for a person. The agent must stop qualifying immediately, acknowledge, capture the callback and hand off - no rebuttal, no \"let me just ask one more thing\".",
+    "locale": "en-IN",
+    "customer_voice": "caller_en_in_f",
+    "call_id": "sim_q1_human_request",
+    "turns": 1,
+    "ended_reason": "escalated:explicit_request",
+    "disposition": null,
+    "escalation": {
+      "reason": "explicit_request",
+      "detail": "Customer asked to speak to a person.",
+      "created_at": "2026-08-18T11:13:06.570472+00:00"
+    },
+    "slots": {},
+    "latency": {
+      "tts_ms": {
+        "n": 2,
+        "min_ms": 1204.1,
+        "p50_ms": 1305.6,
+        "p95_ms": 1397.0,
+        "max_ms": 1407.1,
+        "mean_ms": 1305.6
+      },
+      "asr_ms": {
+        "n": 1,
+        "min_ms": 455.5,
+        "p50_ms": 455.5,
+        "p95_ms": 455.5,
+        "max_ms": 455.5,
+        "mean_ms": 455.5
+      },
+      "understand_ms": {
+        "n": 1,
+        "min_ms": 593.6,
+        "p50_ms": 593.6,
+        "p95_ms": 593.6,
+        "max_ms": 593.6,
+        "mean_ms": 593.6
+      },
+      "agent_turn_total_ms": {
+        "n": 1,
+        "min_ms": 595.0,
+        "p50_ms": 595.0,
+        "p95_ms": 595.0,
+        "max_ms": 595.0,
+        "mean_ms": 595.0
+      }
+    },
+    "expectations": {
+      "escalated": {
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      "all_pass": true
+    },
+    "recording": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\recordings\\sim_q1_human_request.wav",
+    "transcript": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\transcripts\\sim_q1_human_request.json"
+  },
+  {
+    "persona": "q1_cooperative",
+    "scenario": "cooperative_customer",
+    "description": "A well-qualified SME owner who answers every question directly. Establishes the happy path end to end: qualification, a pass decision, a booked callback.",
+    "locale": "en-IN",
+    "customer_voice": "caller_en_in_m",
+    "call_id": "sim_q1_cooperative",
+    "turns": 11,
+    "ended_reason": "completed:pass",
+    "disposition": "pass",
+    "escalation": null,
+    "slots": {
+      "business_name": "Sharada Textiles",
+      "entity_type": "proprietorship",
+      "industry": "fabric and textile trading, mainly selling sarees and other ",
+      "business_vintage_months": 104,
+      "annual_turnover_inr": 7200000,
+      "loan_amount_inr": 1500000,
+      "loan_purpose": "working capital",
+      "existing_emi_inr": 0,
+      "gst_registered": true
+    },
+    "latency": {
+      "tts_ms": {
+        "n": 13,
+        "min_ms": 848.7,
+        "p50_ms": 1171.8,
+        "p95_ms": 11961.9,
+        "max_ms": 13198.6,
+        "mean_ms": 4332.1
+      },
+      "asr_ms": {
+        "n": 11,
+        "min_ms": 287.8,
+        "p50_ms": 343.5,
+        "p95_ms": 671.0,
+        "max_ms": 690.8,
+        "mean_ms": 441.0
+      },
+      "understand_ms": {
+        "n": 11,
+        "min_ms": 434.0,
+        "p50_ms": 631.8,
+        "p95_ms": 895.6,
+        "max_ms": 905.6,
+        "mean_ms": 664.1
+      },
+      "agent_turn_total_ms": {
+        "n": 11,
+        "min_ms": 434.4,
+        "p50_ms": 632.8,
+        "p95_ms": 895.7,
+        "max_ms": 905.7,
+        "mean_ms": 664.5
+      }
+    },
+    "expectations": {
+      "escalated": {
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      "disposition": {
+        "expected": "pass",
+        "actual": "pass",
+        "pass": true
+      },
+      "disclosures": {
+        "expected": [
+          "ai_disclosure",
+          "recording_disclosure"
+        ],
+        "actual": [
+          "ai_disclosure",
+          "purpose_disclosure",
+          "recording_disclosure"
+        ],
+        "pass": true
+      },
+      "all_pass": true
+    },
+    "recording": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\recordings\\sim_q1_cooperative.wav",
+    "transcript": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\transcripts\\sim_q1_cooperative.json"
+  },
+  {
+    "persona": "q1_objection",
+    "scenario": "objection_rate_and_charges",
+    "description": "Rate-sensitive customer with a competing offer who also probes for hidden charges. Tests grounded objection handling: the agent must answer from the objection handbook and schedule of charges, and must not quote a final rate.",
+    "locale": "en-IN",
+    "customer_voice": "caller_en_in_m",
+    "call_id": "sim_q1_objection",
+    "turns": 12,
+    "ended_reason": "max_turns",
+    "disposition": "pass",
+    "escalation": null,
+    "slots": {
+      "business_name": "Deshpande printers",
+      "entity_type": "private_limited",
+      "industry": "offset and digital printing",
+      "business_vintage_months": 128,
+      "annual_turnover_inr": 5400000,
+      "loan_amount_inr": 500000,
+      "loan_purpose": "Buy a second printing machine for the shop",
+      "existing_emi_inr": 28000,
+      "gst_registered": true
+    },
+    "latency": {
+      "tts_ms": {
+        "n": 13,
+        "min_ms": 10995.5,
+        "p50_ms": 11235.9,
+        "p95_ms": 12908.6,
+        "max_ms": 13116.1,
+        "mean_ms": 11498.4
+      },
+      "asr_ms": {
+        "n": 12,
+        "min_ms": 339.8,
+        "p50_ms": 489.1,
+        "p95_ms": 758.6,
+        "max_ms": 789.6,
+        "mean_ms": 508.7
+      },
+      "understand_ms": {
+        "n": 12,
+        "min_ms": 431.9,
+        "p50_ms": 686.4,
+        "p95_ms": 2222.7,
+        "max_ms": 2485.3,
+        "mean_ms": 946.9
+      },
+      "agent_turn_total_ms": {
+        "n": 12,
+        "min_ms": 553.6,
+        "p50_ms": 823.7,
+        "p95_ms": 2223.2,
+        "max_ms": 2486.1,
+        "mean_ms": 1138.2
+      },
+      "retrieval_answer_ms": {
+        "n": 2,
+        "min_ms": 1136.9,
+        "p50_ms": 1145.8,
+        "p95_ms": 1153.7,
+        "max_ms": 1154.6,
+        "mean_ms": 1145.8
+      }
+    },
+    "expectations": {
+      "escalated": {
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      "grounded_answer": {
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      "all_pass": true
+    },
+    "recording": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\recordings\\sim_q1_objection.wav",
+    "transcript": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\transcripts\\sim_q1_objection.json"
+  },
+  {
+    "persona": "q1_conflicting",
+    "scenario": "incomplete_and_conflicting_details",
+    "description": "Customer gives a loan requirement larger than her stated turnover, and is vague about vintage. Tests the conflict probe and the refusal to score an unverified value as a pass.",
+    "locale": "en-IN",
+    "customer_voice": "caller_en_in_f",
+    "call_id": "sim_q1_conflicting",
+    "turns": 14,
+    "ended_reason": "max_turns",
+    "disposition": null,
+    "escalation": null,
+    "slots": {
+      "business_name": "Bose interiors",
+      "entity_type": "partnership",
+      "industry": "interior design and fit out for homes and offices",
+      "business_vintage_months": 24252,
+      "annual_turnover_inr": 3900000,
+      "loan_amount_inr": 4500000
+    },
+    "latency": {
+      "tts_ms": {
+        "n": 15,
+        "min_ms": 10840.2,
+        "p50_ms": 11240.9,
+        "p95_ms": 12622.5,
+        "max_ms": 13713.4,
+        "mean_ms": 11515.8
+      },
+      "asr_ms": {
+        "n": 14,
+        "min_ms": 325.5,
+        "p50_ms": 471.2,
+        "p95_ms": 595.1,
+        "max_ms": 599.3,
+        "mean_ms": 448.6
+      },
+      "understand_ms": {
+        "n": 14,
+        "min_ms": 492.6,
+        "p50_ms": 734.2,
+        "p95_ms": 1040.7,
+        "max_ms": 1082.7,
+        "mean_ms": 793.0
+      },
+      "agent_turn_total_ms": {
+        "n": 14,
+        "min_ms": 492.8,
+        "p50_ms": 735.0,
+        "p95_ms": 1040.8,
+        "max_ms": 1082.8,
+        "mean_ms": 793.2
+      }
+    },
+    "expectations": {
+      "escalated": {
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      "all_pass": true
+    },
+    "recording": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\recordings\\sim_q1_conflicting.wav",
+    "transcript": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\transcripts\\sim_q1_conflicting.json"
+  },
+  {
+    "persona": "q1_out_of_scope",
+    "scenario": "out_of_scope_question",
+    "description": "Customer asks things the knowledge base genuinely does not cover. The bot must say it does not have the information rather than inventing an answer - the single behaviour the assessment calls out as a rejection condition.",
+    "locale": "en-IN",
+    "customer_voice": "caller_en_in_m",
+    "call_id": "sim_q1_out_of_scope",
+    "turns": 12,
+    "ended_reason": "completed:pass",
+    "disposition": "pass",
+    "escalation": null,
+    "slots": {
+      "loan_amount_inr": 1800000,
+      "loan_purpose": "buying two more trucks",
+      "business_name": "Chauhan Logistics",
+      "entity_type": "proprietorship",
+      "industry": "road freight and logistics, handling truck transport across ",
+      "business_vintage_months": 92,
+      "annual_turnover_inr": 6700000,
+      "existing_emi_inr": null,
+      "gst_registered": true
+    },
+    "latency": {
+      "tts_ms": {
+        "n": 14,
+        "min_ms": 11031.3,
+        "p50_ms": 11196.2,
+        "p95_ms": 12423.5,
+        "max_ms": 12647.3,
+        "mean_ms": 11449.5
+      },
+      "asr_ms": {
+        "n": 12,
+        "min_ms": 342.6,
+        "p50_ms": 420.9,
+        "p95_ms": 760.6,
+        "max_ms": 819.9,
+        "mean_ms": 489.7
+      },
+      "understand_ms": {
+        "n": 12,
+        "min_ms": 335.7,
+        "p50_ms": 677.6,
+        "p95_ms": 893.5,
+        "max_ms": 902.3,
+        "mean_ms": 695.8
+      },
+      "agent_turn_total_ms": {
+        "n": 12,
+        "min_ms": 336.1,
+        "p50_ms": 781.2,
+        "p95_ms": 1983.1,
+        "max_ms": 2079.0,
+        "mean_ms": 971.7
+      },
+      "retrieval_answer_ms": {
+        "n": 3,
+        "min_ms": 539.4,
+        "p50_ms": 1313.5,
+        "p95_ms": 1438.0,
+        "max_ms": 1451.8,
+        "mean_ms": 1101.6
+      }
+    },
+    "expectations": {
+      "escalated": {
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      "declined_to_answer": {
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      "all_pass": true
+    },
+    "recording": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\recordings\\sim_q1_out_of_scope.wav",
+    "transcript": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\transcripts\\sim_q1_out_of_scope.json"
+  },
+  {
+    "persona": "q3_ph_cooperative",
+    "scenario": "ph_premium_reminder_cooperative",
+    "description": "Cooperative policyholder taking a premium reminder call in natural Taglish. Tests code-switching (English financial nouns inside Tagalog sentences), the `po` register, and that the agent stays in Taglish throughout.",
+    "locale": "fil-PH",
+    "customer_voice": "caller_fil_f",
+    "call_id": "sim_q3_ph_cooperative",
+    "turns": 5,
+    "ended_reason": "completed:pass",
+    "disposition": "pass",
+    "escalation": null,
+    "slots": {
+      "policy_holder_name": "Grace",
+      "payment_method": "auto-debit",
+      "policy_channel": "banko branch",
+      "premium_amount": 3000,
+      "payment_status": "nabayan ko po yung premium last month through auto-debit"
+    },
+    "latency": {
+      "tts_ms": {
+        "n": 6,
+        "min_ms": 12052.9,
+        "p50_ms": 12345.4,
+        "p95_ms": 12858.6,
+        "max_ms": 12894.7,
+        "mean_ms": 12413.6
+      },
+      "asr_ms": {
+        "n": 5,
+        "min_ms": 516.7,
+        "p50_ms": 709.2,
+        "p95_ms": 1679.4,
+        "max_ms": 1913.8,
+        "mean_ms": 890.1
+      },
+      "understand_ms": {
+        "n": 5,
+        "min_ms": 724.2,
+        "p50_ms": 918.4,
+        "p95_ms": 1176.5,
+        "max_ms": 1191.5,
+        "mean_ms": 972.8
+      },
+      "retrieval_answer_ms": {
+        "n": 1,
+        "min_ms": 1405.2,
+        "p50_ms": 1405.2,
+        "p95_ms": 1405.2,
+        "max_ms": 1405.2,
+        "mean_ms": 1405.2
+      },
+      "agent_turn_total_ms": {
+        "n": 5,
+        "min_ms": 726.6,
+        "p50_ms": 918.7,
+        "p95_ms": 2256.4,
+        "max_ms": 2522.3,
+        "mean_ms": 1254.9
+      }
+    },
+    "expectations": {
+      "escalated": {
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      "disclosures": {
+        "expected": [
+          "ai_disclosure",
+          "recording_disclosure"
+        ],
+        "actual": [
+          "ai_disclosure",
+          "no_payment_disclosure",
+          "recording_disclosure"
+        ],
+        "pass": true
+      },
+      "all_pass": true
+    },
+    "recording": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\recordings\\sim_q3_ph_cooperative.wav",
+    "transcript": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\transcripts\\sim_q3_ph_cooperative.json"
+  },
+  {
+    "persona": "q3_ph_objection",
+    "scenario": "ph_scam_suspicion_and_payment_difficulty",
+    "description": "The two objections that actually happen in this market: the customer assumes the call is a scam, then says he has no money for the premium. Ends with a request for a human. Tests sector-specific objection handling, the language-locked fallback, and that no OTP or payment is ever requested.",
+    "locale": "fil-PH",
+    "customer_voice": "caller_en_ph_m",
+    "call_id": "sim_q3_ph_objection",
+    "turns": 5,
+    "ended_reason": "escalated:explicit_request",
+    "disposition": null,
+    "escalation": {
+      "reason": "explicit_request",
+      "detail": "Customer asked to speak to a person.",
+      "created_at": "2026-08-19T06:53:34.210240+00:00"
+    },
+    "slots": {
+      "policy_holder_name": "Dennis Ramos",
+      "payment_status": "wala akong pambayad",
+      "policy_channel": "directly from Kabahean life"
+    },
+    "latency": {
+      "tts_ms": {
+        "n": 6,
+        "min_ms": 11487.5,
+        "p50_ms": 11810.4,
+        "p95_ms": 13054.9,
+        "max_ms": 13184.1,
+        "mean_ms": 12108.8
+      },
+      "asr_ms": {
+        "n": 5,
+        "min_ms": 567.5,
+        "p50_ms": 608.1,
+        "p95_ms": 794.0,
+        "max_ms": 810.7,
+        "mean_ms": 660.1
+      },
+      "understand_ms": {
+        "n": 5,
+        "min_ms": 671.7,
+        "p50_ms": 820.5,
+        "p95_ms": 1064.9,
+        "max_ms": 1105.5,
+        "mean_ms": 844.2
+      },
+      "retrieval_answer_ms": {
+        "n": 1,
+        "min_ms": 1125.6,
+        "p50_ms": 1125.6,
+        "p95_ms": 1125.6,
+        "max_ms": 1125.6,
+        "mean_ms": 1125.6
+      },
+      "agent_turn_total_ms": {
+        "n": 5,
+        "min_ms": 672.0,
+        "p50_ms": 827.3,
+        "p95_ms": 1844.0,
+        "max_ms": 2028.6,
+        "mean_ms": 1070.9
+      }
+    },
+    "expectations": {
+      "escalated": {
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      "all_pass": true
+    },
+    "recording": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\recordings\\sim_q3_ph_objection.wav",
+    "transcript": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\transcripts\\sim_q3_ph_objection.json"
+  },
+  {
+    "persona": "q3_id_colloquial",
+    "scenario": "id_installment_reminder_colloquial",
+    "description": "Installment reminder to a customer who answers in colloquial Jakarta Indonesian (nggak, udah, aja, gimana) and gives an INDIRECT refusal - \"nanti saya kabari\" - which must be recorded as no commitment rather than a promise to pay. Also mixes English finance loanwords.",
+    "locale": "id-ID",
+    "customer_voice": "caller_id_m",
+    "call_id": "sim_q3_id_colloquial",
+    "turns": 9,
+    "ended_reason": "completed:no_commitment",
+    "disposition": "no_commitment",
+    "escalation": null,
+    "slots": {
+      "customer_name": "Santoso",
+      "payment_status": "belum ada uangnya",
+      "product_type": "motor",
+      "cicilan_amount": 1200000,
+      "jatuh_tempo": "5"
+    },
+    "latency": {
+      "tts_ms": {
+        "n": 10,
+        "min_ms": 11527.3,
+        "p50_ms": 12496.2,
+        "p95_ms": 16036.0,
+        "max_ms": 16103.5,
+        "mean_ms": 13322.6
+      },
+      "asr_ms": {
+        "n": 9,
+        "min_ms": 564.4,
+        "p50_ms": 1123.0,
+        "p95_ms": 1921.6,
+        "max_ms": 2004.6,
+        "mean_ms": 1157.3
+      },
+      "understand_ms": {
+        "n": 9,
+        "min_ms": 760.9,
+        "p50_ms": 1297.9,
+        "p95_ms": 1690.4,
+        "max_ms": 1715.9,
+        "mean_ms": 1235.8
+      },
+      "agent_turn_total_ms": {
+        "n": 9,
+        "min_ms": 761.2,
+        "p50_ms": 1298.3,
+        "p95_ms": 1691.7,
+        "max_ms": 1718.0,
+        "mean_ms": 1236.5
+      }
+    },
+    "expectations": {
+      "escalated": {
+        "expected": false,
+        "actual": false,
+        "pass": true
+      },
+      "disposition": {
+        "expected": "no_commitment",
+        "actual": "no_commitment",
+        "pass": true
+      },
+      "soft_refusal_recorded": {
+        "expected": true,
+        "actual": true,
+        "pass": true,
+        "markers": [
+          "nanti saya kabari"
+        ]
+      },
+      "all_pass": true
+    },
+    "recording": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\recordings\\sim_q3_id_colloquial.wav",
+    "transcript": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\transcripts\\sim_q3_id_colloquial.json"
+  },
+  {
+    "persona": "q3_id_javanese",
+    "scenario": "id_regional_accent_javanese",
+    "description": "Required coverage: a regional accent outside standard Jakarta speech. The customer is voiced with jv-ID-DimasNeural (Javanese) and uses Javanese interjections - nggih, monggo, sampun - inside Indonesian sentences. Tests whether ASR survives the accent and whether the agent understands the regional vocabulary WITHOUT mimicking it back.",
+    "locale": "id-ID",
+    "customer_voice": "caller_jv_m",
+    "call_id": "sim_q3_id_javanese",
+    "turns": 4,
+    "ended_reason": "escalated:explicit_request",
+    "disposition": null,
+    "escalation": {
+      "reason": "explicit_request",
+      "detail": "Customer asked to speak to a person.",
+      "created_at": "2026-08-19T06:56:52.980642+00:00"
+    },
+    "slots": {
+      "customer_name": "Pak Selamat Wibowo Soyo",
+      "payment_status": "sudah bayar minggu kemarin lewat transfer",
+      "product_type": "alat pertanian"
+    },
+    "latency": {
+      "tts_ms": {
+        "n": 5,
+        "min_ms": 1750.7,
+        "p50_ms": 2976.1,
+        "p95_ms": 4818.4,
+        "max_ms": 4953.4,
+        "mean_ms": 3293.9
+      },
+      "asr_ms": {
+        "n": 4,
+        "min_ms": 404.9,
+        "p50_ms": 682.7,
+        "p95_ms": 895.7,
+        "max_ms": 915.5,
+        "mean_ms": 671.4
+      },
+      "understand_ms": {
+        "n": 4,
+        "min_ms": 496.4,
+        "p50_ms": 775.2,
+        "p95_ms": 1012.4,
+        "max_ms": 1025.8,
+        "mean_ms": 768.2
+      },
+      "retrieval_answer_ms": {
+        "n": 1,
+        "min_ms": 1540.5,
+        "p50_ms": 1540.5,
+        "p95_ms": 1540.5,
+        "max_ms": 1540.5,
+        "mean_ms": 1540.5
+      },
+      "agent_turn_total_ms": {
+        "n": 4,
+        "min_ms": 496.8,
+        "p50_ms": 821.5,
+        "p95_ms": 2259.6,
+        "max_ms": 2477.2,
+        "mean_ms": 1154.3
+      }
+    },
+    "expectations": {
+      "escalated": {
+        "expected": true,
+        "actual": true,
+        "pass": true
+      },
+      "all_pass": true
+    },
+    "recording": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\recordings\\sim_q3_id_javanese.wav",
+    "transcript": "E:\\IIITK CLASS\\Placement Pre\\darwix-ai-assessment\\data\\transcripts\\sim_q3_id_javanese.json"
+  }
+]

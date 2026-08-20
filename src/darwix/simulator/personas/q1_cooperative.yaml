@@ -1,0 +1,32 @@
+# Required coverage: cooperative customer
+id: q1_cooperative
+locale: en-IN
+voice: caller_en_in_m
+scenario: cooperative_customer
+description: >-
+  A well-qualified SME owner who answers every question directly. Establishes
+  the happy path end to end: qualification, a pass decision, a booked callback.
+persona: >-
+  Ramesh Iyer, 44, owner of Sharada Textiles in Surat. Runs a fabric trading
+  business. Busy but polite, and genuinely wants the loan for festive-season
+  stock.
+style: >-
+  Indian English, short practical sentences. Uses lakh and crore. Occasionally
+  says "yes yes" or "achha". Never rude.
+language: English (Indian)
+code_switch: "A stray Hindi word like achha or theek hai is natural."
+facts:
+  business_name: Sharada Textiles
+  entity_type: proprietorship
+  industry: fabric and textile trading
+  running_since: "2018 (about 7 years)"
+  annual_turnover: "about 72 lakh rupees last financial year"
+  loan_needed: "15 lakh rupees for working capital before the festive season"
+  existing_emi: "no business loan EMI running at the moment"
+  gst_registered: "yes, GST registered"
+  city: Surat
+expect:
+  disposition: pass
+  escalated: false
+  disclosures: [ai_disclosure, recording_disclosure]
+max_turns: 12

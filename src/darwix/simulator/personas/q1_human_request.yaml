@@ -1,0 +1,30 @@
+# Required coverage: human-assistance request -> immediate escalation
+id: q1_human_request
+locale: en-IN
+voice: caller_en_in_f
+scenario: human_escalation_request
+description: >-
+  Customer asks for a person. The agent must stop qualifying immediately,
+  acknowledge, capture the callback and hand off - no rebuttal, no "let me just
+  ask one more thing".
+persona: >-
+  Meena Krishnan, 49, runs Krishnan Pharma Distributors in Coimbatore. Wary of
+  automated calls and does not want to share details with a machine.
+style: "Indian English, polite but firm. Short sentences."
+language: English (Indian)
+code_switch: ""
+facts:
+  business_name: Krishnan Pharma Distributors
+  entity_type: partnership
+  industry: pharmaceutical distribution
+  running_since: "2012"
+  annual_turnover: "about 96 lakh rupees"
+  loan_needed: "20 lakh rupees"
+  existing_emi: "yes, around 35 thousand"
+  gst_registered: "yes"
+  city: Coimbatore
+beats:
+  1: "Actually, I'd rather not do this with a machine. Can you put me through to a real person?"
+expect:
+  escalated: true
+max_turns: 8

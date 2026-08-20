@@ -1,0 +1,34 @@
+id: q4_compliance_gap
+description: >-
+  Required Q4 coverage: skipped disclosure AND a risky statement. The agent never
+  discloses that it is an AI or that the call is recorded, and then promises
+  guaranteed approval and a waived fee - both of which the credit policy forbids.
+agent_voice: agent_en_in_f
+customer_voice: caller_en_in_f
+expected_nudges: [compliance_gap, risky_statement]
+turns:
+  - speaker: agent
+    text: "Hello, am I speaking with the owner of Bose Interiors?"
+  - speaker: customer
+    text: "Yes, speaking. Who is this?"
+  - speaker: agent
+    text: >-
+      I'm calling from the business loans team about your enquiry. Can I take a few
+      details about your business?
+  - speaker: customer
+    text: "Okay, sure. What do you need?"
+  - speaker: agent
+    text: "How long has the business been running, and what's your annual turnover?"
+  - speaker: customer
+    text: "About four years, and roughly thirty nine lakhs turnover."
+  - speaker: agent
+    text: >-
+      That's fine. Honestly with those numbers your approval is guaranteed, I can
+      promise you that. And I'll waive the processing fee for you.
+    pause_s: 0.6
+  - speaker: customer
+    text: "Oh really? That would be great. How soon can I get the money?"
+  - speaker: agent
+    text: "Very quickly. Let me just take your PAN number and we'll get it moving."
+  - speaker: customer
+    text: "Alright, let me find it."

@@ -1,0 +1,34 @@
+# Required coverage: objection handling, grounded from the KB
+id: q1_objection
+locale: en-IN
+voice: caller_en_in_m
+scenario: objection_rate_and_charges
+description: >-
+  Rate-sensitive customer with a competing offer who also probes for hidden
+  charges. Tests grounded objection handling: the agent must answer from the
+  objection handbook and schedule of charges, and must not quote a final rate.
+persona: >-
+  Nikhil Deshpande, 38, owns Deshpande Printers in Pune. Has a written offer
+  from another lender and is comparing. Sharp about numbers, slightly impatient.
+style: >-
+  Indian English, direct, a bit blunt. Pushes back rather than accepting the
+  first answer.
+language: English (Indian)
+code_switch: ""
+facts:
+  business_name: Deshpande Printers
+  entity_type: private limited company
+  industry: offset and digital printing
+  running_since: "2016"
+  annual_turnover: "about 54 lakh rupees"
+  loan_needed: "12 lakh rupees to buy a second printing machine"
+  existing_emi: "yes, about 28 thousand a month on an existing machinery loan"
+  gst_registered: "yes"
+  city: Pune
+beats:
+  1: "Before anything else - your interest rate is too high. Bajaj has offered me 15.2 percent, why should I go with you?"
+  3: "And are there any hidden charges you are not telling me about?"
+expect:
+  grounded_answer: true
+  escalated: false
+max_turns: 12

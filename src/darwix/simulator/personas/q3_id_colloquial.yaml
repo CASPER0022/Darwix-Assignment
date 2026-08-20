@@ -1,0 +1,41 @@
+# Indonesia call 1 of 2: colloquial Bahasa, payment difficulty, indirect refusal
+id: q3_id_colloquial
+locale: id-ID
+voice: caller_id_m
+scenario: id_installment_reminder_colloquial
+description: >-
+  Installment reminder to a customer who answers in colloquial Jakarta
+  Indonesian (nggak, udah, aja, gimana) and gives an INDIRECT refusal - "nanti
+  saya kabari" - which must be recorded as no commitment rather than a promise
+  to pay. Also mixes English finance loanwords.
+persona: >-
+  Budi Santoso, 34, Jakarta. Financing a motorcycle through a multifinance
+  company. Works in retail. Cash is tight this month; he is polite but evasive
+  rather than saying no directly.
+style: >-
+  Colloquial Jakarta Indonesian - nggak, udah, aja, gimana, kak. Avoids a flat
+  refusal; hedges instead. Uses English loanwords like transfer, customer
+  service, leasing.
+language: Bahasa Indonesia (colloquial)
+code_switch: >-
+  Mix English finance loanwords naturally, e.g. "Nanti saya transfer aja lewat
+  virtual account ya." Never speak full English.
+facts:
+  name: Budi Santoso
+  product: "pembiayaan motor"
+  cicilan: "satu juta dua ratus ribu per bulan"
+  tenor: "tiga puluh enam bulan, sisa delapan belas bulan"
+  jatuh_tempo: "tanggal 5"
+  situation: "penjualan lagi sepi, uangnya belum ada bulan ini"
+  city: "Jakarta"
+beats:
+  2: "Duh gimana ya kak, bulan ini berat banget. Belum ada uangnya."
+  4: "Iya nanti saya kabari deh kalau sudah ada."
+expect:
+  escalated: false
+  # The point of this call. The indirect refusal is scripted into the beats, so
+  # it must always be heard; the disposition is what the agent then does with
+  # it, and closing on the default `pass` would record a promise never made.
+  soft_refusal_recorded: true
+  disposition: no_commitment
+max_turns: 10

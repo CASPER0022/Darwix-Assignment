@@ -1,0 +1,473 @@
+{
+  "call_id": "a7ecf6e64154",
+  "locale": "en-IN",
+  "started_at": "2026-08-19T19:28:45.245292+00:00",
+  "ended_at": "2026-08-19T19:33:31.069978+00:00",
+  "ended_reason": "escalated:repeated_unclear",
+  "consent": true,
+  "disclosures_given": [
+    "ai_disclosure",
+    "purpose_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {
+    "business_name": null,
+    "industry": "tomato, tomato seals",
+    "entity_type": null,
+    "business_vintage_months": 60,
+    "annual_turnover_inr": 35000000,
+    "loan_amount_inr": 600000,
+    "loan_purpose": "to raising my tomato field",
+    "existing_emi_inr": null,
+    "gst_registered": true
+  },
+  "qualification": {
+    "disposition": "refer",
+    "reason_codes": [
+      "VINTAGE_OK",
+      "TURNOVER_OK",
+      "AMOUNT_OK",
+      "GST_OK",
+      "UNVERIFIED_ENTITY_TYPE"
+    ],
+    "rules_fired": [
+      "QR003",
+      "QR006",
+      "QR009",
+      "QR014"
+    ],
+    "missing_slots": [
+      "entity_type"
+    ],
+    "conflicts": [],
+    "customer_messages": [
+      "Your business vintage meets our requirement.",
+      "Your turnover is within our lending range.",
+      "That amount is within the range we offer without collateral.",
+      "GST registration helps us verify turnover quickly."
+    ]
+  },
+  "escalation": {
+    "reason": "repeated_unclear",
+    "detail": "Three consecutive unintelligible turns.",
+    "created_at": "2026-08-19T19:33:02.784427+00:00"
+  },
+  "lead": {
+    "lead_id": "LD-F6E64154",
+    "call_id": "a7ecf6e64154",
+    "created_at": "2026-08-19T19:33:02.784427+00:00",
+    "channel": "ai_voice_agent",
+    "locale": "en-IN",
+    "consent_captured": true,
+    "disclosures_given": [
+      "ai_disclosure",
+      "purpose_disclosure",
+      "recording_disclosure"
+    ],
+    "slots": {
+      "business_name": null,
+      "industry": "tomato, tomato seals",
+      "entity_type": null,
+      "business_vintage_months": 60,
+      "annual_turnover_inr": 35000000,
+      "loan_amount_inr": 600000,
+      "loan_purpose": "to raising my tomato field",
+      "existing_emi_inr": null,
+      "gst_registered": true
+    },
+    "qualification": {
+      "disposition": "refer",
+      "reason_codes": [
+        "VINTAGE_OK",
+        "TURNOVER_OK",
+        "AMOUNT_OK",
+        "GST_OK",
+        "UNVERIFIED_ENTITY_TYPE"
+      ],
+      "rules_fired": [
+        "QR003",
+        "QR006",
+        "QR009",
+        "QR014"
+      ],
+      "missing_slots": [
+        "entity_type"
+      ],
+      "conflicts": [],
+      "customer_messages": [
+        "Your business vintage meets our requirement.",
+        "Your turnover is within our lending range.",
+        "That amount is within the range we offer without collateral.",
+        "GST registration helps us verify turnover quickly."
+      ]
+    },
+    "disposition": "refer",
+    "escalation": {
+      "reason": "repeated_unclear",
+      "detail": "Three consecutive unintelligible turns.",
+      "created_at": "2026-08-19T19:33:02.784427+00:00"
+    },
+    "callback_slot": "Thursday at 10 am",
+    "transcript_ref": "data/transcripts/a7ecf6e64154.json",
+    "turns": 35
+  },
+  "latency_summary": {
+    "tts_ms": {
+      "n": 20,
+      "min_ms": 889.8,
+      "p50_ms": 1710.9,
+      "p95_ms": 11321.8,
+      "max_ms": 11759.4,
+      "mean_ms": 5261.5
+    },
+    "asr_ms": {
+      "n": 19,
+      "min_ms": 364.0,
+      "p50_ms": 480.9,
+      "p95_ms": 861.0,
+      "max_ms": 964.7,
+      "mean_ms": 505.3
+    },
+    "understand_ms": {
+      "n": 17,
+      "min_ms": 350.9,
+      "p50_ms": 643.3,
+      "p95_ms": 1128.9,
+      "max_ms": 1286.7,
+      "mean_ms": 692.1
+    },
+    "agent_turn_total_ms": {
+      "n": 17,
+      "min_ms": 351.0,
+      "p50_ms": 643.8,
+      "p95_ms": 1355.9,
+      "max_ms": 1631.9,
+      "mean_ms": 724.6
+    },
+    "retrieval_answer_ms": {
+      "n": 1,
+      "min_ms": 542.3,
+      "p50_ms": 542.3,
+      "p95_ms": 542.3,
+      "max_ms": 542.3,
+      "mean_ms": 542.3
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, this is Anaya from U GRO Capital. Am I speaking with the owner, or whoever handles the finances? Just so you know, I'm an AI assistant, not a human agent.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "This call is recorded for quality and training purposes. I'm calling about your business loan enquiry. Is now a good time? It takes about two minutes to check what you'd be eligible for.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "Hello Mr. How can I help you? I'm sorry I'm sorry I'm sorry",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "What's the name of your business?",
+      "phase": "qualification",
+      "intent": "smalltalk",
+      "latency_ms": 496.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 496.4
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "My business is local marketing",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Coming back to where we were - What's the name of your business?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 531.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 531.1
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "One little? Yeah, my list is a tomato seeds.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "That's outside what I can help with on this call - I only handle business loan enquiries. I can note it down and have the right team reach you. And is that registered as a proprietorship, a partnership, an LLP, or a private limited company?",
+      "phase": "qualification",
+      "intent": "out_of_scope",
+      "latency_ms": 1631.9,
+      "grounded": {
+        "text": "I don't have that information, and I don't want to guess on something like this. Let me get a colleague to confirm it and come back to you.",
+        "answered": false,
+        "top_score": 0.217,
+        "used_record_ids": [],
+        "citations": [],
+        "rejected_reason": "retrieval_below_threshold",
+        "attempts": 0,
+        "retrieved": [
+          "web_privacy-policy__002",
+          "web_terms-and-condition__005",
+          "web_business-info__003",
+          "application_form__000"
+        ]
+      },
+      "meta": {
+        "stages": {
+          "understand_ms": 1089.4,
+          "retrieval_answer_ms": 542.3
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "PID PARAMETE ETHAL AGGI",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more?",
+      "phase": "qualification",
+      "intent": "unclear",
+      "latency_ms": 612.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 612.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "My business is tomato, tomato seals",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Coming back to where we were - Is the business registered in your own name, or as a firm or company?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 1286.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 1286.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "The business is registered in my name",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "How long has the business been running?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 772.4,
+      "meta": {
+        "stages": {
+          "understand_ms": 772.1
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "five years",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Roughly what was your turnover in the last financial year?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 719.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 717.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "3.5 crore rupees",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "And how much are you looking to borrow?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 510.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 507.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "6 lakhs, 6 lakhs, 6 lakhs, 6 lakhs, 6 lakhs,",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "What would you be using the funds for?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 725.4,
+      "meta": {
+        "stages": {
+          "understand_ms": 724.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "to raising my tomato field.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Do you have any business loan EMIs running at the moment?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 711.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 710.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "No, I don't have any I'll give it for you",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Coming back to where we were - Any loan instalments going out each month at the moment?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 922.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 921.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "No, there is no loan installments going out",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Is the business GST registered?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 643.8,
+      "meta": {
+        "stages": {
+          "understand_ms": 643.3
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "yes it is DST registered it is yes correct",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "This one is close to our criteria but needs a credit officer to look at it properly, so I'll get it reviewed rather than give you an answer now. Your business vintage meets our requirement. Before I arrange that, is there anything you want to ask me?",
+      "phase": "next_step",
+      "intent": "answer",
+      "latency_ms": 640.0,
+      "meta": {
+        "stages": {
+          "understand_ms": 639.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "and the",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more?",
+      "phase": "next_step",
+      "intent": "unclear",
+      "latency_ms": 351.0,
+      "meta": {
+        "stages": {
+          "understand_ms": 350.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "thing.",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more?",
+      "phase": "next_step",
+      "intent": "unclear",
+      "latency_ms": 671.8,
+      "meta": {
+        "stages": {
+          "understand_ms": 671.8
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "everything is fine, tell me what is in a step that I",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more?",
+      "phase": "next_step",
+      "intent": "unclear",
+      "latency_ms": 459.0,
+      "meta": {
+        "stages": {
+          "understand_ms": 458.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "No, I am fine, thank you, I am fine, thank you",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "Of course - I'll get a person to call you. Let me just confirm the best number and time. I've noted this for our team, and someone will call you on this number at Thursday at 10 am.",
+      "phase": "escalated",
+      "intent": "smalltalk",
+      "latency_ms": 632.3,
+      "meta": {
+        "stages": {
+          "understand_ms": 630.2
+        }
+      }
+    }
+  ]
+}

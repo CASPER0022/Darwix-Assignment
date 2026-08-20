@@ -1,0 +1,35 @@
+# Philippines call 2 of 2: scam suspicion + payment difficulty + human escalation
+id: q3_ph_objection
+locale: fil-PH
+voice: caller_en_ph_m
+scenario: ph_scam_suspicion_and_payment_difficulty
+description: >-
+  The two objections that actually happen in this market: the customer assumes
+  the call is a scam, then says he has no money for the premium. Ends with a
+  request for a human. Tests sector-specific objection handling, the
+  language-locked fallback, and that no OTP or payment is ever requested.
+persona: >-
+  Dennis Ramos, 51, a policyholder from Cebu. Drives for a delivery platform.
+  Suspicious of unknown numbers because his cousin was scammed last year. Income
+  has been irregular this quarter.
+style: >-
+  English-dominant Filipino speaker who drops into Tagalog when he gets
+  emotional. Blunt, a bit defensive at first.
+language: Taglish, English-leaning
+code_switch: >-
+  Starts in English, switches to Tagalog when annoyed or worried, e.g. "Wala
+  akong pambayad ngayon, eh."
+facts:
+  name: Dennis Ramos
+  policy_age: "about four years"
+  monthly_premium: "two thousand five hundred pesos"
+  coverage: "five hundred thousand pesos"
+  situation: "income is irregular, delivery work has been slow"
+  city: "Cebu"
+beats:
+  0: "Sino ito? How did you get my number? Scam ba ito?"
+  2: "Okay fine. But honestly, wala akong pambayad ngayon. Wala talaga akong pera this month."
+  4: "Pwede ba akong makausap ng tao? Hindi ako komportable sa robot."
+expect:
+  escalated: true
+max_turns: 9

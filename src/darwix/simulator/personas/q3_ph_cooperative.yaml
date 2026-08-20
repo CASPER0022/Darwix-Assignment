@@ -1,0 +1,36 @@
+# Philippines call 1 of 2: cooperative customer, natural Taglish, mixed finance terms
+id: q3_ph_cooperative
+locale: fil-PH
+voice: caller_fil_f
+scenario: ph_premium_reminder_cooperative
+description: >-
+  Cooperative policyholder taking a premium reminder call in natural Taglish.
+  Tests code-switching (English financial nouns inside Tagalog sentences), the
+  `po` register, and that the agent stays in Taglish throughout.
+persona: >-
+  Grace Bautista, 43, a policyholder from Quezon City. Works in a BPO. Has a
+  life policy she got through her bank branch two years ago. Polite, agreeable,
+  slightly rushed because she is on a break.
+style: >-
+  Natural Taglish. Frames sentences in Tagalog, keeps financial nouns in English
+  - premium, policy, due date, auto-debit, coverage. Uses "po" and "opo"
+  throughout because she is speaking to an institution.
+language: Taglish (Tagalog frame, English financial terms)
+code_switch: >-
+  Code-switch naturally within sentences, e.g. "Opo, nabayaran ko po yung
+  premium last month through auto-debit." Never speak pure formal Tagalog and
+  never switch fully to English.
+facts:
+  name: Grace Bautista
+  policy_source: "kinuha through the bank branch, bancassurance"
+  policy_age: "mga two years na po"
+  monthly_premium: "tatlong libo, three thousand pesos"
+  coverage: "one million pesos"
+  beneficiary: "asawa ko po at dalawang anak"
+  payment_method: "auto-debit po sa bank account"
+  other_policies: "wala na po, ito lang"
+  city: "Quezon City"
+expect:
+  escalated: false
+  disclosures: [ai_disclosure, recording_disclosure]
+max_turns: 11
