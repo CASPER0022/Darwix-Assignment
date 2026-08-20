@@ -1,4 +1,4 @@
-"""The Q4 pipeline: live audio -> transcript -> signals -> nudges -> delivery.
+r"""The Q4 pipeline: live audio -> transcript -> signals -> nudges -> delivery.
 
     audio chunk --> VAD --> ASR --> [rules layer]    --> nudge engine --> sink
                                  \-> [LLM layer]    /
