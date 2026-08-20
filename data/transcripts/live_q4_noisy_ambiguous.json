@@ -1,0 +1,210 @@
+{
+  "call_id": "q4_noisy_ambiguous",
+  "locale": "en-IN",
+  "wall_clock_s": 0.0,
+  "segments": 18,
+  "transcript": [
+    {
+      "speaker": "agent",
+      "text": "Good morning, this is Anaya, an AI assistant.",
+      "call_time_s": 0.3,
+      "duration_s": 4.3,
+      "asr_latency_ms": 377.7,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "This call is recorded for quality purposes.",
+      "call_time_s": 4.7,
+      "duration_s": 3.5,
+      "asr_latency_ms": 361.1,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "I'm calling about your business loan inquiry.",
+      "call_time_s": 8.1,
+      "duration_s": 3.6,
+      "asr_latency_ms": 293.9,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Oh, hello. Sorry. One second. The traffic here is very loud.",
+      "call_time_s": 12.1,
+      "duration_s": 6.1,
+      "asr_latency_ms": 509.5,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "No problem. Take your time.",
+      "call_time_s": 18.5,
+      "duration_s": 2.9,
+      "asr_latency_ms": 268.1,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, sorry. What was it about again?",
+      "call_time_s": 22.5,
+      "duration_s": 4.3,
+      "asr_latency_ms": 336.5,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "I think I filled something online, maybe.",
+      "call_time_s": 26.7,
+      "duration_s": 3.2,
+      "asr_latency_ms": 303.9,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "That's right, an enquiry about a business loan.",
+      "call_time_s": 30.5,
+      "duration_s": 3.9,
+      "asr_latency_ms": 303.0,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "Is this a good time to talk?",
+      "call_time_s": 34.5,
+      "duration_s": 2.3,
+      "asr_latency_ms": 265.7,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Um, I mean, it's okay I suppose.",
+      "call_time_s": 37.3,
+      "duration_s": 3.3,
+      "asr_latency_ms": 300.8,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "The weather has been terrible so things are a bit, you know, slow to start today.",
+      "call_time_s": 40.5,
+      "duration_s": 5.4,
+      "asr_latency_ms": 549.5,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "I understand.",
+      "call_time_s": 46.5,
+      "duration_s": 1.7,
+      "asr_latency_ms": 409.6,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "Could you tell me a little about the business?",
+      "call_time_s": 48.3,
+      "duration_s": 3.1,
+      "asr_latency_ms": 363.6,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, it's a small thing, we've been doing it a while.",
+      "call_time_s": 55.9,
+      "duration_s": 4.3,
+      "asr_latency_ms": 391.6,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Nothing very exciting. My cousin also does something similar in another city.",
+      "call_time_s": 55.9,
+      "duration_s": 6.0,
+      "asr_latency_ms": 416.5,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "Got it.",
+      "call_time_s": 62.5,
+      "duration_s": 1.5,
+      "asr_latency_ms": 258.6,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "And roughly what does the business turn over in a year?",
+      "call_time_s": 64.1,
+      "duration_s": 3.7,
+      "asr_latency_ms": 281.4,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Or, that I would have to check with my accountant? I never remember these numbers.",
+      "call_time_s": 68.1,
+      "duration_s": 5.5,
+      "asr_latency_ms": 406.4,
+      "language": "English"
+    }
+  ],
+  "compliance": {
+    "compliance_satisfied": [
+      "ai_disclosure",
+      "recording_disclosure"
+    ],
+    "compliance_missed": [],
+    "customer_turns": 8,
+    "agent_turns": 10
+  },
+  "latency": {
+    "asr_ms": {
+      "n": 18,
+      "min_ms": 258.6,
+      "p50_ms": 348.8,
+      "p95_ms": 515.5,
+      "max_ms": 549.5,
+      "mean_ms": 355.4
+    },
+    "signal_rules_ms": {
+      "n": 18,
+      "min_ms": 0.0,
+      "p50_ms": 0.1,
+      "p95_ms": 0.2,
+      "max_ms": 0.3,
+      "mean_ms": 0.1
+    },
+    "signal_llm_ms": {
+      "n": 6,
+      "min_ms": 473.8,
+      "p50_ms": 528.0,
+      "p95_ms": 671.5,
+      "max_ms": 714.1,
+      "mean_ms": 550.5
+    }
+  },
+  "nudges": [],
+  "suppression": {
+    "signals_considered": 1,
+    "emitted": 0,
+    "suppressed_below_threshold": 1,
+    "suppressed_duplicate": 0,
+    "suppressed_cooldown": 0,
+    "evicted_for_priority": 0,
+    "expired_unread": 0,
+    "suppression_rate_pct": 100.0
+  },
+  "config": {
+    "min_confidence": 0.55,
+    "min_confidence_by_kind": {
+      "missed_opportunity": 0.88,
+      "topic_shift": 0.88,
+      "confusion": 0.85,
+      "buying_signal": 0.75
+    },
+    "cooldown_s": 45.0,
+    "ttl_s": 90.0,
+    "max_active": 3
+  }
+}

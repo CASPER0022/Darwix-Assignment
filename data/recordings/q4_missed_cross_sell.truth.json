@@ -1,0 +1,69 @@
+{
+  "id": "q4_missed_cross_sell",
+  "description": "Required Q4 coverage: missed cross-sell. The customer twice signals a second vehicle and an expansion plan; the agent stays on script and never responds to either. The nudge must fire DURING the call, while there is still time to act.",
+  "expected_nudges": [
+    "missed_cross_sell"
+  ],
+  "must_not_nudge": [
+    "compliance_gap"
+  ],
+  "max_nudges": null,
+  "script": [
+    {
+      "speaker": "agent",
+      "text": "Good afternoon, this is Anaya from the business loans team. Just so you know, I'm an AI assistant, not a human agent, and this call is recorded for quality purposes. Is this a good time?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, go ahead.",
+      "voice": "caller_en_in_m"
+    },
+    {
+      "speaker": "agent",
+      "text": "Thank you. Could you tell me the name of your business and how long it has been running?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "It's Chauhan Logistics, running about six years now. Actually we just bought a second truck last month, and we're planning another vehicle next quarter.",
+      "voice": "caller_en_in_m"
+    },
+    {
+      "speaker": "agent",
+      "text": "Understood. And what was your turnover in the last financial year?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "About sixty seven lakhs. The second vehicle is really stretching our working capital, that's the whole problem.",
+      "voice": "caller_en_in_m"
+    },
+    {
+      "speaker": "agent",
+      "text": "Right. And how much were you looking to borrow?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Around eighteen lakhs. We also want to expand to a new depot if things go well.",
+      "voice": "caller_en_in_m"
+    },
+    {
+      "speaker": "agent",
+      "text": "Noted. Is the business GST registered?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes it is.",
+      "voice": "caller_en_in_m"
+    },
+    {
+      "speaker": "agent",
+      "text": "Thank you. I'll pass this to a credit officer for review and someone will call you back. Thanks for your time.",
+      "voice": "agent_en_in_f"
+    }
+  ],
+  "seconds": 78.2
+}

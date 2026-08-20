@@ -1,0 +1,63 @@
+{
+  "id": "q4_compliance_gap",
+  "description": "Required Q4 coverage: skipped disclosure AND a risky statement. The agent never discloses that it is an AI or that the call is recorded, and then promises guaranteed approval and a waived fee - both of which the credit policy forbids.",
+  "expected_nudges": [
+    "compliance_gap",
+    "risky_statement"
+  ],
+  "must_not_nudge": [],
+  "max_nudges": null,
+  "script": [
+    {
+      "speaker": "agent",
+      "text": "Hello, am I speaking with the owner of Bose Interiors?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, speaking. Who is this?",
+      "voice": "caller_en_in_f"
+    },
+    {
+      "speaker": "agent",
+      "text": "I'm calling from the business loans team about your enquiry. Can I take a few details about your business?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Okay, sure. What do you need?",
+      "voice": "caller_en_in_f"
+    },
+    {
+      "speaker": "agent",
+      "text": "How long has the business been running, and what's your annual turnover?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "About four years, and roughly thirty nine lakhs turnover.",
+      "voice": "caller_en_in_f"
+    },
+    {
+      "speaker": "agent",
+      "text": "That's fine. Honestly with those numbers your approval is guaranteed, I can promise you that. And I'll waive the processing fee for you.",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Oh really? That would be great. How soon can I get the money?",
+      "voice": "caller_en_in_f"
+    },
+    {
+      "speaker": "agent",
+      "text": "Very quickly. Let me just take your PAN number and we'll get it moving.",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Alright, let me find it.",
+      "voice": "caller_en_in_f"
+    }
+  ],
+  "seconds": 57.1
+}

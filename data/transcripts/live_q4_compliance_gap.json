@@ -1,0 +1,258 @@
+{
+  "call_id": "q4_compliance_gap",
+  "locale": "en-IN",
+  "wall_clock_s": 0.0,
+  "segments": 17,
+  "transcript": [
+    {
+      "speaker": "agent",
+      "text": "Hello, am I speaking with the owner of Bose Interiors?",
+      "call_time_s": 0.3,
+      "duration_s": 4.1,
+      "asr_latency_ms": 671.5,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, speaking.",
+      "call_time_s": 6.9,
+      "duration_s": 2.3,
+      "asr_latency_ms": 585.0,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Who is this?",
+      "call_time_s": 6.9,
+      "duration_s": 1.4,
+      "asr_latency_ms": 539.3,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "I'm calling from the business loans team about your inquiry.",
+      "call_time_s": 8.9,
+      "duration_s": 4.3,
+      "asr_latency_ms": 311.1,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "Can I take a few details about your business?",
+      "call_time_s": 13.3,
+      "duration_s": 3.3,
+      "asr_latency_ms": 495.4,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Okay, Sean. What do you need?",
+      "call_time_s": 16.9,
+      "duration_s": 3.7,
+      "asr_latency_ms": 313.4,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "How long has the business been running and what's your annual turnover?",
+      "call_time_s": 21.1,
+      "duration_s": 4.9,
+      "asr_latency_ms": 423.4,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "about 4 years, and roughly 39 lakhs turnover.",
+      "call_time_s": 26.3,
+      "duration_s": 4.1,
+      "asr_latency_ms": 306.5,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "That's fine.",
+      "call_time_s": 30.9,
+      "duration_s": 1.7,
+      "asr_latency_ms": 251.9,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "Honestly with those numbers your approval is guaranteed, I can promise you that.",
+      "call_time_s": 38.1,
+      "duration_s": 5.6,
+      "asr_latency_ms": 512.5,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "And I'll waive the processing fee for you.",
+      "call_time_s": 38.1,
+      "duration_s": 2.8,
+      "asr_latency_ms": 301.2,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Oh really?",
+      "call_time_s": 41.9,
+      "duration_s": 1.7,
+      "asr_latency_ms": 231.6,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "That would be great.",
+      "call_time_s": 43.5,
+      "duration_s": 1.8,
+      "asr_latency_ms": 290.3,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "How soon can I get the money?",
+      "call_time_s": 45.5,
+      "duration_s": 2.5,
+      "asr_latency_ms": 327.2,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "very quickly.",
+      "call_time_s": 48.3,
+      "duration_s": 1.9,
+      "asr_latency_ms": 262.3,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "Let me just take your PAN number and we'll get it moving.",
+      "call_time_s": 50.1,
+      "duration_s": 3.8,
+      "asr_latency_ms": 380.1,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Alright, let me find it.",
+      "call_time_s": 54.3,
+      "duration_s": 2.5,
+      "asr_latency_ms": 341.9,
+      "language": "English"
+    }
+  ],
+  "compliance": {
+    "compliance_satisfied": [],
+    "compliance_missed": [
+      "ai_disclosure",
+      "recording_disclosure"
+    ],
+    "customer_turns": 8,
+    "agent_turns": 9
+  },
+  "latency": {
+    "asr_ms": {
+      "n": 17,
+      "min_ms": 231.6,
+      "p50_ms": 327.2,
+      "p95_ms": 602.3,
+      "max_ms": 671.5,
+      "mean_ms": 385.0
+    },
+    "signal_rules_ms": {
+      "n": 17,
+      "min_ms": 0.0,
+      "p50_ms": 0.0,
+      "p95_ms": 0.2,
+      "max_ms": 0.3,
+      "mean_ms": 0.1
+    },
+    "signal_llm_ms": {
+      "n": 5,
+      "min_ms": 533.5,
+      "p50_ms": 750.6,
+      "p95_ms": 979.2,
+      "max_ms": 1017.6,
+      "mean_ms": 771.4
+    },
+    "delivery_ms": {
+      "n": 3,
+      "min_ms": 0.0,
+      "p50_ms": 0.0,
+      "p95_ms": 0.0,
+      "max_ms": 0.0,
+      "mean_ms": 0.0
+    },
+    "end_to_end_ms": {
+      "n": 3,
+      "min_ms": 327.6,
+      "p50_ms": 512.7,
+      "p95_ms": 839.7,
+      "max_ms": 876.0,
+      "mean_ms": 572.1
+    }
+  },
+  "nudges": [
+    {
+      "id": "c1d1f8444e4c",
+      "kind": "risky_statement",
+      "group": "compliance_conduct",
+      "text": "Careful - that sounded like a guarantee. Re-frame: decision rests with credit.",
+      "priority": 1,
+      "confidence": 0.9,
+      "call_time_s": 38.1,
+      "evidence": "guaranteed",
+      "source": "rules",
+      "latency_ms": 512.6,
+      "ttl_s": 90.0
+    },
+    {
+      "id": "36f4eedffce2",
+      "kind": "compliance_gap",
+      "group": "compliance_disclosure",
+      "text": "Required disclosure missing: Agent must disclose it is an AI before collecting information. Say it before continuing.",
+      "priority": 1,
+      "confidence": 0.95,
+      "call_time_s": 45.5,
+      "evidence": "not detected by 45s",
+      "source": "rules",
+      "latency_ms": 327.6,
+      "ttl_s": 90.0
+    },
+    {
+      "id": "1ffdf5e295ca",
+      "kind": "buying_signal",
+      "group": "opportunity",
+      "text": "Buying signal: Customer indicates readiness to proceed with the loan. Move to next steps now.",
+      "priority": 4,
+      "confidence": 0.9,
+      "call_time_s": 54.3,
+      "evidence": "That would be great.",
+      "source": "llm",
+      "latency_ms": 876.0,
+      "ttl_s": 90.0
+    }
+  ],
+  "suppression": {
+    "signals_considered": 8,
+    "emitted": 3,
+    "suppressed_below_threshold": 2,
+    "suppressed_duplicate": 2,
+    "suppressed_cooldown": 1,
+    "evicted_for_priority": 0,
+    "expired_unread": 0,
+    "suppression_rate_pct": 62.5
+  },
+  "config": {
+    "min_confidence": 0.55,
+    "min_confidence_by_kind": {
+      "missed_opportunity": 0.88,
+      "topic_shift": 0.88,
+      "confusion": 0.85,
+      "buying_signal": 0.75
+    },
+    "cooldown_s": 45.0,
+    "ttl_s": 90.0,
+    "max_active": 3
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "q4_noisy_ambiguous",
+  "description": "Required Q4 coverage: the negative test. An ordinary, uneventful call with small talk, hedging and half-finished sentences, and NO real signal. A system that fires nudges here is producing exactly the low-value alert spam the assessment calls a rejection condition. Correct behaviour is near-silence.",
+  "expected_nudges": [],
+  "must_not_nudge": [
+    "missed_cross_sell",
+    "payment_difficulty",
+    "frustration",
+    "risky_statement",
+    "buying_signal"
+  ],
+  "max_nudges": 1,
+  "script": [
+    {
+      "speaker": "agent",
+      "text": "Good morning, this is Anaya, an AI assistant. This call is recorded for quality purposes. I'm calling about your business loan enquiry.",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Oh, hello. Sorry, one second, the traffic here is very loud.",
+      "voice": "caller_en_in_f"
+    },
+    {
+      "speaker": "agent",
+      "text": "No problem, take your time.",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, sorry. What was it about again? I think I filled something online, maybe.",
+      "voice": "caller_en_in_f"
+    },
+    {
+      "speaker": "agent",
+      "text": "That's right, an enquiry about a business loan. Is this a good time to talk?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Umm, I mean, it's okay I suppose. The weather has been terrible so things are a bit, you know, slow to start today.",
+      "voice": "caller_en_in_f"
+    },
+    {
+      "speaker": "agent",
+      "text": "I understand. Could you tell me a little about the business?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, it's a small thing, we've been doing it a while. Nothing very exciting. My cousin also does something similar in another city.",
+      "voice": "caller_en_in_f"
+    },
+    {
+      "speaker": "agent",
+      "text": "Got it. And roughly what does the business turn over in a year?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Oh, that I would have to check with my accountant, I never remember these numbers.",
+      "voice": "caller_en_in_f"
+    }
+  ],
+  "seconds": 73.8
+}

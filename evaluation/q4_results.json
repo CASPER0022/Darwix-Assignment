@@ -1,0 +1,1305 @@
+{
+  "generated_at": "2026-08-19T17:30:43.435512+00:00",
+  "speed": 1.0,
+  "llm_layer": true,
+  "scenarios": [
+    {
+      "scenario": "q4_compliance_gap",
+      "description": "Required Q4 coverage: skipped disclosure AND a risky statement. The agent never discloses that it is an AI or that the call is recorded, and then promises guaranteed approval and a waived fee - both of which the credit policy forbids.",
+      "seconds": 57.1,
+      "expected": [
+        "compliance_gap",
+        "risky_statement"
+      ],
+      "fired": [
+        "risky_statement",
+        "compliance_gap",
+        "buying_signal"
+      ],
+      "detected": [
+        "compliance_gap",
+        "risky_statement"
+      ],
+      "missed": [],
+      "forbidden_fired": [],
+      "unexpected": [
+        "buying_signal"
+      ],
+      "max_nudges": null,
+      "over_cap": false,
+      "pass": true,
+      "suppression": {
+        "signals_considered": 8,
+        "emitted": 3,
+        "suppressed_below_threshold": 2,
+        "suppressed_duplicate": 2,
+        "suppressed_cooldown": 1,
+        "evicted_for_priority": 0,
+        "expired_unread": 0,
+        "suppression_rate_pct": 62.5
+      }
+    },
+    {
+      "scenario": "q4_missed_cross_sell",
+      "description": "Required Q4 coverage: missed cross-sell. The customer twice signals a second vehicle and an expansion plan; the agent stays on script and never responds to either. The nudge must fire DURING the call, while there is still time to act.",
+      "seconds": 78.2,
+      "expected": [
+        "missed_cross_sell"
+      ],
+      "fired": [
+        "missed_cross_sell",
+        "rising_frustration"
+      ],
+      "detected": [
+        "missed_cross_sell"
+      ],
+      "missed": [],
+      "forbidden_fired": [],
+      "unexpected": [
+        "rising_frustration"
+      ],
+      "max_nudges": null,
+      "over_cap": false,
+      "pass": true,
+      "suppression": {
+        "signals_considered": 9,
+        "emitted": 2,
+        "suppressed_below_threshold": 3,
+        "suppressed_duplicate": 1,
+        "suppressed_cooldown": 3,
+        "evicted_for_priority": 0,
+        "expired_unread": 0,
+        "suppression_rate_pct": 77.8
+      }
+    },
+    {
+      "scenario": "q4_noisy_ambiguous",
+      "description": "Required Q4 coverage: the negative test. An ordinary, uneventful call with small talk, hedging and half-finished sentences, and NO real signal. A system that fires nudges here is producing exactly the low-value alert spam the assessment calls a rejection condition. Correct behaviour is near-silence.",
+      "seconds": 73.8,
+      "expected": [],
+      "fired": [],
+      "detected": [],
+      "missed": [],
+      "forbidden_fired": [],
+      "unexpected": [],
+      "max_nudges": 1,
+      "over_cap": false,
+      "pass": true,
+      "suppression": {
+        "signals_considered": 1,
+        "emitted": 0,
+        "suppressed_below_threshold": 1,
+        "suppressed_duplicate": 0,
+        "suppressed_cooldown": 0,
+        "evicted_for_priority": 0,
+        "expired_unread": 0,
+        "suppression_rate_pct": 100.0
+      }
+    },
+    {
+      "scenario": "q4_rising_frustration",
+      "description": "Required Q4 coverage: rising frustration. A customer with a payment problem is bounced around; irritation builds across turns rather than appearing in one sharp phrase, which is why this needs the LLM layer and not just a keyword.",
+      "seconds": 65.6,
+      "expected": [
+        "frustration",
+        "payment_difficulty"
+      ],
+      "fired": [
+        "payment_difficulty",
+        "frustration"
+      ],
+      "detected": [
+        "frustration",
+        "payment_difficulty"
+      ],
+      "missed": [],
+      "forbidden_fired": [],
+      "unexpected": [],
+      "max_nudges": null,
+      "over_cap": false,
+      "pass": true,
+      "suppression": {
+        "signals_considered": 7,
+        "emitted": 2,
+        "suppressed_below_threshold": 2,
+        "suppressed_duplicate": 0,
+        "suppressed_cooldown": 3,
+        "evicted_for_priority": 0,
+        "expired_unread": 0,
+        "suppression_rate_pct": 71.4
+      }
+    }
+  ],
+  "per_scenario_latency": {
+    "q4_compliance_gap": {
+      "asr_ms": {
+        "n": 17,
+        "min_ms": 231.6,
+        "p50_ms": 327.2,
+        "p95_ms": 602.3,
+        "max_ms": 671.5,
+        "mean_ms": 385.0
+      },
+      "signal_rules_ms": {
+        "n": 17,
+        "min_ms": 0.0,
+        "p50_ms": 0.0,
+        "p95_ms": 0.2,
+        "max_ms": 0.3,
+        "mean_ms": 0.1
+      },
+      "signal_llm_ms": {
+        "n": 5,
+        "min_ms": 533.5,
+        "p50_ms": 750.6,
+        "p95_ms": 979.2,
+        "max_ms": 1017.6,
+        "mean_ms": 771.4
+      },
+      "delivery_ms": {
+        "n": 3,
+        "min_ms": 0.0,
+        "p50_ms": 0.0,
+        "p95_ms": 0.0,
+        "max_ms": 0.0,
+        "mean_ms": 0.0
+      },
+      "end_to_end_ms": {
+        "n": 3,
+        "min_ms": 327.6,
+        "p50_ms": 512.7,
+        "p95_ms": 839.7,
+        "max_ms": 876.0,
+        "mean_ms": 572.1
+      }
+    },
+    "q4_missed_cross_sell": {
+      "asr_ms": {
+        "n": 18,
+        "min_ms": 233.8,
+        "p50_ms": 305.8,
+        "p95_ms": 541.0,
+        "max_ms": 567.4,
+        "mean_ms": 346.2
+      },
+      "signal_rules_ms": {
+        "n": 18,
+        "min_ms": 0.0,
+        "p50_ms": 0.0,
+        "p95_ms": 0.2,
+        "max_ms": 0.3,
+        "mean_ms": 0.1
+      },
+      "signal_llm_ms": {
+        "n": 5,
+        "min_ms": 442.7,
+        "p50_ms": 673.0,
+        "p95_ms": 718.1,
+        "max_ms": 719.6,
+        "mean_ms": 632.0
+      },
+      "delivery_ms": {
+        "n": 2,
+        "min_ms": 0.0,
+        "p50_ms": 0.0,
+        "p95_ms": 0.0,
+        "max_ms": 0.0,
+        "mean_ms": 0.0
+      },
+      "end_to_end_ms": {
+        "n": 2,
+        "min_ms": 488.2,
+        "p50_ms": 868.7,
+        "p95_ms": 1211.1,
+        "max_ms": 1249.1,
+        "mean_ms": 868.7
+      }
+    },
+    "q4_noisy_ambiguous": {
+      "asr_ms": {
+        "n": 18,
+        "min_ms": 258.6,
+        "p50_ms": 348.8,
+        "p95_ms": 515.5,
+        "max_ms": 549.5,
+        "mean_ms": 355.4
+      },
+      "signal_rules_ms": {
+        "n": 18,
+        "min_ms": 0.0,
+        "p50_ms": 0.1,
+        "p95_ms": 0.2,
+        "max_ms": 0.3,
+        "mean_ms": 0.1
+      },
+      "signal_llm_ms": {
+        "n": 6,
+        "min_ms": 473.8,
+        "p50_ms": 528.0,
+        "p95_ms": 671.5,
+        "max_ms": 714.1,
+        "mean_ms": 550.5
+      }
+    },
+    "q4_rising_frustration": {
+      "asr_ms": {
+        "n": 18,
+        "min_ms": 251.3,
+        "p50_ms": 342.3,
+        "p95_ms": 3928.7,
+        "max_ms": 6638.4,
+        "mean_ms": 918.7
+      },
+      "signal_rules_ms": {
+        "n": 18,
+        "min_ms": 0.0,
+        "p50_ms": 0.1,
+        "p95_ms": 0.2,
+        "max_ms": 0.4,
+        "mean_ms": 0.1
+      },
+      "signal_llm_ms": {
+        "n": 5,
+        "min_ms": 610.4,
+        "p50_ms": 693.1,
+        "p95_ms": 732.8,
+        "max_ms": 742.0,
+        "mean_ms": 682.3
+      },
+      "delivery_ms": {
+        "n": 2,
+        "min_ms": 0.0,
+        "p50_ms": 0.0,
+        "p95_ms": 0.0,
+        "max_ms": 0.0,
+        "mean_ms": 0.0
+      },
+      "end_to_end_ms": {
+        "n": 2,
+        "min_ms": 309.0,
+        "p50_ms": 715.4,
+        "p95_ms": 1081.1,
+        "max_ms": 1121.7,
+        "mean_ms": 715.4
+      }
+    }
+  },
+  "pooled_latency": {
+    "asr_ms": {
+      "n": 59,
+      "min_ms": 231.6,
+      "p50_ms": 342.3,
+      "p95_ms": 3928.7,
+      "max_ms": 6638.4,
+      "mean_ms": 734.6
+    },
+    "signal_rules_ms": {
+      "n": 59,
+      "min_ms": 0.0,
+      "p50_ms": 0.1,
+      "p95_ms": 0.3,
+      "max_ms": 0.4,
+      "mean_ms": 0.1
+    },
+    "signal_llm_ms": {
+      "n": 21,
+      "min_ms": 442.7,
+      "p50_ms": 693.1,
+      "p95_ms": 979.2,
+      "max_ms": 1017.6,
+      "mean_ms": 674.9
+    },
+    "delivery_ms": {
+      "n": 12,
+      "min_ms": 0.0,
+      "p50_ms": 0.0,
+      "p95_ms": 0.0,
+      "max_ms": 0.0,
+      "mean_ms": 0.0
+    },
+    "end_to_end_ms": {
+      "n": 12,
+      "min_ms": 309.0,
+      "p50_ms": 854.2,
+      "p95_ms": 1228.2,
+      "max_ms": 1249.1,
+      "mean_ms": 800.0
+    }
+  },
+  "reports": {
+    "q4_compliance_gap": {
+      "call_id": "q4_compliance_gap",
+      "locale": "en-IN",
+      "wall_clock_s": 57.3,
+      "segments": 17,
+      "transcript": [
+        {
+          "speaker": "agent",
+          "text": "Hello, am I speaking with the owner of Bose Interiors?",
+          "call_time_s": 0.3,
+          "duration_s": 4.1,
+          "asr_latency_ms": 671.5,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Yes, speaking.",
+          "call_time_s": 6.9,
+          "duration_s": 2.3,
+          "asr_latency_ms": 585.0,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Who is this?",
+          "call_time_s": 6.9,
+          "duration_s": 1.4,
+          "asr_latency_ms": 539.3,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "I'm calling from the business loans team about your inquiry.",
+          "call_time_s": 8.9,
+          "duration_s": 4.3,
+          "asr_latency_ms": 311.1,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Can I take a few details about your business?",
+          "call_time_s": 13.3,
+          "duration_s": 3.3,
+          "asr_latency_ms": 495.4,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Okay, Sean. What do you need?",
+          "call_time_s": 16.9,
+          "duration_s": 3.7,
+          "asr_latency_ms": 313.4,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "How long has the business been running and what's your annual turnover?",
+          "call_time_s": 21.1,
+          "duration_s": 4.9,
+          "asr_latency_ms": 423.4,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "about 4 years, and roughly 39 lakhs turnover.",
+          "call_time_s": 26.3,
+          "duration_s": 4.1,
+          "asr_latency_ms": 306.5,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "That's fine.",
+          "call_time_s": 30.9,
+          "duration_s": 1.7,
+          "asr_latency_ms": 251.9,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Honestly with those numbers your approval is guaranteed, I can promise you that.",
+          "call_time_s": 38.1,
+          "duration_s": 5.6,
+          "asr_latency_ms": 512.5,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "And I'll waive the processing fee for you.",
+          "call_time_s": 38.1,
+          "duration_s": 2.8,
+          "asr_latency_ms": 301.2,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Oh really?",
+          "call_time_s": 41.9,
+          "duration_s": 1.7,
+          "asr_latency_ms": 231.6,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "That would be great.",
+          "call_time_s": 43.5,
+          "duration_s": 1.8,
+          "asr_latency_ms": 290.3,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "How soon can I get the money?",
+          "call_time_s": 45.5,
+          "duration_s": 2.5,
+          "asr_latency_ms": 327.2,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "very quickly.",
+          "call_time_s": 48.3,
+          "duration_s": 1.9,
+          "asr_latency_ms": 262.3,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Let me just take your PAN number and we'll get it moving.",
+          "call_time_s": 50.1,
+          "duration_s": 3.8,
+          "asr_latency_ms": 380.1,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Alright, let me find it.",
+          "call_time_s": 54.3,
+          "duration_s": 2.5,
+          "asr_latency_ms": 341.9,
+          "language": "English"
+        }
+      ],
+      "compliance": {
+        "compliance_satisfied": [],
+        "compliance_missed": [
+          "ai_disclosure",
+          "recording_disclosure"
+        ],
+        "customer_turns": 8,
+        "agent_turns": 9
+      },
+      "latency": {
+        "asr_ms": {
+          "n": 17,
+          "min_ms": 231.6,
+          "p50_ms": 327.2,
+          "p95_ms": 602.3,
+          "max_ms": 671.5,
+          "mean_ms": 385.0
+        },
+        "signal_rules_ms": {
+          "n": 17,
+          "min_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.2,
+          "max_ms": 0.3,
+          "mean_ms": 0.1
+        },
+        "signal_llm_ms": {
+          "n": 5,
+          "min_ms": 533.5,
+          "p50_ms": 750.6,
+          "p95_ms": 979.2,
+          "max_ms": 1017.6,
+          "mean_ms": 771.4
+        },
+        "delivery_ms": {
+          "n": 3,
+          "min_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "mean_ms": 0.0
+        },
+        "end_to_end_ms": {
+          "n": 3,
+          "min_ms": 327.6,
+          "p50_ms": 512.7,
+          "p95_ms": 839.7,
+          "max_ms": 876.0,
+          "mean_ms": 572.1
+        }
+      },
+      "nudges": [
+        {
+          "id": "c1d1f8444e4c",
+          "kind": "risky_statement",
+          "group": "compliance_conduct",
+          "text": "Careful - that sounded like a guarantee. Re-frame: decision rests with credit.",
+          "priority": 1,
+          "confidence": 0.9,
+          "call_time_s": 38.1,
+          "evidence": "guaranteed",
+          "source": "rules",
+          "latency_ms": 512.6,
+          "ttl_s": 90.0
+        },
+        {
+          "id": "36f4eedffce2",
+          "kind": "compliance_gap",
+          "group": "compliance_disclosure",
+          "text": "Required disclosure missing: Agent must disclose it is an AI before collecting information. Say it before continuing.",
+          "priority": 1,
+          "confidence": 0.95,
+          "call_time_s": 45.5,
+          "evidence": "not detected by 45s",
+          "source": "rules",
+          "latency_ms": 327.6,
+          "ttl_s": 90.0
+        },
+        {
+          "id": "1ffdf5e295ca",
+          "kind": "buying_signal",
+          "group": "opportunity",
+          "text": "Buying signal: Customer indicates readiness to proceed with the loan. Move to next steps now.",
+          "priority": 4,
+          "confidence": 0.9,
+          "call_time_s": 54.3,
+          "evidence": "That would be great.",
+          "source": "llm",
+          "latency_ms": 876.0,
+          "ttl_s": 90.0
+        }
+      ],
+      "suppression": {
+        "signals_considered": 8,
+        "emitted": 3,
+        "suppressed_below_threshold": 2,
+        "suppressed_duplicate": 2,
+        "suppressed_cooldown": 1,
+        "evicted_for_priority": 0,
+        "expired_unread": 0,
+        "suppression_rate_pct": 62.5
+      },
+      "config": {
+        "min_confidence": 0.55,
+        "min_confidence_by_kind": {
+          "missed_opportunity": 0.88,
+          "topic_shift": 0.88,
+          "confusion": 0.85,
+          "buying_signal": 0.75
+        },
+        "cooldown_s": 45.0,
+        "ttl_s": 90.0,
+        "max_active": 3
+      }
+    },
+    "q4_missed_cross_sell": {
+      "call_id": "q4_missed_cross_sell",
+      "locale": "en-IN",
+      "wall_clock_s": 78.2,
+      "segments": 18,
+      "transcript": [
+        {
+          "speaker": "agent",
+          "text": "Good afternoon, this is Anaya from the Business Loans team.",
+          "call_time_s": 0.3,
+          "duration_s": 4.3,
+          "asr_latency_ms": 367.6,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Just so you know, I'm an AI assistant, not a human agent, and this call is recorded for quality purposes.",
+          "call_time_s": 4.7,
+          "duration_s": 7.9,
+          "asr_latency_ms": 567.4,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Is this a good time?",
+          "call_time_s": 12.7,
+          "duration_s": 2.1,
+          "asr_latency_ms": 258.7,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Yes, go ahead.",
+          "call_time_s": 15.1,
+          "duration_s": 2.1,
+          "asr_latency_ms": 294.7,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Could you tell me the name of your business and how long it has been running?'",
+          "call_time_s": 19.1,
+          "duration_s": 4.6,
+          "asr_latency_ms": 373.8,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "It's Chauhan Logistics, running about 6 years now. Actually, we just bought a second truck last month, and we are planning another vehicle next quarter.",
+          "call_time_s": 24.1,
+          "duration_s": 11.1,
+          "asr_latency_ms": 487.7,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Understood.",
+          "call_time_s": 35.5,
+          "duration_s": 1.7,
+          "asr_latency_ms": 250.4,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "And what was your turnover in the last financial year?",
+          "call_time_s": 37.1,
+          "duration_s": 3.8,
+          "asr_latency_ms": 316.9,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "About 67 lakhs.",
+          "call_time_s": 44.3,
+          "duration_s": 2.5,
+          "asr_latency_ms": 501.0,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "The second vehicle is really stretching our working capital. That's the whole problem.",
+          "call_time_s": 44.3,
+          "duration_s": 5.8,
+          "asr_latency_ms": 387.5,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Right.",
+          "call_time_s": 50.5,
+          "duration_s": 1.5,
+          "asr_latency_ms": 261.2,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "And how much were you looking to borrow?",
+          "call_time_s": 51.9,
+          "duration_s": 2.8,
+          "asr_latency_ms": 280.0,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Around 18 lakhs. We also want to expand to a new depot if things go well.",
+          "call_time_s": 54.9,
+          "duration_s": 7.1,
+          "asr_latency_ms": 536.3,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Noted.",
+          "call_time_s": 62.3,
+          "duration_s": 1.5,
+          "asr_latency_ms": 252.6,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Is the business GST registered?",
+          "call_time_s": 63.9,
+          "duration_s": 2.9,
+          "asr_latency_ms": 259.5,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Yes, it is.",
+          "call_time_s": 67.1,
+          "duration_s": 1.7,
+          "asr_latency_ms": 233.8,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "I'll pass this to a credit officer for review and someone will call you back.",
+          "call_time_s": 70.7,
+          "duration_s": 5.0,
+          "asr_latency_ms": 359.7,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Thanks for your time.",
+          "call_time_s": 76.1,
+          "duration_s": 1.9,
+          "asr_latency_ms": 242.4,
+          "language": "English"
+        }
+      ],
+      "compliance": {
+        "compliance_satisfied": [
+          "ai_disclosure",
+          "recording_disclosure"
+        ],
+        "compliance_missed": [],
+        "customer_turns": 6,
+        "agent_turns": 12
+      },
+      "latency": {
+        "asr_ms": {
+          "n": 18,
+          "min_ms": 233.8,
+          "p50_ms": 305.8,
+          "p95_ms": 541.0,
+          "max_ms": 567.4,
+          "mean_ms": 346.2
+        },
+        "signal_rules_ms": {
+          "n": 18,
+          "min_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.2,
+          "max_ms": 0.3,
+          "mean_ms": 0.1
+        },
+        "signal_llm_ms": {
+          "n": 5,
+          "min_ms": 442.7,
+          "p50_ms": 673.0,
+          "p95_ms": 718.1,
+          "max_ms": 719.6,
+          "mean_ms": 632.0
+        },
+        "delivery_ms": {
+          "n": 2,
+          "min_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "mean_ms": 0.0
+        },
+        "end_to_end_ms": {
+          "n": 2,
+          "min_ms": 488.2,
+          "p50_ms": 868.7,
+          "p95_ms": 1211.1,
+          "max_ms": 1249.1,
+          "mean_ms": 868.7
+        }
+      },
+      "nudges": [
+        {
+          "id": "78b250e140c9",
+          "kind": "missed_cross_sell",
+          "group": "opportunity",
+          "text": "Opportunity: Customer mentioned second vehicle. Mention the relevant product before closing.",
+          "priority": 4,
+          "confidence": 0.75,
+          "call_time_s": 24.1,
+          "evidence": "second truck",
+          "source": "rules",
+          "latency_ms": 488.2,
+          "ttl_s": 90.0
+        },
+        {
+          "id": "548779233a44",
+          "kind": "rising_frustration",
+          "group": "sentiment",
+          "text": "Frustration building. Acknowledge it, then slow down.",
+          "priority": 2,
+          "confidence": 0.7,
+          "call_time_s": 54.9,
+          "evidence": "The second vehicle is really stretching our working capital. That's the whole problem.",
+          "source": "llm",
+          "latency_ms": 1249.1,
+          "ttl_s": 90.0
+        }
+      ],
+      "suppression": {
+        "signals_considered": 9,
+        "emitted": 2,
+        "suppressed_below_threshold": 3,
+        "suppressed_duplicate": 1,
+        "suppressed_cooldown": 3,
+        "evicted_for_priority": 0,
+        "expired_unread": 0,
+        "suppression_rate_pct": 77.8
+      },
+      "config": {
+        "min_confidence": 0.55,
+        "min_confidence_by_kind": {
+          "missed_opportunity": 0.88,
+          "topic_shift": 0.88,
+          "confusion": 0.85,
+          "buying_signal": 0.75
+        },
+        "cooldown_s": 45.0,
+        "ttl_s": 90.0,
+        "max_active": 3
+      }
+    },
+    "q4_noisy_ambiguous": {
+      "call_id": "q4_noisy_ambiguous",
+      "locale": "en-IN",
+      "wall_clock_s": 74.2,
+      "segments": 18,
+      "transcript": [
+        {
+          "speaker": "agent",
+          "text": "Good morning, this is Anaya, an AI assistant.",
+          "call_time_s": 0.3,
+          "duration_s": 4.3,
+          "asr_latency_ms": 377.7,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "This call is recorded for quality purposes.",
+          "call_time_s": 4.7,
+          "duration_s": 3.5,
+          "asr_latency_ms": 361.1,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "I'm calling about your business loan inquiry.",
+          "call_time_s": 8.1,
+          "duration_s": 3.6,
+          "asr_latency_ms": 293.9,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Oh, hello. Sorry. One second. The traffic here is very loud.",
+          "call_time_s": 12.1,
+          "duration_s": 6.1,
+          "asr_latency_ms": 509.5,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "No problem. Take your time.",
+          "call_time_s": 18.5,
+          "duration_s": 2.9,
+          "asr_latency_ms": 268.1,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Yes, sorry. What was it about again?",
+          "call_time_s": 22.5,
+          "duration_s": 4.3,
+          "asr_latency_ms": 336.5,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "I think I filled something online, maybe.",
+          "call_time_s": 26.7,
+          "duration_s": 3.2,
+          "asr_latency_ms": 303.9,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "That's right, an enquiry about a business loan.",
+          "call_time_s": 30.5,
+          "duration_s": 3.9,
+          "asr_latency_ms": 303.0,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Is this a good time to talk?",
+          "call_time_s": 34.5,
+          "duration_s": 2.3,
+          "asr_latency_ms": 265.7,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Um, I mean, it's okay I suppose.",
+          "call_time_s": 37.3,
+          "duration_s": 3.3,
+          "asr_latency_ms": 300.8,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "The weather has been terrible so things are a bit, you know, slow to start today.",
+          "call_time_s": 40.5,
+          "duration_s": 5.4,
+          "asr_latency_ms": 549.5,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "I understand.",
+          "call_time_s": 46.5,
+          "duration_s": 1.7,
+          "asr_latency_ms": 409.6,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Could you tell me a little about the business?",
+          "call_time_s": 48.3,
+          "duration_s": 3.1,
+          "asr_latency_ms": 363.6,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Yes, it's a small thing, we've been doing it a while.",
+          "call_time_s": 55.9,
+          "duration_s": 4.3,
+          "asr_latency_ms": 391.6,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Nothing very exciting. My cousin also does something similar in another city.",
+          "call_time_s": 55.9,
+          "duration_s": 6.0,
+          "asr_latency_ms": 416.5,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Got it.",
+          "call_time_s": 62.5,
+          "duration_s": 1.5,
+          "asr_latency_ms": 258.6,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "And roughly what does the business turn over in a year?",
+          "call_time_s": 64.1,
+          "duration_s": 3.7,
+          "asr_latency_ms": 281.4,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Or, that I would have to check with my accountant? I never remember these numbers.",
+          "call_time_s": 68.1,
+          "duration_s": 5.5,
+          "asr_latency_ms": 406.4,
+          "language": "English"
+        }
+      ],
+      "compliance": {
+        "compliance_satisfied": [
+          "ai_disclosure",
+          "recording_disclosure"
+        ],
+        "compliance_missed": [],
+        "customer_turns": 8,
+        "agent_turns": 10
+      },
+      "latency": {
+        "asr_ms": {
+          "n": 18,
+          "min_ms": 258.6,
+          "p50_ms": 348.8,
+          "p95_ms": 515.5,
+          "max_ms": 549.5,
+          "mean_ms": 355.4
+        },
+        "signal_rules_ms": {
+          "n": 18,
+          "min_ms": 0.0,
+          "p50_ms": 0.1,
+          "p95_ms": 0.2,
+          "max_ms": 0.3,
+          "mean_ms": 0.1
+        },
+        "signal_llm_ms": {
+          "n": 6,
+          "min_ms": 473.8,
+          "p50_ms": 528.0,
+          "p95_ms": 671.5,
+          "max_ms": 714.1,
+          "mean_ms": 550.5
+        }
+      },
+      "nudges": [],
+      "suppression": {
+        "signals_considered": 1,
+        "emitted": 0,
+        "suppressed_below_threshold": 1,
+        "suppressed_duplicate": 0,
+        "suppressed_cooldown": 0,
+        "evicted_for_priority": 0,
+        "expired_unread": 0,
+        "suppression_rate_pct": 100.0
+      },
+      "config": {
+        "min_confidence": 0.55,
+        "min_confidence_by_kind": {
+          "missed_opportunity": 0.88,
+          "topic_shift": 0.88,
+          "confusion": 0.85,
+          "buying_signal": 0.75
+        },
+        "cooldown_s": 45.0,
+        "ttl_s": 90.0,
+        "max_active": 3
+      }
+    },
+    "q4_rising_frustration": {
+      "call_id": "q4_rising_frustration",
+      "locale": "en-IN",
+      "wall_clock_s": 69.1,
+      "segments": 18,
+      "transcript": [
+        {
+          "speaker": "agent",
+          "text": "Good morning, this is Anaya, an AI assistant from the collections support team.",
+          "call_time_s": 0.3,
+          "duration_s": 5.9,
+          "asr_latency_ms": 378.7,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "This call is recorded.",
+          "call_time_s": 6.3,
+          "duration_s": 2.3,
+          "asr_latency_ms": 279.4,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "I'm calling about the installment due on your account.",
+          "call_time_s": 8.5,
+          "duration_s": 3.8,
+          "asr_latency_ms": 344.7,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Yes, I know.",
+          "call_time_s": 14.7,
+          "duration_s": 2.1,
+          "asr_latency_ms": 574.5,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "I already spoke to someone about this last week.",
+          "call_time_s": 14.7,
+          "duration_s": 3.8,
+          "asr_latency_ms": 281.6,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "I see.",
+          "call_time_s": 19.1,
+          "duration_s": 1.5,
+          "asr_latency_ms": 339.8,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "The installment is showing as pending.",
+          "call_time_s": 23.5,
+          "duration_s": 3.0,
+          "asr_latency_ms": 1175.5,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "When can we expect the payment?",
+          "call_time_s": 23.5,
+          "duration_s": 2.6,
+          "asr_latency_ms": 251.3,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "I explained this already. Business has been very slow this season. I don't have the money right now.",
+          "call_time_s": 26.5,
+          "duration_s": 8.1,
+          "asr_latency_ms": 451.0,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "I understand.",
+          "call_time_s": 36.9,
+          "duration_s": 1.9,
+          "asr_latency_ms": 579.9,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Can you make the payment by the 5th of this month?",
+          "call_time_s": 36.9,
+          "duration_s": 3.4,
+          "asr_latency_ms": 306.9,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "This is the third time I am telling someone the same thing.",
+          "call_time_s": 41.1,
+          "duration_s": 4.5,
+          "asr_latency_ms": 308.8,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Nobody is listening.",
+          "call_time_s": 45.5,
+          "duration_s": 2.0,
+          "asr_latency_ms": 263.8,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "Right.",
+          "call_time_s": 50.5,
+          "duration_s": 1.5,
+          "asr_latency_ms": 259.2,
+          "language": "English"
+        },
+        {
+          "speaker": "agent",
+          "text": "So can I note down the fifth as the payment date?",
+          "call_time_s": 52.1,
+          "duration_s": 3.5,
+          "asr_latency_ms": 358.4,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "This is a complete waste of my time.",
+          "call_time_s": 58.3,
+          "duration_s": 3.0,
+          "asr_latency_ms": 293.4,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Are you even listening to me?",
+          "call_time_s": 61.3,
+          "duration_s": 2.5,
+          "asr_latency_ms": 6638.4,
+          "language": "English"
+        },
+        {
+          "speaker": "customer",
+          "text": "Every week somebody calls and asks the same question.",
+          "call_time_s": 61.3,
+          "duration_s": 4.0,
+          "asr_latency_ms": 3450.5,
+          "language": "English"
+        }
+      ],
+      "compliance": {
+        "compliance_satisfied": [
+          "ai_disclosure",
+          "recording_disclosure"
+        ],
+        "compliance_missed": [],
+        "customer_turns": 8,
+        "agent_turns": 10
+      },
+      "latency": {
+        "asr_ms": {
+          "n": 18,
+          "min_ms": 251.3,
+          "p50_ms": 342.3,
+          "p95_ms": 3928.7,
+          "max_ms": 6638.4,
+          "mean_ms": 918.7
+        },
+        "signal_rules_ms": {
+          "n": 18,
+          "min_ms": 0.0,
+          "p50_ms": 0.1,
+          "p95_ms": 0.2,
+          "max_ms": 0.4,
+          "mean_ms": 0.1
+        },
+        "signal_llm_ms": {
+          "n": 5,
+          "min_ms": 610.4,
+          "p50_ms": 693.1,
+          "p95_ms": 732.8,
+          "max_ms": 742.0,
+          "mean_ms": 682.3
+        },
+        "delivery_ms": {
+          "n": 2,
+          "min_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "mean_ms": 0.0
+        },
+        "end_to_end_ms": {
+          "n": 2,
+          "min_ms": 309.0,
+          "p50_ms": 715.4,
+          "p95_ms": 1081.1,
+          "max_ms": 1121.7,
+          "mean_ms": 715.4
+        }
+      },
+      "nudges": [
+        {
+          "id": "8e51ce95c078",
+          "kind": "payment_difficulty",
+          "group": "payment",
+          "text": "Payment difficulty. Offer the approved support path - do not promise a waiver.",
+          "priority": 2,
+          "confidence": 0.9,
+          "call_time_s": 26.5,
+          "evidence": "I don't have the money right now",
+          "source": "llm",
+          "latency_ms": 1121.7,
+          "ttl_s": 90.0
+        },
+        {
+          "id": "7c616f18c678",
+          "kind": "frustration",
+          "group": "sentiment",
+          "text": "Frustration rising. Acknowledge the concern before asking anything else.",
+          "priority": 2,
+          "confidence": 0.7,
+          "call_time_s": 41.1,
+          "evidence": "third time",
+          "source": "rules",
+          "latency_ms": 309.0,
+          "ttl_s": 90.0
+        }
+      ],
+      "suppression": {
+        "signals_considered": 7,
+        "emitted": 2,
+        "suppressed_below_threshold": 2,
+        "suppressed_duplicate": 0,
+        "suppressed_cooldown": 3,
+        "evicted_for_priority": 0,
+        "expired_unread": 0,
+        "suppression_rate_pct": 71.4
+      },
+      "config": {
+        "min_confidence": 0.55,
+        "min_confidence_by_kind": {
+          "missed_opportunity": 0.88,
+          "topic_shift": 0.88,
+          "confusion": 0.85,
+          "buying_signal": 0.75
+        },
+        "cooldown_s": 45.0,
+        "ttl_s": 90.0,
+        "max_active": 3
+      }
+    }
+  }
+}

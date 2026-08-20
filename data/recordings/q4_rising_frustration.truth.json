@@ -1,0 +1,53 @@
+{
+  "id": "q4_rising_frustration",
+  "description": "Required Q4 coverage: rising frustration. A customer with a payment problem is bounced around; irritation builds across turns rather than appearing in one sharp phrase, which is why this needs the LLM layer and not just a keyword.",
+  "expected_nudges": [
+    "frustration",
+    "payment_difficulty"
+  ],
+  "must_not_nudge": [],
+  "max_nudges": null,
+  "script": [
+    {
+      "speaker": "agent",
+      "text": "Good morning, this is Anaya, an AI assistant from the collections support team. This call is recorded. I'm calling about the instalment due on your account.",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, I know. I already spoke to someone about this last week.",
+      "voice": "caller_en_in_m"
+    },
+    {
+      "speaker": "agent",
+      "text": "I see. The instalment is showing as pending. When can we expect the payment?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "I explained this already. Business has been very slow this season, I don't have the money right now.",
+      "voice": "caller_en_in_m"
+    },
+    {
+      "speaker": "agent",
+      "text": "I understand. Can you make the payment by the fifth of this month?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "This is the third time I'm telling someone the same thing. Nobody is listening. I said I don't have it.",
+      "voice": "caller_en_in_m"
+    },
+    {
+      "speaker": "agent",
+      "text": "Right. So can I note down the fifth as the payment date?",
+      "voice": "agent_en_in_f"
+    },
+    {
+      "speaker": "customer",
+      "text": "Are you even listening to me? This is a complete waste of my time. Every week somebody calls and asks the same question.",
+      "voice": "caller_en_in_m"
+    }
+  ],
+  "seconds": 65.6
+}

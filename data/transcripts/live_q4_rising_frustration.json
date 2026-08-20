@@ -1,0 +1,253 @@
+{
+  "call_id": "q4_rising_frustration",
+  "locale": "en-IN",
+  "wall_clock_s": 0.0,
+  "segments": 18,
+  "transcript": [
+    {
+      "speaker": "agent",
+      "text": "Good morning, this is Anaya, an AI assistant from the collections support team.",
+      "call_time_s": 0.3,
+      "duration_s": 5.9,
+      "asr_latency_ms": 378.7,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "This call is recorded.",
+      "call_time_s": 6.3,
+      "duration_s": 2.3,
+      "asr_latency_ms": 279.4,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "I'm calling about the installment due on your account.",
+      "call_time_s": 8.5,
+      "duration_s": 3.8,
+      "asr_latency_ms": 344.7,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, I know.",
+      "call_time_s": 14.7,
+      "duration_s": 2.1,
+      "asr_latency_ms": 574.5,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "I already spoke to someone about this last week.",
+      "call_time_s": 14.7,
+      "duration_s": 3.8,
+      "asr_latency_ms": 281.6,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "I see.",
+      "call_time_s": 19.1,
+      "duration_s": 1.5,
+      "asr_latency_ms": 339.8,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "The installment is showing as pending.",
+      "call_time_s": 23.5,
+      "duration_s": 3.0,
+      "asr_latency_ms": 1175.5,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "When can we expect the payment?",
+      "call_time_s": 23.5,
+      "duration_s": 2.6,
+      "asr_latency_ms": 251.3,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "I explained this already. Business has been very slow this season. I don't have the money right now.",
+      "call_time_s": 26.5,
+      "duration_s": 8.1,
+      "asr_latency_ms": 451.0,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "I understand.",
+      "call_time_s": 36.9,
+      "duration_s": 1.9,
+      "asr_latency_ms": 579.9,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "Can you make the payment by the 5th of this month?",
+      "call_time_s": 36.9,
+      "duration_s": 3.4,
+      "asr_latency_ms": 306.9,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "This is the third time I am telling someone the same thing.",
+      "call_time_s": 41.1,
+      "duration_s": 4.5,
+      "asr_latency_ms": 308.8,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Nobody is listening.",
+      "call_time_s": 45.5,
+      "duration_s": 2.0,
+      "asr_latency_ms": 263.8,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "Right.",
+      "call_time_s": 50.5,
+      "duration_s": 1.5,
+      "asr_latency_ms": 259.2,
+      "language": "English"
+    },
+    {
+      "speaker": "agent",
+      "text": "So can I note down the fifth as the payment date?",
+      "call_time_s": 52.1,
+      "duration_s": 3.5,
+      "asr_latency_ms": 358.4,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "This is a complete waste of my time.",
+      "call_time_s": 58.3,
+      "duration_s": 3.0,
+      "asr_latency_ms": 293.4,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Are you even listening to me?",
+      "call_time_s": 61.3,
+      "duration_s": 2.5,
+      "asr_latency_ms": 6638.4,
+      "language": "English"
+    },
+    {
+      "speaker": "customer",
+      "text": "Every week somebody calls and asks the same question.",
+      "call_time_s": 61.3,
+      "duration_s": 4.0,
+      "asr_latency_ms": 3450.5,
+      "language": "English"
+    }
+  ],
+  "compliance": {
+    "compliance_satisfied": [
+      "ai_disclosure",
+      "recording_disclosure"
+    ],
+    "compliance_missed": [],
+    "customer_turns": 8,
+    "agent_turns": 10
+  },
+  "latency": {
+    "asr_ms": {
+      "n": 18,
+      "min_ms": 251.3,
+      "p50_ms": 342.3,
+      "p95_ms": 3928.7,
+      "max_ms": 6638.4,
+      "mean_ms": 918.7
+    },
+    "signal_rules_ms": {
+      "n": 18,
+      "min_ms": 0.0,
+      "p50_ms": 0.1,
+      "p95_ms": 0.2,
+      "max_ms": 0.4,
+      "mean_ms": 0.1
+    },
+    "signal_llm_ms": {
+      "n": 5,
+      "min_ms": 610.4,
+      "p50_ms": 693.1,
+      "p95_ms": 732.8,
+      "max_ms": 742.0,
+      "mean_ms": 682.3
+    },
+    "delivery_ms": {
+      "n": 2,
+      "min_ms": 0.0,
+      "p50_ms": 0.0,
+      "p95_ms": 0.0,
+      "max_ms": 0.0,
+      "mean_ms": 0.0
+    },
+    "end_to_end_ms": {
+      "n": 2,
+      "min_ms": 309.0,
+      "p50_ms": 715.4,
+      "p95_ms": 1081.1,
+      "max_ms": 1121.7,
+      "mean_ms": 715.4
+    }
+  },
+  "nudges": [
+    {
+      "id": "8e51ce95c078",
+      "kind": "payment_difficulty",
+      "group": "payment",
+      "text": "Payment difficulty. Offer the approved support path - do not promise a waiver.",
+      "priority": 2,
+      "confidence": 0.9,
+      "call_time_s": 26.5,
+      "evidence": "I don't have the money right now",
+      "source": "llm",
+      "latency_ms": 1121.7,
+      "ttl_s": 90.0
+    },
+    {
+      "id": "7c616f18c678",
+      "kind": "frustration",
+      "group": "sentiment",
+      "text": "Frustration rising. Acknowledge the concern before asking anything else.",
+      "priority": 2,
+      "confidence": 0.7,
+      "call_time_s": 41.1,
+      "evidence": "third time",
+      "source": "rules",
+      "latency_ms": 309.0,
+      "ttl_s": 90.0
+    }
+  ],
+  "suppression": {
+    "signals_considered": 7,
+    "emitted": 2,
+    "suppressed_below_threshold": 2,
+    "suppressed_duplicate": 0,
+    "suppressed_cooldown": 3,
+    "evicted_for_priority": 0,
+    "expired_unread": 0,
+    "suppression_rate_pct": 71.4
+  },
+  "config": {
+    "min_confidence": 0.55,
+    "min_confidence_by_kind": {
+      "missed_opportunity": 0.88,
+      "topic_shift": 0.88,
+      "confusion": 0.85,
+      "buying_signal": 0.75
+    },
+    "cooldown_s": 45.0,
+    "ttl_s": 90.0,
+    "max_active": 3
+  }
+}
