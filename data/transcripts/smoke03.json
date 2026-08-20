@@ -1,0 +1,222 @@
+{
+  "call_id": "smoke03",
+  "locale": "en-IN",
+  "started_at": "2026-08-18T10:45:49.723506+00:00",
+  "ended_at": "2026-08-18T10:45:56.535248+00:00",
+  "ended_reason": "",
+  "consent": true,
+  "disclosures_given": [
+    "ai_disclosure",
+    "purpose_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {
+    "business_name": "Sharada Textiles",
+    "entity_type": "proprietorship",
+    "industry": "textile trading",
+    "business_vintage_months": 72,
+    "annual_turnover_inr": 7200000,
+    "loan_amount_inr": 1500000,
+    "loan_purpose": "working capital",
+    "gst_registered": true
+  },
+  "qualification": {
+    "disposition": "pass",
+    "reason_codes": [
+      "ENTITY_OK",
+      "VINTAGE_OK",
+      "TURNOVER_OK",
+      "AMOUNT_OK"
+    ],
+    "rules_fired": [
+      "QR001",
+      "QR003",
+      "QR006",
+      "QR009"
+    ],
+    "missing_slots": [],
+    "conflicts": [],
+    "customer_messages": [
+      "Your business structure is eligible for our unsecured business loan.",
+      "Your business vintage meets our requirement.",
+      "Your turnover is within our lending range.",
+      "That amount is within the range we offer without collateral."
+    ]
+  },
+  "escalation": null,
+  "lead": null,
+  "latency_summary": {
+    "understand_ms": {
+      "n": 7,
+      "min_ms": 601.8,
+      "p50_ms": 723.7,
+      "p95_ms": 926.1,
+      "max_ms": 996.1,
+      "mean_ms": 742.4
+    },
+    "agent_turn_total_ms": {
+      "n": 7,
+      "min_ms": 601.9,
+      "p50_ms": 724.5,
+      "p95_ms": 1958.1,
+      "max_ms": 2370.3,
+      "mean_ms": 972.9
+    },
+    "retrieval_answer_ms": {
+      "n": 1,
+      "min_ms": 1610.9,
+      "p50_ms": 1610.9,
+      "p95_ms": 1610.9,
+      "max_ms": 1610.9,
+      "mean_ms": 1610.9
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, this is Anaya from U GRO Capital. Am I speaking with the owner of the business, or someone who handles the business finances? Just so you know, I'm an AI assistant, not a human agent. This call is recorded for quality and training purposes. I'm calling about your business loan enquiry. Is this a good time to take two or three minutes? I just need a few details about your business to check what you'd be eligible for.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes sure, go ahead.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "What's the name of your business?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 996.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 996.1
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "It's Sharada Textiles, proprietorship, textile trading, running about 6 years.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Roughly what was your turnover in the last financial year?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 724.5,
+      "meta": {
+        "stages": {
+          "understand_ms": 723.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Around 72 lakhs turnover last year, and I need maybe 15 lakh for working capital.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Based on what you've told me, this looks like it fits our criteria, so I'll pass it to a credit officer for an in-principle review. Your business structure is eligible for our unsecured business loan. Before I arrange that, is there anything you want to ask me?",
+      "phase": "next_step",
+      "intent": "answer",
+      "latency_ms": 632.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 631.2
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Are there any hidden charges I should know about?",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "There are no hidden charges – you’ll see processing fees, bounce charges, penal charges on overdue instalments and foreclosure charges listed in our schedule of charges, and I can send you that schedule.",
+      "phase": "next_step",
+      "intent": "objection",
+      "latency_ms": 2370.3,
+      "grounded": {
+        "text": "There are no hidden charges – you’ll see processing fees, bounce charges, penal charges on overdue instalments and foreclosure charges listed in our schedule of charges, and I can send you that schedule.",
+        "answered": true,
+        "top_score": 1.0,
+        "used_record_ids": [
+          "objection_handbook__006",
+          "webpdf_front-assets_images_Privacy_schedule_of_charges__021"
+        ],
+        "citations": [
+          "OBJ-06 \"Are there hidden charges?\" | section: OBJ-06 \"Are there hidden charges?\" | internal document (synthetic, authored for this assessment): Telecalling objection handbook (internal, synthetic)",
+          "Schedule of Charges - Schedule of Charges (SOC) | page 14 | https://www.ugrocapital.com/front-assets/images/Privacy/schedule_of_charges.pdf"
+        ],
+        "rejected_reason": "",
+        "attempts": 1,
+        "retrieved": [
+          "objection_handbook__006",
+          "webpdf_front-assets_images_Privacy_schedule_of_charges__021",
+          "webpdf_front-assets_images_Privacy_schedule_of_charges__007",
+          "webpdf_front-assets_images_Privacy_schedule_of_charges__006"
+        ]
+      },
+      "meta": {
+        "stages": {
+          "understand_ms": 759.3,
+          "retrieval_answer_ms": 1610.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "No existing EMIs, and yes we are GST registered.",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more?",
+      "phase": "next_step",
+      "intent": "answer",
+      "latency_ms": 763.4,
+      "meta": {
+        "stages": {
+          "understand_ms": 762.8
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "No that's all, thanks.",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more?",
+      "phase": "next_step",
+      "intent": "smalltalk",
+      "latency_ms": 722.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 722.0
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes that works.",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry, I didn't catch that - could you say it once more?",
+      "phase": "next_step",
+      "intent": "confirm",
+      "latency_ms": 601.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 601.8
+        }
+      }
+    }
+  ]
+}
