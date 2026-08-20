@@ -1,0 +1,182 @@
+{
+  "built_at": "2026-08-18T11:38:07.909613+00:00",
+  "documents_in": 48,
+  "documents_skipped": [
+    {
+      "doc_id": "web_business-loans-without-collateral",
+      "url": "https://www.ugrocapital.com/business-loans-without-collateral",
+      "reason": "soft_404",
+      "note": "URL is listed in the site's own sitemap but returns a 'page not found' body with HTTP 200. Flagged, not indexed."
+    },
+    {
+      "doc_id": "web_rooftop-solar-finance",
+      "url": "https://www.ugrocapital.com/rooftop-solar-finance",
+      "reason": "soft_404",
+      "note": "URL is listed in the site's own sitemap but returns a 'page not found' body with HTTP 200. Flagged, not indexed."
+    },
+    {
+      "doc_id": "web_supply-chain-finance",
+      "url": "https://www.ugrocapital.com/supply-chain-finance",
+      "reason": "soft_404",
+      "note": "URL is listed in the site's own sitemap but returns a 'page not found' body with HTTP 200. Flagged, not indexed."
+    },
+    {
+      "doc_id": "web_retailer-finance",
+      "url": "https://www.ugrocapital.com/retailer-finance",
+      "reason": "soft_404",
+      "note": "URL is listed in the site's own sitemap but returns a 'page not found' body with HTTP 200. Flagged, not indexed."
+    },
+    {
+      "doc_id": "web_educational-institutes-loan",
+      "url": "https://www.ugrocapital.com/educational-institutes-loan",
+      "reason": "soft_404",
+      "note": "URL is listed in the site's own sitemap but returns a 'page not found' body with HTTP 200. Flagged, not indexed."
+    },
+    {
+      "doc_id": "web_loan-against-bank-guarantee-or-fixed-deposits",
+      "url": "https://www.ugrocapital.com/loan-against-bank-guarantee-or-fixed-deposits",
+      "reason": "soft_404",
+      "note": "URL is listed in the site's own sitemap but returns a 'page not found' body with HTTP 200. Flagged, not indexed."
+    },
+    {
+      "doc_id": "web_grox",
+      "url": "https://www.ugrocapital.com/grox",
+      "reason": "soft_404",
+      "note": "URL is listed in the site's own sitemap but returns a 'page not found' body with HTTP 200. Flagged, not indexed."
+    },
+    {
+      "doc_id": "web_electric-vehicle-financing",
+      "url": "https://www.ugrocapital.com/electric-vehicle-financing",
+      "reason": "soft_404",
+      "note": "URL is listed in the site's own sitemap but returns a 'page not found' body with HTTP 200. Flagged, not indexed."
+    },
+    {
+      "doc_id": "web_doctors-loan",
+      "url": "https://www.ugrocapital.com/doctors-loan",
+      "reason": "soft_404",
+      "note": "URL is listed in the site's own sitemap but returns a 'page not found' body with HTTP 200. Flagged, not indexed."
+    },
+    {
+      "doc_id": "web_green-supply-chain",
+      "url": "https://www.ugrocapital.com/green-supply-chain",
+      "reason": "soft_404",
+      "note": "URL is listed in the site's own sitemap but returns a 'page not found' body with HTTP 200. Flagged, not indexed."
+    }
+  ],
+  "chunks_before_dedupe": 432,
+  "records": 391,
+  "records_new": 107,
+  "records_changed": 87,
+  "records_unchanged": 197,
+  "pii_records": 39,
+  "retrieval_blocked_records": 39,
+  "languages": {
+    "en": 296,
+    "ta": 22,
+    "hi": 21,
+    "ur": 20,
+    "te": 17,
+    "pa": 15
+  },
+  "markets": {
+    "IN": 358,
+    "PH": 17,
+    "ID": 16
+  },
+  "categories": {
+    "unclassified": 90,
+    "compliance": 52,
+    "policy": 52,
+    "company": 32,
+    "pricing": 32,
+    "product": 31,
+    "faq": 27,
+    "process": 26,
+    "eligibility": 24,
+    "partnership": 12,
+    "objection": 10,
+    "lead_record": 3
+  },
+  "source_types": {
+    "website": 193,
+    "website_pdf": 135,
+    "internal_handbook": 50,
+    "internal_pdf": 6,
+    "internal_table": 4,
+    "crm_export": 3
+  },
+  "normalisation": {
+    "dates_normalized": 106,
+    "amounts_annotated": 176
+  },
+  "dedupe": {
+    "total_in": 432,
+    "exact_duplicates_merged": 36,
+    "near_duplicates_merged": 5,
+    "kept": 391,
+    "reduction_pct": 9.5,
+    "examples": [
+      {
+        "kept": "web_pricing-policy-and-schedule-of-charges__000",
+        "merged": "web_ombudsman-scheme__000",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "web_pricing-policy-and-schedule-of-charges__000",
+        "merged": "web_fair-practices-code__000",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "web_pricing-policy-and-schedule-of-charges__000",
+        "merged": "web_financial-fraud__000",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "web_loan-against-property__000",
+        "merged": "web_secured-loan-against-property__000",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "web_loan-against-property__001",
+        "merged": "web_secured-loan-against-property__001",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "web_loan-against-property__002",
+        "merged": "web_secured-loan-against-property__002",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "web_loan-against-property__003",
+        "merged": "web_secured-loan-against-property__003",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "web_loan-against-property__004",
+        "merged": "web_secured-loan-against-property__004",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "web_loan-against-property__005",
+        "merged": "web_secured-loan-against-property__005",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "webpdf_front-assets_images_Privacy_schedule_of_charges__002",
+        "merged": "webpdf_front-assets_images_Privacy_schedule_of_charges__005",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "webpdf_front-assets_images_Privacy_schedule_of_charges__002",
+        "merged": "webpdf_front-assets_images_Privacy_schedule_of_charges__010",
+        "hamming_distance": 0
+      },
+      {
+        "kept": "webpdf_front-assets_images_Privacy_schedule_of_charges__002",
+        "merged": "webpdf_front-assets_images_Privacy_schedule_of_charges__017",
+        "hamming_distance": 0
+      }
+    ]
+  },
+  "snapshot": "data\\kb\\versions\\20260818T113807Z.jsonl"
+}
