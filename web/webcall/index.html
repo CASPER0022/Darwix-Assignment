@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web call - Darwix AI assessment</title>
+<style>
+  :root {
+    --bg:#0f1216; --panel:#171b21; --line:#262c35; --text:#e7ecf3; --muted:#8b97a8;
+    --accent:#4f8cff; --agent:#1d3a5f; --customer:#243041; --ok:#39c07c; --warn:#f0a742;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
+  header { padding:18px 22px; border-bottom:1px solid var(--line); display:flex;
+           align-items:center; gap:16px; flex-wrap:wrap; }
+  h1 { font-size:17px; margin:0; font-weight:600; }
+  .sub { color:var(--muted); font-size:13px; }
+  main { display:grid; grid-template-columns: 1fr 340px; gap:18px; padding:18px 22px;
+         max-width:1180px; margin:0 auto; }
+  @media (max-width:900px){ main { grid-template-columns:1fr; } }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; }
+  #log { height:56vh; overflow-y:auto; display:flex; flex-direction:column; gap:10px; }
+  .msg { padding:10px 12px; border-radius:9px; max-width:88%; white-space:pre-wrap; }
+  .agent { background:var(--agent); align-self:flex-start; }
+  .customer { background:var(--customer); align-self:flex-end; }
+  .who { font-size:11px; text-transform:uppercase; letter-spacing:.6px; color:var(--muted);
+         margin-bottom:3px; }
+  .cite { margin-top:7px; padding-top:7px; border-top:1px dashed #3a4a63; font-size:12px;
+          color:#9fc0ef; }
+  .meta { font-size:11px; color:var(--muted); margin-top:5px; }
+  button { background:var(--accent); color:#fff; border:0; border-radius:8px;
+           padding:9px 16px; font-size:14px; cursor:pointer; font-weight:500; }
+  button.stop { background:#c0453f; }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+  select, input[type=text] { background:#10141a; color:var(--text); border:1px solid var(--line);
+           border-radius:8px; padding:8px 10px; font-size:14px; }
+  .status { display:inline-flex; align-items:center; gap:7px; font-size:13px; color:var(--muted); }
+  .dot { width:9px; height:9px; border-radius:50%; background:#48525f; }
+  .dot.live { background:var(--ok); box-shadow:0 0 0 4px rgba(57,192,124,.15); }
+  .dot.listen { background:var(--accent); box-shadow:0 0 0 4px rgba(79,140,255,.15); }
+  .dot.think { background:var(--warn); box-shadow:0 0 0 4px rgba(240,167,66,.15); }
+  .row { display:flex; gap:9px; align-items:center; flex-wrap:wrap; }
+  h2 { font-size:13px; text-transform:uppercase; letter-spacing:.6px; color:var(--muted);
+       margin:0 0 10px; font-weight:600; }
+  dl { margin:0; display:grid; grid-template-columns:auto 1fr; gap:5px 12px; font-size:13px; }
+  dt { color:var(--muted); }
+  dd { margin:0; text-align:right; }
+  .bar { height:5px; background:#10141a; border-radius:3px; overflow:hidden; margin-top:9px; }
+  .bar span { display:block; height:100%; background:var(--accent); width:0; transition:width .1s; }
+  .note { font-size:12px; color:var(--muted); margin-top:14px; line-height:1.5; }
+  code { background:#10141a; padding:1px 5px; border-radius:4px; font-size:12px; }
+  button.ghost { background:#232a34; color:var(--text); border:1px solid var(--line); }
+  button.ghost.off { color:#f0a742; border-color:rgba(240,167,66,.45); }
+  .replay { display:block; margin-top:8px; background:transparent; color:#9fc0ef;
+            border:1px solid #3a4a63; border-radius:6px; padding:3px 9px;
+            font-size:11px; font-weight:500; }
+  .replay:hover { background:rgba(79,140,255,.13); }
+  .sysnote { align-self:center; text-align:center; font-size:12px; color:var(--muted);
+             max-width:92%; line-height:1.5; }
+  .sysnote.warn { color:#f6c177; background:rgba(240,167,66,.09);
+                  border:1px solid rgba(240,167,66,.28); border-radius:8px; padding:9px 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Web call</h1>
+  <span class="sub">grounded lead-qualification agent &mdash; mic &rarr; VAD &rarr; Whisper &rarr; KB &rarr; TTS</span>
+  <span style="flex:1"></span>
+  <span class="status"><span class="dot" id="dot"></span><span id="state">idle</span></span>
+</header>
+
+<main>
+  <section class="panel">
+    <div class="row" style="margin-bottom:14px">
+      <select id="locale">
+        <option value="en-IN">English (India) &mdash; business loan</option>
+        <option value="fil-PH">Filipino / Taglish &mdash; life insurance</option>
+        <option value="id-ID">Bahasa Indonesia &mdash; multifinance</option>
+      </select>
+      <button id="start">Start call</button>
+      <button id="stop" class="stop" disabled>Hang up</button>
+      <button id="mute" class="ghost" title="Mute or unmute the agent's voice">&#128266; Voice on</button>
+    </div>
+    <div class="bar"><span id="level"></span></div>
+    <div id="log" style="margin-top:14px"></div>
+    <div class="row" style="margin-top:12px">
+      <input type="text" id="typed" placeholder="…or type instead of speaking" style="flex:1">
+      <button id="send">Send</button>
+    </div>
+  </section>
+
+  <aside>
+    <div class="panel">
+      <h2>Call</h2>
+      <dl>
+        <dt>Call id</dt><dd id="callid">&mdash;</dd>
+        <dt>Turns</dt><dd id="turns">0</dd>
+        <dt>Last ASR</dt><dd id="asr">&mdash;</dd>
+        <dt>Last think</dt><dd id="think">&mdash;</dd>
+        <dt>Last TTS</dt><dd id="tts">&mdash;</dd>
+        <dt>Microphone</dt><dd id="micstate">idle</dd>
+        <dt>Mic level</dt><dd id="mic">&mdash;</dd>
+      </dl>
+    </div>
+    <div class="panel" style="margin-top:14px">
+      <h2>Grounding</h2>
+      <div id="grounding" class="sub">No factual claim made yet.</div>
+      <p class="note">The agent may only state a fact that came from a knowledge-base
+      record. Below the retrieval confidence threshold it says it does not know
+      and offers a human.</p>
+    </div>
+    <div class="panel" style="margin-top:14px">
+      <h2>Try these</h2>
+      <p class="note">
+        &bull; <code>What are the hidden charges?</code><br>
+        &bull; <code>Who do I complain to?</code><br>
+        &bull; <code>Do you finance a petrol pump in Dubai?</code> (out of scope)<br>
+        &bull; <code>Can I speak to a human?</code> (escalation)<br>
+        &bull; <code>Your rate is too high, Bajaj offered 15%</code> (objection)
+      </p>
+    </div>
+  </aside>
+</main>
+
+<script>
+const SR = 16000;
+// Fetched from /api/health at load so there is one source of truth; the
+// literal is only the fallback for when that request fails.
+let SPEECH_FLOOR = 0.010;
+let ws = null, ctx = null, node = null, zeroGain = null, stream = null,
+    playhead = 0, turns = 0, framesSent = 0, voicedFrames = 0, micWarned = false,
+    micReady = false;
+// Audio output is deliberately independent of audio input. The agent's voice
+// has to work when the microphone does not - a denied mic permission is the
+// normal case for a typed conversation, and it used to silence the agent too.
+let muted = false, liveSources = [];
+let turnChunks = [];        // PCM for the turn currently arriving
+let turnEl = null;          // the message bubble that turn belongs to
+
+const $ = id => document.getElementById(id);
+const setState = (s, cls) => { $("state").textContent = s; $("dot").className = "dot " + (cls||""); };
+
+function note(msg, kind) {
+  const d = document.createElement("div");
+  d.className = "sysnote" + (kind ? " " + kind : "");
+  d.innerHTML = msg;
+  $("log").appendChild(d);
+  $("log").scrollTop = $("log").scrollHeight;
+}
+
+function addMessage(who, text, extra) {
+  const d = document.createElement("div");
+  d.className = "msg " + who;
+  d.innerHTML = '<div class="who">' + (who === "agent" ? "Agent" : "You") + "</div>" +
+                escapeHtml(text);
+  if (extra) d.insertAdjacentHTML("beforeend", extra);
+  if (who === "agent") {
+    const b = document.createElement("button");
+    b.className = "replay";
+    b.hidden = true;
+    b.textContent = "\u25b6 replay";
+    d.appendChild(b);
+  }
+  $("log").appendChild(d);
+  $("log").scrollTop = $("log").scrollHeight;
+  return d;
+}
+function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// ---- playback -----------------------------------------------------------
+// The AudioContext is created on Start, not inside the microphone setup. That
+// was the bug: ctx only existed if getUserMedia had succeeded, so a denied or
+// missing mic meant playPcm() returned on its first line and every frame of
+// the agent's speech was dropped on the floor - silently, while the transcript
+// still scrolled past as if the agent were talking.
+async function ensureAudio() {
+  if (!ctx) {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) { note("&#9888; This browser has no Web Audio support, so the agent " +
+                    "cannot be heard. The transcript still works.", "warn"); return null; }
+    ctx = new AC();
+    playhead = ctx.currentTime;
+  }
+  // Browsers start a context suspended until a user gesture. Both entry points
+  // (Start, and Send) are click handlers, so resuming here is always allowed.
+  if (ctx.state === "suspended") { try { await ctx.resume(); } catch (e) {} }
+  return ctx;
+}
+
+function pcmToBuffer(int16) {
+  const audio = ctx.createBuffer(1, int16.length, SR);
+  const ch = audio.getChannelData(0);
+  for (let i = 0; i < int16.length; i++) ch[i] = int16[i] / 32768;
+  return audio;
+}
+
+// Frames arrive faster than real time, so each is scheduled against a moving
+// playhead rather than played on arrival - that is what keeps the sentence
+// continuous instead of overlapping itself.
+function playPcm(buf) {
+  const pcm = new Int16Array(buf);
+  turnChunks.push(pcm);                 // keep it so the turn can be replayed
+  if (!ctx || muted) return;
+  const audio = pcmToBuffer(pcm);
+  const src = ctx.createBufferSource();
+  src.buffer = audio;
+  src.connect(ctx.destination);
+  const now = ctx.currentTime;
+  if (playhead < now) playhead = now + 0.04;
+  src.start(playhead);
+  playhead += audio.duration;
+  liveSources.push(src);
+  src.onended = () => { liveSources = liveSources.filter(x => x !== src); };
+}
+
+function stopPlayback() {
+  liveSources.forEach(s => { try { s.stop(); } catch (e) {} });
+  liveSources = [];
+  if (ctx) playhead = ctx.currentTime;
+}
+
+function concatPcm(chunks) {
+  let n = 0;
+  for (const c of chunks) n += c.length;
+  const out = new Int16Array(n);
+  let o = 0;
+  for (const c of chunks) { out.set(c, o); o += c.length; }
+  return out;
+}
+
+// Attach the finished turn's audio to its bubble so it can be heard again.
+// A voice agent's answer scrolls past once; being able to replay the exact
+// audio next to the exact text is what makes the transcript checkable.
+function finishTurnAudio() {
+  if (turnEl && turnChunks.length) {
+    const pcm = concatPcm(turnChunks);
+    const secs = pcm.length / SR;
+    const btn = turnEl.querySelector(".replay");
+    if (btn) {
+      btn.hidden = false;
+      btn.textContent = "\u25b6 replay " + secs.toFixed(1) + "s";
+      btn.onclick = async () => {
+        await ensureAudio();
+        if (!ctx) return;
+        stopPlayback();
+        const src = ctx.createBufferSource();
+        src.buffer = pcmToBuffer(pcm);
+        src.connect(ctx.destination);
+        src.start();
+        liveSources.push(src);
+        src.onended = () => { liveSources = liveSources.filter(x => x !== src); };
+      };
+    }
+  }
+  turnChunks = [];
+  turnEl = null;
+}
+
+// ---- capture: downsample mic to 16 kHz PCM16 ----------------------------
+function downsample(input, inRate) {
+  const ratio = inRate / SR;
+  const out = new Int16Array(Math.floor(input.length / ratio));
+  for (let i = 0; i < out.length; i++) {
+    const s = Math.max(-1, Math.min(1, input[Math.floor(i * ratio)]));
+    out[i] = s < 0 ? s * 0x8000 : s * 0x7fff;
+  }
+  return out;
+}
+
+// getUserMedia only exists on a secure origin. Served over plain http on a LAN
+// address it is simply undefined, and the old code awaited it inside an async
+// handler nobody awaited - so the promise rejected into nothing, no audio node
+// was ever built, and the call sat there looking connected while sending zero
+// bytes. Detect it up front and say so instead.
+function secureContextProblem() {
+  const h = location.hostname;
+  const localish = (h === "localhost" || h === "127.0.0.1" || h === "[::1]");
+  if (window.isSecureContext || localish) return null;
+  return "This page is on <code>http://" + escapeHtml(location.host) + "</code>, which the " +
+         "browser treats as an insecure origin, so microphone access is blocked. " +
+         "Open it as <code>http://127.0.0.1:" + escapeHtml(location.port || "8000") +
+         "</code> instead. Typing still works here.";
+}
+
+async function setupMic() {
+  const problem = secureContextProblem();
+  if (problem) { note("&#9888; " + problem, "warn"); return false; }
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    note("&#9888; This browser exposes no microphone API. Typing still works.", "warn");
+    return false;
+  }
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount:1, echoCancellation:true, noiseSuppression:true, autoGainControl:true }
+    });
+  } catch (err) {
+    note("&#9888; Microphone unavailable: <b>" + escapeHtml(err.name || String(err)) + "</b>. " +
+         (err.name === "NotAllowedError"
+            ? "Permission was denied - allow the mic from the address-bar icon, then start the call again."
+            : "Check that no other application is holding the microphone.") +
+         " Typing still works.", "warn");
+    return false;
+  }
+
+  // Reuse the context opened by ensureAudio(); a second one would give the
+  // agent's voice and the microphone separate clocks.
+  await ensureAudio();
+  if (!ctx) return false;
+
+  const source = ctx.createMediaStreamSource(stream);
+  node = ctx.createScriptProcessor(4096, 1, 1);
+  node.onaudioprocess = e => {
+    const input = e.inputBuffer.getChannelData(0);
+    let sum = 0, pk = 0;
+    for (let i = 0; i < input.length; i++) {
+      const a = Math.abs(input[i]);
+      if (a > pk) pk = a;
+      sum += input[i] * input[i];
+    }
+    const level = Math.sqrt(sum / input.length);
+    $("level").style.width = Math.min(100, pk * 260) + "%";
+    $("mic").textContent = level.toFixed(4);
+    if (level >= SPEECH_FLOOR) voicedFrames++;
+    if (ws && ws.readyState === 1) {
+      ws.send(downsample(input, ctx.sampleRate).buffer);
+      framesSent++;
+    }
+  };
+  // A ScriptProcessorNode only runs while it is connected onward, but wiring it
+  // to ctx.destination pipes the microphone straight back out of the speakers.
+  // A zero-gain sink keeps it pulling without the echo.
+  zeroGain = ctx.createGain();
+  zeroGain.gain.value = 0;
+  source.connect(node);
+  node.connect(zeroGain);
+  zeroGain.connect(ctx.destination);
+
+  micReady = true;
+  $("micstate").textContent = "live @ " + ctx.sampleRate + " Hz";
+  return true;
+}
+
+// If frames are flowing but none ever clear the speech floor, the browser is
+// handing us a muted or wrong input device. That used to be invisible.
+function watchdog() {
+  setTimeout(() => {
+    if (!micReady || micWarned || !ws || ws.readyState !== 1) return;
+    if (framesSent === 0) {
+      micWarned = true;
+      note("&#9888; No audio frames reached the server. The microphone is not " +
+           "producing samples - check the input device in your sound settings.", "warn");
+    } else if (voicedFrames === 0) {
+      micWarned = true;
+      note("&#9888; Audio is flowing but every frame is below the speech floor " +
+           "(" + SPEECH_FLOOR.toFixed(4) + "). The selected input is probably muted or is " +
+           "the wrong device - watch the <b>mic level</b> readout while you talk.", "warn");
+    }
+  }, 12000);
+}
+
+async function connect() {
+  return new Promise((resolve, reject) => {
+    ws = new WebSocket("ws://" + location.host + "/ws/call?locale=" +
+                       encodeURIComponent($("locale").value));
+    ws.binaryType = "arraybuffer";
+    ws.onopen = () => {
+      $("start").disabled = true; $("stop").disabled = false; $("locale").disabled = true;
+      setState("connected", "live");
+      resolve();
+    };
+    ws.onerror = () => reject(new Error("websocket failed"));
+    ws.onclose = () => { cleanup(); setState("idle", ""); };
+    ws.onmessage = onMessage;
+  });
+}
+
+function onMessage(ev) {
+  if (ev.data instanceof ArrayBuffer) { playPcm(ev.data); return; }
+  const m = JSON.parse(ev.data);
+  if (m.type === "call_started") { $("callid").textContent = m.call_id; }
+  else if (m.type === "listening") setState("listening", "listen");
+  else if (m.type === "thinking")  setState("thinking", "think");
+  else if (m.type === "speaking")  { setState("speaking", "live"); if (m.tts_ms) $("tts").textContent = m.tts_ms + " ms"; }
+  else if (m.type === "idle")      { finishTurnAudio(); setState("connected", "live"); }
+  else if (m.type === "barge_in")  { stopPlayback(); finishTurnAudio(); setState("interrupted", "listen"); }
+  else if (m.type === "transcript") {
+    turns++; $("turns").textContent = turns;
+    let extra = "";
+    if (m.grounded && m.grounded.citations && m.grounded.citations.length) {
+      extra = '<div class="cite">source: ' + escapeHtml(m.grounded.citations[0]) + "</div>";
+      $("grounding").innerHTML = "<b>Answered from KB</b><br>" +
+        m.grounded.citations.map(c => escapeHtml(c)).join("<br>") +
+        '<div class="meta">score ' + m.grounded.top_score + "</div>";
+    } else if (m.grounded && m.grounded.answered === false) {
+      extra = '<div class="cite">no confident source &rarr; declined to answer</div>';
+      $("grounding").innerHTML = "<b>Declined</b><br>reason: " +
+        escapeHtml(m.grounded.rejected_reason || "below threshold") +
+        '<div class="meta">top score ' + m.grounded.top_score + "</div>";
+    }
+    if (m.asr_ms) $("asr").textContent = m.asr_ms + " ms";
+    if (m.think_ms) $("think").textContent = m.think_ms + " ms";
+    const el = addMessage(m.speaker, m.text, extra);
+    if (m.speaker === "agent") {
+      // The audio for this turn starts arriving right after its transcript,
+      // so from here every frame belongs to this bubble until 'idle'.
+      finishTurnAudio();
+      turnEl = el;
+      turnChunks = [];
+    }
+  }
+  else if (m.type === "call_ended") {
+    note("&mdash; call ended (" + escapeHtml(m.reason || "") + ") &mdash;");
+    setState("ended", "");
+  }
+  else if (m.type === "artefacts") {
+    note("Recording: <code>" + escapeHtml(m.recording || "n/a") + "</code><br>" +
+         "Transcript: <code>" + escapeHtml(m.transcript || "n/a") + "</code>");
+  }
+  else if (m.type === "error") note("Error: " + escapeHtml(m.message), "warn");
+}
+
+async function start() {
+  if (ws && ws.readyState === 1) return;
+  $("start").disabled = true;
+  framesSent = 0; voicedFrames = 0; micWarned = false; micReady = false;
+  // Open the output path first and from inside the click, so the agent can be
+  // heard even if the microphone is later refused.
+  await ensureAudio();
+  try {
+    await connect();
+  } catch (e) {
+    note("&#9888; Could not open the call socket. Is the server still running?", "warn");
+    $("start").disabled = false;
+    return;
+  }
+  await setupMic();          // failure is non-fatal: the typed path still works
+  watchdog();
+}
+
+function cleanup() {
+  if (node) { node.onaudioprocess = null; node.disconnect(); node = null; }
+  if (zeroGain) { zeroGain.disconnect(); zeroGain = null; }
+  if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+  // The AudioContext deliberately outlives the call: closing it would kill the
+  // replay buttons on every turn already in the transcript.
+  finishTurnAudio();
+  micReady = false;
+  $("start").disabled = false; $("stop").disabled = true; $("locale").disabled = false;
+  $("micstate").textContent = "idle";
+  $("level").style.width = "0%";
+}
+
+$("mute").onclick = () => {
+  muted = !muted;
+  if (muted) stopPlayback();
+  $("mute").textContent = muted ? "\ud83d\udd07 Voice off" : "\ud83d\udd0a Voice on";
+  $("mute").classList.toggle("off", muted);
+};
+
+$("start").onclick = start;
+$("stop").onclick = () => {
+  if (ws) { try { ws.send(JSON.stringify({type:"hangup"})); } catch(e){} ws.close(); }
+  cleanup();
+};
+
+// Typing used to require an already-running call and failed silently otherwise,
+// which is what "nothing happens when I type" was. Now it starts the call
+// itself, so the interface is fully usable with no microphone at all.
+async function sendTyped() {
+  const t = $("typed").value.trim();
+  if (!t) return;
+  if (!ws || ws.readyState !== 1) {
+    note("Starting the call so your message can be sent&hellip;");
+    await start();
+    if (!ws || ws.readyState !== 1) return;
+  }
+  ws.send(JSON.stringify({type:"text", text:t}));
+  $("typed").value = "";
+}
+$("send").onclick = sendTyped;
+$("typed").addEventListener("keydown", e => {
+  if (e.key === "Enter") { e.preventDefault(); sendTyped(); }
+});
+
+window.addEventListener("DOMContentLoaded", async () => {
+  const problem = secureContextProblem();
+  if (problem) note("&#9888; " + problem, "warn");
+  try {
+    const h = await (await fetch("/api/health")).json();
+    if (typeof h.speech_rms_floor === "number") SPEECH_FLOOR = h.speech_rms_floor;
+  } catch (e) { /* keep the fallback */ }
+});
+</script>
+</body>
+</html>

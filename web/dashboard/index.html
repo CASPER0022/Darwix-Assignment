@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live nudges - Darwix AI assessment</title>
+<style>
+  :root { --bg:#0f1216; --panel:#171b21; --line:#262c35; --text:#e7ecf3; --muted:#8b97a8;
+          --accent:#4f8cff; --p1:#e0524b; --p2:#f0a742; --p3:#4f8cff; --p4:#39c07c; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
+  header { padding:16px 22px; border-bottom:1px solid var(--line); display:flex;
+           gap:14px; align-items:center; flex-wrap:wrap; }
+  h1 { font-size:17px; margin:0; }
+  .sub { color:var(--muted); font-size:13px; }
+  main { display:grid; grid-template-columns:1fr 400px; gap:16px; padding:16px 22px;
+         max-width:1300px; margin:0 auto; }
+  @media (max-width:980px){ main { grid-template-columns:1fr; } }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:15px; }
+  h2 { font-size:12px; text-transform:uppercase; letter-spacing:.7px; color:var(--muted);
+       margin:0 0 11px; font-weight:600; }
+  select, button { font-size:14px; border-radius:8px; padding:9px 13px; }
+  select { background:#10141a; color:var(--text); border:1px solid var(--line); min-width:250px; }
+  button { background:var(--accent); color:#fff; border:0; cursor:pointer; font-weight:500; }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+  #transcript { height:52vh; overflow-y:auto; font-size:14px; }
+  .line { padding:5px 0; border-bottom:1px solid #1e242d; display:flex; gap:10px; }
+  .t { color:var(--muted); font-variant-numeric:tabular-nums; font-size:12px; min-width:52px; }
+  .sp { min-width:70px; font-size:12px; text-transform:uppercase; letter-spacing:.5px; }
+  .sp.agent { color:#7fb0ff; } .sp.customer { color:#8fd8b0; }
+  #nudges { min-height:180px; display:flex; flex-direction:column; gap:9px; }
+  .nudge { border-left:4px solid var(--p3); background:#10141a; border-radius:7px;
+           padding:11px 12px; animation:pop .25s ease-out; }
+  .nudge.p1 { border-color:var(--p1); } .nudge.p2 { border-color:var(--p2); }
+  .nudge.p4 { border-color:var(--p4); }
+  .nudge .k { font-size:11px; text-transform:uppercase; letter-spacing:.6px; color:var(--muted); }
+  .nudge .m { font-size:12px; color:var(--muted); margin-top:6px; }
+  @keyframes pop { from { opacity:0; transform:translateY(-6px);} to {opacity:1;transform:none;} }
+  dl { margin:0; display:grid; grid-template-columns:auto 1fr; gap:5px 12px; font-size:13px; }
+  dt { color:var(--muted); } dd { margin:0; text-align:right; font-variant-numeric:tabular-nums; }
+  .fade { color:var(--muted); font-size:13px; }
+  .sig { font-size:12px; color:var(--muted); padding:3px 0; }
+  .note { font-size:12px; color:var(--muted); margin-top:12px; line-height:1.5; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Live insights &amp; nudges</h1>
+  <span class="sub">recording replayed at real time &mdash; nudges appear <b>during</b> the call</span>
+  <span style="flex:1"></span>
+  <select id="rec"></select>
+  <button id="go">Start analysis</button>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>Live transcript</h2>
+    <div id="transcript"><p class="fade">Pick a recording and press start.</p></div>
+    <h2 style="margin-top:16px">Signals detected (before suppression)</h2>
+    <div id="signals" class="fade">none yet</div>
+  </section>
+
+  <aside>
+    <div class="panel">
+      <h2>Active nudges</h2>
+      <div id="nudges"><p class="fade">No nudges yet.</p></div>
+    </div>
+    <div class="panel" style="margin-top:14px">
+      <h2>Latency</h2>
+      <dl>
+        <dt>Elapsed</dt><dd id="elapsed">0.0 s</dd>
+        <dt>Segments</dt><dd id="segs">0</dd>
+        <dt>Last ASR</dt><dd id="asr">&mdash;</dd>
+        <dt>Nudges shown</dt><dd id="count">0</dd>
+        <dt>Last end-to-end</dt><dd id="e2e">&mdash;</dd>
+      </dl>
+      <p class="note">End-to-end is measured from the moment the last audio sample
+      of an utterance arrives to the moment the nudge is delivered here.</p>
+    </div>
+    <div class="panel" style="margin-top:14px">
+      <h2>Suppression</h2>
+      <div id="supp" class="fade">Reported when the call ends.</div>
+    </div>
+  </aside>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+let ws = null, started = 0, segs = 0, shown = 0, timer = null;
+
+fetch("/api/recordings").then(r => r.json()).then(d => {
+  const sel = $("rec");
+  d.recordings.forEach(r => {
+    const o = document.createElement("option");
+    o.value = r.id;
+    o.textContent = r.id + (r.seconds ? "  (" + r.seconds + "s)" : "");
+    sel.appendChild(o);
+  });
+  if (!d.recordings.length) {
+    const o = document.createElement("option");
+    o.textContent = "no recordings - run: python -m darwix.simulator.scenario_recorder";
+    sel.appendChild(o);
+  }
+});
+
+function esc(s){ return (s||"").replace(/[&<>"']/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+$("go").onclick = () => {
+  const id = $("rec").value;
+  if (!id) return;
+  $("transcript").innerHTML = ""; $("nudges").innerHTML = "";
+  $("signals").innerHTML = ""; $("supp").textContent = "running…";
+  segs = 0; shown = 0; started = Date.now();
+  $("go").disabled = true;
+  clearInterval(timer);
+  timer = setInterval(() => {
+    $("elapsed").textContent = ((Date.now() - started) / 1000).toFixed(1) + " s";
+  }, 100);
+
+  ws = new WebSocket(`ws://${location.host}/ws/nudges`);
+  ws.onopen = () => ws.send(JSON.stringify({action:"analyse", id, speed:1.0, use_llm:true}));
+  ws.onmessage = ev => {
+    const m = JSON.parse(ev.data);
+    if (m.type === "transcript") {
+      segs++; $("segs").textContent = segs;
+      $("asr").textContent = Math.round(m.asr_latency_ms) + " ms";
+      const d = document.createElement("div");
+      d.className = "line";
+      d.innerHTML = `<span class="t">${m.call_time_s.toFixed(1)}s</span>` +
+                    `<span class="sp ${m.speaker}">${m.speaker}</span>` +
+                    `<span>${esc(m.text)}</span>`;
+      $("transcript").appendChild(d);
+      $("transcript").scrollTop = $("transcript").scrollHeight;
+    }
+    else if (m.type === "signal") {
+      const d = document.createElement("div");
+      d.className = "sig";
+      d.textContent = `${m.at_call_time_s}s  ${m.kind}  (${m.source}, conf ${m.confidence})`;
+      $("signals").appendChild(d);
+    }
+    else if (m.type === "nudge") {
+      shown++; $("count").textContent = shown;
+      $("e2e").textContent = Math.round(m.latency_ms) + " ms";
+      const d = document.createElement("div");
+      d.className = "nudge p" + m.priority;
+      d.innerHTML = `<div class="k">P${m.priority} &middot; ${esc(m.kind)} &middot; ${esc(m.source)}</div>` +
+                    `<div>${esc(m.text)}</div>` +
+                    `<div class="m">at ${m.call_time_s}s &middot; ${Math.round(m.latency_ms)} ms &middot; conf ${m.confidence}` +
+                    (m.evidence ? ` &middot; "${esc(m.evidence)}"` : "") + `</div>`;
+      $("nudges").prepend(d);
+    }
+    else if (m.type === "call_ended") {
+      clearInterval(timer);
+      $("go").disabled = false;
+      const s = m.report.suppression;
+      $("supp").innerHTML =
+        `considered <b>${s.signals_considered}</b> &middot; shown <b>${s.emitted}</b><br>` +
+        `below threshold ${s.suppressed_below_threshold} &middot; duplicate ${s.suppressed_duplicate} ` +
+        `&middot; cooldown ${s.suppressed_cooldown}<br>` +
+        `suppression rate <b>${s.suppression_rate_pct}%</b>`;
+    }
+    else if (m.type === "error") {
+      $("supp").textContent = m.message;
+      $("go").disabled = false; clearInterval(timer);
+    }
+  };
+  ws.onclose = () => { $("go").disabled = false; clearInterval(timer); };
+};
+</script>
+</body>
+</html>

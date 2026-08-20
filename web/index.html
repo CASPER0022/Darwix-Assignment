@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darwix AI — AI Engineer assessment</title>
+<style>
+  /* Light by design. `color-scheme: light` stops the browser tinting form
+     controls and scrollbars dark when the OS theme is dark, which is what
+     makes an otherwise white page look half-finished. */
+  :root {
+    color-scheme: light;
+    --bg:        #ffffff;
+    --bg-soft:   #f7f8fa;
+    --line:      #e6e8ec;
+    --line-soft: #eef0f3;
+    --text:      #14171f;
+    --muted:     #5f6673;
+    --faint:     #8b929e;
+    --accent:    #1f5eff;
+    --accent-dk: #1848c9;
+    --ok:        #0f9d58;
+    --warn:      #b26a00;
+    --shadow:    0 1px 2px rgba(20,23,31,.04), 0 8px 24px -12px rgba(20,23,31,.10);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 16px/1.65 ui-sans-serif, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+
+  /* ---------------------------------------------------------------- header */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,.86);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    max-width: 1080px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .mark { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.01em; }
+  .dot {
+    width: 22px; height: 22px; border-radius: 6px; flex: none;
+    background: linear-gradient(135deg, var(--accent), #6f9bff);
+  }
+  .bar .spacer { flex: 1; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 13px; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px;
+    background: var(--bg);
+  }
+  .pip { width: 7px; height: 7px; border-radius: 50%; background: var(--faint); flex: none; }
+  .pip.ok   { background: var(--ok); }
+  .pip.warn { background: var(--warn); }
+
+  /* ------------------------------------------------------------------ hero */
+  main { max-width: 1080px; margin: 0 auto; padding: 0 24px 88px; }
+  .hero { padding: 72px 0 8px; max-width: 720px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 18px;
+  }
+  h1 {
+    font-size: clamp(30px, 4.6vw, 44px); line-height: 1.15; letter-spacing: -.022em;
+    font-weight: 640; margin: 0 0 18px;
+  }
+  .lede { font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0; }
+
+  /* ----------------------------------------------------------------- stats */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+    margin: 44px 0 0;
+  }
+  .stat { background: var(--bg); padding: 18px 20px; }
+  .stat .n {
+    font-size: 22px; font-weight: 620; letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  /* Model identifiers are long enough to wrap and push their row out of
+     alignment, which reads as a broken layout rather than a long name. They
+     get their own size and are held to one line. */
+  .stat .n.text {
+    font-size: 15px; font-weight: 600; letter-spacing: -.005em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    padding-top: 5px; padding-bottom: 2px;
+  }
+  .stat .k { font-size: 12.5px; color: var(--faint); margin-top: 3px; }
+
+  /* ----------------------------------------------------------------- cards */
+  .section-head { margin: 64px 0 20px; }
+  .section-head h2 { font-size: 13px; font-weight: 600; letter-spacing: .07em;
+                     text-transform: uppercase; color: var(--faint); margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  a.card {
+    display: flex; flex-direction: column;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 14px;
+    padding: 22px 22px 20px; text-decoration: none; color: inherit;
+    transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+  }
+  a.card:hover {
+    border-color: #cdd6e6; box-shadow: var(--shadow); transform: translateY(-2px);
+  }
+  a.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .tag {
+    align-self: flex-start; font-size: 11px; font-weight: 600; letter-spacing: .05em;
+    color: var(--accent); background: #eef3ff; border-radius: 5px;
+    padding: 3px 7px; margin-bottom: 14px;
+  }
+  a.card h3 {
+    font-size: 17px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  a.card h3 .arrow { color: var(--faint); transition: transform .16s ease, color .16s ease; }
+  a.card:hover h3 .arrow { transform: translateX(3px); color: var(--accent); }
+  a.card p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); }
+  a.card .flow {
+    margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--line-soft);
+    font-size: 12px; color: var(--faint); font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------------------------------------------------------------- notice */
+  .notice {
+    margin-top: 56px; border: 1px solid var(--line); border-radius: 14px;
+    background: var(--bg-soft); padding: 24px 26px;
+  }
+  .notice h4 {
+    margin: 0 0 10px; font-size: 14px; font-weight: 640;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .notice p { margin: 0 0 10px; font-size: 14px; line-height: 1.65; color: var(--muted); }
+  .notice p:last-child { margin-bottom: 0; }
+  .notice strong { color: var(--text); font-weight: 600; }
+
+  footer {
+    max-width: 1080px; margin: 0 auto; padding: 28px 24px 56px;
+    border-top: 1px solid var(--line); color: var(--faint); font-size: 13px;
+    display: flex; gap: 18px; flex-wrap: wrap; align-items: center;
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  footer .spacer { flex: 1; }
+
+  code {
+    font: 500 12.5px/1 ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    background: var(--bg-soft); border: 1px solid var(--line-soft);
+    padding: 2px 6px; border-radius: 5px; color: var(--text);
+  }
+
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px) {
+    .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .hero { padding-top: 48px; }
+    main { padding-bottom: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <span class="mark"><span class="dot" aria-hidden="true"></span>Darwix AI</span>
+    <span class="spacer"></span>
+    <span class="pill" id="health"><span class="pip" id="pip"></span><span id="healthtext">checking…</span></span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">AI Engineer assessment</p>
+    <h1>A voice agent that can only say what it can prove.</h1>
+    <p class="lede">
+      Four connected systems: a knowledge-grounded voice agent, a production knowledge
+      base built from a real lender's public content, native-language agents for the
+      Philippines and Indonesia, and nudges delivered to a human agent while the call
+      is still running.
+    </p>
+  </section>
+
+  <section class="stats" id="stats">
+    <div class="stat"><div class="n" id="s-records">—</div><div class="k">retrievable records</div></div>
+    <div class="stat"><div class="n" id="s-index">—</div><div class="k">retrieval</div></div>
+    <div class="stat"><div class="n" id="s-dialog">—</div><div class="k">dialogue model</div></div>
+    <div class="stat"><div class="n" id="s-asr">—</div><div class="k">speech recognition</div></div>
+  </section>
+
+  <div class="section-head"><h2>Try it</h2></div>
+
+  <section class="grid">
+    <a class="card" href="/webcall">
+      <span class="tag">Q1 · Q3</span>
+      <h3>Web call <span class="arrow" aria-hidden="true">&rarr;</span></h3>
+      <p>Speak to the agent in the browser, or type instead. Every factual claim shows
+         the knowledge-base record it came from — and the agent declines rather than
+         guesses when retrieval is not confident.</p>
+      <div class="flow">mic → VAD → Whisper → retrieval → grounding → speech</div>
+    </a>
+
+    <a class="card" href="/kb">
+      <span class="tag">Q2</span>
+      <h3>Knowledge base <span class="arrow" aria-hidden="true">&rarr;</span></h3>
+      <p>Search the records directly. Keyword and semantic search fused by rank, with
+         citations, versions, and the confidence threshold that decides whether the
+         agent is allowed to answer at all.</p>
+      <div class="flow">BM25 + embeddings → reciprocal rank fusion</div>
+    </a>
+
+    <a class="card" href="/dashboard">
+      <span class="tag">Q4</span>
+      <h3>Live nudges <span class="arrow" aria-hidden="true">&rarr;</span></h3>
+      <p>Watch a recorded call replay at true speed while compliance gaps, buying
+         signals and rising frustration surface as short prompts — before the call
+         would have ended.</p>
+      <div class="flow">streaming ASR → signals → nudge, measured end to end</div>
+    </a>
+
+    <a class="card" href="/api/kb/stats">
+      <span class="tag">Build</span>
+      <h3>Build report <span class="arrow" aria-hidden="true">&rarr;</span></h3>
+      <p>How the knowledge base was assembled: sources crawled, extraction failures
+         flagged, near-duplicates merged, PII detected and blocked, and what was
+         deliberately skipped.</p>
+      <div class="flow">JSON</div>
+    </a>
+  </section>
+
+  <div class="notice">
+    <h4>About this prototype</h4>
+    <p>
+      Built for a technical assessment. The knowledge base is grounded in the
+      <strong>publicly published pages and policy PDFs of a real NBFC</strong>, and every
+      answer cites the record it came from.
+    </p>
+    <p>
+      The credit policy, qualification matrix, objection handbook, application form and
+      lead records are <strong>synthetic</strong> — authored for this exercise, labelled as
+      such in every record and in every citation the agent speaks. The callers on all
+      recorded test calls are synthetic too.
+    </p>
+    <p>
+      This system is <strong>not affiliated with, endorsed by, or operated by</strong> any
+      company named in it. The agent discloses that it is an AI, and that the call is
+      recorded, before it asks anything.
+    </p>
+  </div>
+</main>
+
+<footer>
+  <span>Prototype — not for production use.</span>
+  <span class="spacer"></span>
+  <a href="/api/health">Health</a>
+  <a href="/api/kb/stats">Build stats</a>
+  <a href="/api/recordings">Recordings</a>
+</footer>
+
+<script>
+fetch("/api/health")
+  .then(r => r.json())
+  .then(h => {
+    const ok = h.status === "ok";
+    document.getElementById("pip").className = "pip " + (ok ? "ok" : "warn");
+    document.getElementById("healthtext").textContent =
+      ok ? "All services ready" : "Degraded — " + (h.index_present ? "check API keys" : "no index");
+
+    const set = (id, v) => { document.getElementById(id).textContent = v; };
+    set("s-records", (h.records ?? 0).toLocaleString());
+    set("s-index", h.embeddings_present ? "Hybrid" : "Lexical");
+    // Model ids are namespaced ("openai/gpt-oss-120b"); the family is the
+    // readable part and the full id is kept in the tooltip.
+    const short = s => String(s || "—").split("/").pop();
+    set("s-dialog", short(h.dialog_model));
+    set("s-asr", short(h.asr_model));
+    document.getElementById("s-dialog").classList.add("text");
+    document.getElementById("s-asr").classList.add("text");
+    document.getElementById("s-dialog").title = h.dialog_model || "";
+    document.getElementById("s-asr").title = h.asr_model || "";
+    document.getElementById("s-index").title =
+      h.embeddings_present ? "BM25 + embeddings, fused by rank"
+                           : "BM25 only — no embeddings present";
+  })
+  .catch(() => {
+    document.getElementById("pip").className = "pip warn";
+    document.getElementById("healthtext").textContent = "Health check failed";
+  });
+</script>
+</body>
+</html>

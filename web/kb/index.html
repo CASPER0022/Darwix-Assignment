@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge base search - Darwix AI assessment</title>
+<style>
+  :root { --bg:#0f1216; --panel:#171b21; --line:#262c35; --text:#e7ecf3; --muted:#8b97a8;
+          --accent:#4f8cff; --ok:#39c07c; --warn:#f0a742; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
+  header { padding:18px 22px; border-bottom:1px solid var(--line); }
+  h1 { font-size:17px; margin:0 0 4px; }
+  .sub { color:var(--muted); font-size:13px; }
+  main { max-width:960px; margin:0 auto; padding:20px 22px; }
+  .row { display:flex; gap:9px; flex-wrap:wrap; }
+  input, select, button { font-size:14px; border-radius:8px; padding:10px 12px; }
+  input, select { background:#10141a; color:var(--text); border:1px solid var(--line); }
+  input { flex:1; min-width:240px; }
+  button { background:var(--accent); color:#fff; border:0; cursor:pointer; font-weight:500; }
+  .chips { margin:12px 0 18px; display:flex; gap:7px; flex-wrap:wrap; }
+  .chip { background:#1b212a; border:1px solid var(--line); color:var(--muted);
+          padding:5px 10px; border-radius:20px; font-size:12px; cursor:pointer; }
+  .chip:hover { color:var(--text); border-color:var(--accent); }
+  .verdict { padding:9px 12px; border-radius:8px; margin-bottom:14px; font-size:13px; }
+  .yes { background:rgba(57,192,124,.12); border:1px solid rgba(57,192,124,.35); }
+  .no  { background:rgba(240,167,66,.12); border:1px solid rgba(240,167,66,.35); }
+  .hit { background:var(--panel); border:1px solid var(--line); border-radius:10px;
+         padding:14px; margin-bottom:12px; }
+  .hit h3 { margin:0 0 5px; font-size:15px; }
+  .tags { display:flex; gap:6px; flex-wrap:wrap; margin:8px 0; }
+  .tag { font-size:11px; background:#1b212a; border:1px solid var(--line);
+         padding:2px 8px; border-radius:5px; color:var(--muted); }
+  .score { float:right; font-variant-numeric:tabular-nums; color:var(--accent); font-weight:600; }
+  pre { white-space:pre-wrap; background:#10141a; padding:10px; border-radius:7px;
+        font-size:13px; margin:8px 0 0; max-height:230px; overflow:auto; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Knowledge base search</h1>
+  <div class="sub">Hybrid retrieval: BM25 + Gemini embeddings fused with Reciprocal Rank Fusion.
+    PII-bearing records are excluded in SQL and cannot appear here.</div>
+</header>
+<main>
+  <div class="row">
+    <input id="q" placeholder="Ask what a customer would ask…" value="what documents do I need for a business loan">
+    <select id="lang">
+      <option value="en">English</option><option value="hi">Hindi</option>
+      <option value="ta">Tamil</option><option value="te">Telugu</option>
+      <option value="pa">Punjabi</option><option value="ur">Urdu</option>
+    </select>
+    <button onclick="run()">Search</button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div id="out"></div>
+</main>
+<script>
+const EXAMPLES = [
+  "what documents do I need for a business loan",
+  "what is the bounce charge",
+  "can I close the loan early without penalty",
+  "who do I complain to if I am unhappy",
+  "how many years in business do I need",
+  "customer says the interest rate is too high",
+  "what support do branch partners get",
+  "do you finance a restaurant in Dubai"
+];
+const chips = document.getElementById("chips");
+EXAMPLES.forEach(e => {
+  const s = document.createElement("span");
+  s.className = "chip"; s.textContent = e;
+  s.onclick = () => { document.getElementById("q").value = e; run(); };
+  chips.appendChild(s);
+});
+
+function esc(s){ return (s||"").replace(/[&<>"']/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+async function run() {
+  const q = document.getElementById("q").value.trim();
+  const lang = document.getElementById("lang").value;
+  if (!q) return;
+  const out = document.getElementById("out");
+  out.innerHTML = "<p class='sub'>searching…</p>";
+  const r = await fetch(`/api/kb/search?q=${encodeURIComponent(q)}&k=5&language=${lang}`);
+  const d = await r.json();
+  let html = `<div class="verdict ${d.confident ? "yes" : "no"}">` +
+    (d.confident
+      ? `Above the confidence threshold (${d.threshold}) — the agent is allowed to answer from these records.`
+      : `Below the confidence threshold (${d.threshold}) — the agent must say it does not know and offer a human.`) +
+    `</div>`;
+  if (!d.results.length) html += "<p class='sub'>No records matched.</p>";
+  d.results.forEach(h => {
+    html += `<div class="hit"><span class="score">${h.score.toFixed(3)}</span>
+      <h3>${esc(h.title)}</h3>
+      <div class="tags">
+        <span class="tag">${esc(h.category)}</span>
+        <span class="tag">v${esc(h.version)}</span>
+        <span class="tag">${esc(h.record_id)}</span>
+        ${h.lexical_rank ? `<span class="tag">BM25 #${h.lexical_rank}</span>` : ""}
+        ${h.dense_rank ? `<span class="tag">dense #${h.dense_rank}</span>` : ""}
+      </div>
+      <div class="sub">${esc(h.citation)}</div>
+      <pre>${esc(h.content)}</pre></div>`;
+  });
+  out.innerHTML = html;
+}
+run();
+</script>
+</body>
+</html>
