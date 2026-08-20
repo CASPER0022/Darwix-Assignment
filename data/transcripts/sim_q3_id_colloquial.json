@@ -1,0 +1,268 @@
+{
+  "call_id": "sim_q3_id_colloquial",
+  "locale": "id-ID",
+  "started_at": "2026-08-19T06:58:30.614473+00:00",
+  "ended_at": "2026-08-19T07:03:25.706636+00:00",
+  "ended_reason": "completed:no_commitment",
+  "consent": true,
+  "disclosures_given": [
+    "ai_disclosure",
+    "no_payment_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {
+    "customer_name": "Santoso",
+    "payment_status": "belum ada uangnya",
+    "product_type": "motor",
+    "cicilan_amount": 1200000,
+    "jatuh_tempo": "5"
+  },
+  "qualification": {
+    "disposition": "no_commitment",
+    "reason_codes": [
+      "NO_COMMITMENT"
+    ],
+    "rules_fired": [],
+    "missing_slots": [],
+    "conflicts": [],
+    "customer_messages": [],
+    "soft_refusals": [
+      "nanti saya kabari"
+    ],
+    "commitment": ""
+  },
+  "escalation": null,
+  "lead": {
+    "lead_id": "LD-LLOQUIAL",
+    "call_id": "sim_q3_id_colloquial",
+    "created_at": "2026-08-19T07:03:08.573979+00:00",
+    "channel": "ai_voice_agent",
+    "locale": "id-ID",
+    "consent_captured": true,
+    "disclosures_given": [
+      "ai_disclosure",
+      "no_payment_disclosure",
+      "recording_disclosure"
+    ],
+    "slots": {
+      "customer_name": "Santoso",
+      "payment_status": "belum ada uangnya",
+      "product_type": "motor",
+      "cicilan_amount": 1200000,
+      "jatuh_tempo": "5"
+    },
+    "qualification": {
+      "disposition": "no_commitment",
+      "reason_codes": [
+        "NO_COMMITMENT"
+      ],
+      "rules_fired": [],
+      "missing_slots": [],
+      "conflicts": [],
+      "customer_messages": [],
+      "soft_refusals": [
+        "nanti saya kabari"
+      ],
+      "commitment": ""
+    },
+    "disposition": "no_commitment",
+    "escalation": null,
+    "callback_slot": "Wednesday at 2 pm",
+    "transcript_ref": "data/transcripts/sim_q3_id_colloquial.json",
+    "turns": 18
+  },
+  "latency_summary": {
+    "tts_ms": {
+      "n": 10,
+      "min_ms": 11527.3,
+      "p50_ms": 12496.2,
+      "p95_ms": 16036.0,
+      "max_ms": 16103.5,
+      "mean_ms": 13322.6
+    },
+    "asr_ms": {
+      "n": 9,
+      "min_ms": 564.4,
+      "p50_ms": 1123.0,
+      "p95_ms": 1921.6,
+      "max_ms": 2004.6,
+      "mean_ms": 1157.3
+    },
+    "understand_ms": {
+      "n": 9,
+      "min_ms": 760.9,
+      "p50_ms": 1297.9,
+      "p95_ms": 1690.4,
+      "max_ms": 1715.9,
+      "mean_ms": 1235.8
+    },
+    "agent_turn_total_ms": {
+      "n": 9,
+      "min_ms": 761.2,
+      "p50_ms": 1298.3,
+      "p95_ms": 1691.7,
+      "max_ms": 1718.0,
+      "mean_ms": 1236.5
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Selamat pagi, saya Rani dari Sejahtera Multifinance. Apakah benar ini dengan Bapak atau Ibu pemilik kontrak pembiayaan? Sebelumnya, saya asisten AI ya Pak/Bu, bukan petugas manusia. Panggilan ini direkam untuk keperluan kualitas layanan. Saya tidak akan meminta OTP, PIN, atau pembayaran lewat telepon ini - pembayaran hanya melalui channel resmi. Boleh minta waktu sebentar? Ini mengenai angsuran yang akan jatuh tempo, supaya tidak kena denda.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "Selamat pagi, Rani Iya, ini saya Budi Santoso Gimana kabarnya?",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "Boleh saya konfirmasi nama Bapak atau Ibu sesuai kontrak?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 1327.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 1327.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "di Santoso, Pak. Ya, ini saya.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Pembiayaannya untuk kendaraan, alat usaha, atau multiguna ya?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 761.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 760.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "gimana ya kak, bulan ini berat banget, belum ada uangnya.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Kembali ke tadi ya Pak/Bu - Pembiayaannya untuk kendaraan, alat usaha, atau multiguna ya?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 885.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 884.3
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Oke, ini motor, jadi kendaraan",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Berapa angsuran per bulannya, Pak/Bu?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 815.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 815.4
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "nanti saya kabari deh kalau sudah ada.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Baik Pak/Bu, tidak apa-apa. Supaya saya catat dengan benar - kira-kira tanggal berapa Bapak/Ibu bisa transfer? Kalau memang belum bisa, tidak masalah, saya catat apa adanya.",
+      "phase": "qualification",
+      "intent": "unclear",
+      "latency_ms": 1443.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 1443.6
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Ih, bulan ini lagi sepi, belum ada cashnya, jadi belum bisa transfer, nanti kalau ada saya kabar ya",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Kembali ke tadi ya Pak/Bu - Kira-kira saja tidak apa-apa - angsurannya berapa juta per bulan?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 1652.4,
+      "meta": {
+        "stages": {
+          "understand_ms": 1652.2
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "1.200.000 per bulan, kak.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Jatuh temponya tanggal berapa ya?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 1718.0,
+      "meta": {
+        "stages": {
+          "understand_ms": 1715.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "5. Kak",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Baik Pak/Bu, saya catat belum ada tanggal pastinya ya - tidak saya janjikan apa-apa. Kalau nanti butuh keringanan atau perpanjangan tenor, tim kami bisa bantu ajukan, tinggal hubungi kami. Sebelum saya aturkan, ada yang mau ditanyakan dulu?",
+      "phase": "next_step",
+      "intent": "answer",
+      "latency_ms": 1298.3,
+      "meta": {
+        "stages": {
+          "understand_ms": 1297.9
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "ada, makasih. Saya tunggu info selanjutnya.",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "Nanti tim kami hubungi di nomor ini ya. Apakah Wednesday at 2 pm bisa? Terima kasih banyak atas waktunya. Selamat beraktivitas, Pak/Bu.",
+      "phase": "closed",
+      "intent": "confirm",
+      "latency_ms": 1226.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 1223.9
+        }
+      }
+    }
+  ]
+}

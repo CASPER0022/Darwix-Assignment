@@ -1,0 +1,224 @@
+{
+  "call_id": "sim_q3_ph_cooperative",
+  "locale": "fil-PH",
+  "started_at": "2026-08-19T06:48:41.354724+00:00",
+  "ended_at": "2026-08-19T06:51:17.604436+00:00",
+  "ended_reason": "completed:pass",
+  "consent": true,
+  "disclosures_given": [
+    "ai_disclosure",
+    "no_payment_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {
+    "policy_holder_name": "Grace",
+    "payment_method": "auto-debit",
+    "policy_channel": "banko branch",
+    "premium_amount": 3000,
+    "payment_status": "nabayan ko po yung premium last month through auto-debit"
+  },
+  "qualification": {
+    "disposition": "pass",
+    "reason_codes": [
+      "VERIFIED"
+    ],
+    "rules_fired": [],
+    "missing_slots": [],
+    "conflicts": [],
+    "customer_messages": [],
+    "soft_refusals": [],
+    "commitment": ""
+  },
+  "escalation": null,
+  "lead": {
+    "lead_id": "LD-PERATIVE",
+    "call_id": "sim_q3_ph_cooperative",
+    "created_at": "2026-08-19T06:51:03.557315+00:00",
+    "channel": "ai_voice_agent",
+    "locale": "fil-PH",
+    "consent_captured": true,
+    "disclosures_given": [
+      "ai_disclosure",
+      "no_payment_disclosure",
+      "recording_disclosure"
+    ],
+    "slots": {
+      "policy_holder_name": "Grace",
+      "payment_method": "auto-debit",
+      "policy_channel": "banko branch",
+      "premium_amount": 3000,
+      "payment_status": "nabayan ko po yung premium last month through auto-debit"
+    },
+    "qualification": {
+      "disposition": "pass",
+      "reason_codes": [
+        "VERIFIED"
+      ],
+      "rules_fired": [],
+      "missing_slots": [],
+      "conflicts": [],
+      "customer_messages": [],
+      "soft_refusals": [],
+      "commitment": ""
+    },
+    "disposition": "pass",
+    "escalation": null,
+    "callback_slot": "Wednesday at 2 pm",
+    "transcript_ref": "data/transcripts/sim_q3_ph_cooperative.json",
+    "turns": 10
+  },
+  "latency_summary": {
+    "tts_ms": {
+      "n": 6,
+      "min_ms": 12052.9,
+      "p50_ms": 12345.4,
+      "p95_ms": 12858.6,
+      "max_ms": 12894.7,
+      "mean_ms": 12413.6
+    },
+    "asr_ms": {
+      "n": 5,
+      "min_ms": 516.7,
+      "p50_ms": 709.2,
+      "p95_ms": 1679.4,
+      "max_ms": 1913.8,
+      "mean_ms": 890.1
+    },
+    "understand_ms": {
+      "n": 5,
+      "min_ms": 724.2,
+      "p50_ms": 918.4,
+      "p95_ms": 1176.5,
+      "max_ms": 1191.5,
+      "mean_ms": 972.8
+    },
+    "retrieval_answer_ms": {
+      "n": 1,
+      "min_ms": 1405.2,
+      "p50_ms": 1405.2,
+      "p95_ms": 1405.2,
+      "max_ms": 1405.2,
+      "mean_ms": 1405.2
+    },
+    "agent_turn_total_ms": {
+      "n": 5,
+      "min_ms": 726.6,
+      "p50_ms": 918.7,
+      "p95_ms": 2256.4,
+      "max_ms": 2522.3,
+      "mean_ms": 1254.9
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Magandang araw po, si Marissa po ito mula sa Kabuhayan Life. Kausap ko po ba ang policyholder? Bago po tayo magsimula, AI assistant po ako, hindi po tao. Naka-record po ang tawag na ito para sa quality at training. Hindi po ako hihingi ng OTP, card details, o bayad dito sa tawag - sa opisyal na channels lang po ang bayad. May dalawang minuto po ba kayo? Tungkol lang po sa premium ng policy niyo, para hindi po ma-lapse.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "po, si Grace po. May auto-debit na po kami, kaya hindi naman kailangan ang dagdag na bayad, pero gusto ko lang malaman kung may update po ba sa due date.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "May 31 araw na grace period mula sa due date, kaya may hanggang sa petsa ng due date plus 31 araw para makabayad. Sa branch po ba ng bangko niyo nakuha ang policy, o direkta po sa amin?",
+      "phase": "qualification",
+      "intent": "question",
+      "latency_ms": 2522.3,
+      "grounded": {
+        "text": "May 31 araw na grace period mula sa due date, kaya may hanggang sa petsa ng due date plus 31 araw para makabayad.",
+        "answered": true,
+        "top_score": 0.42,
+        "used_record_ids": [
+          "ph_life_insurance__013"
+        ],
+        "citations": [
+          "OBJ-PH-02 \"Wala akong pambayad ngayon\" | section: OBJ-PH-02 \"Wala akong pambayad ngayon\" | internal document (synthetic, authored for this assessment): Kabuhayan Life product and service guide (Philippines, synthetic)"
+        ],
+        "rejected_reason": "",
+        "attempts": 1,
+        "retrieved": [
+          "ph_life_insurance__004",
+          "ph_life_insurance__013",
+          "ph_life_insurance__005",
+          "ph_life_insurance__011"
+        ]
+      },
+      "meta": {
+        "stages": {
+          "understand_ms": 1116.7,
+          "retrieval_answer_ms": 1405.2
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "po, kinuha ko po ito sa banko branch, bankassurance po, at auto-debit na po ang payment method.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Magkano po ang premium niyo kada buwan?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 913.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 913.5
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "po, tatlong libo po ang monthly premium.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Nabayaran na po ba ang premium ngayong buwan?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 1193.2,
+      "meta": {
+        "stages": {
+          "understand_ms": 1191.5
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "po, nabayaran ko po yung premium last month through auto-debit.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Salamat po. Base po sa records, updated naman po ang policy niyo, kaya wala pong problema sa coverage. Bago po ako mag-arrange, may gusto po ba kayong itanong?",
+      "phase": "next_step",
+      "intent": "answer",
+      "latency_ms": 918.7,
+      "meta": {
+        "stages": {
+          "understand_ms": 918.4
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "po, salamat po. Wala naman po akong ibang tanong ngayon. Thank you po.",
+      "phase": "next_step"
+    },
+    {
+      "speaker": "agent",
+      "text": "Ipapatawag ko na lang po kayo sa officer namin sa numerong ito. Okay lang po ba sa Wednesday at 2 pm? Maraming salamat po sa oras niyo. Ingat po kayo palagi.",
+      "phase": "closed",
+      "intent": "smalltalk",
+      "latency_ms": 726.6,
+      "meta": {
+        "stages": {
+          "understand_ms": 724.2
+        }
+      }
+    }
+  ]
+}

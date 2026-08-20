@@ -1,0 +1,189 @@
+{
+  "call_id": "sim_q3_id_javanese",
+  "locale": "id-ID",
+  "started_at": "2026-08-19T06:56:18.924935+00:00",
+  "ended_at": "2026-08-19T06:56:59.065124+00:00",
+  "ended_reason": "escalated:explicit_request",
+  "consent": true,
+  "disclosures_given": [
+    "ai_disclosure",
+    "no_payment_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {
+    "customer_name": "Pak Selamat Wibowo Soyo",
+    "payment_status": "sudah bayar minggu kemarin lewat transfer",
+    "product_type": "alat pertanian"
+  },
+  "qualification": null,
+  "escalation": {
+    "reason": "explicit_request",
+    "detail": "Customer asked to speak to a person.",
+    "created_at": "2026-08-19T06:56:52.980642+00:00"
+  },
+  "lead": {
+    "lead_id": "LD-JAVANESE",
+    "call_id": "sim_q3_id_javanese",
+    "created_at": "2026-08-19T06:56:52.980642+00:00",
+    "channel": "ai_voice_agent",
+    "locale": "id-ID",
+    "consent_captured": true,
+    "disclosures_given": [
+      "ai_disclosure",
+      "no_payment_disclosure",
+      "recording_disclosure"
+    ],
+    "slots": {
+      "customer_name": "Pak Selamat Wibowo Soyo",
+      "payment_status": "sudah bayar minggu kemarin lewat transfer",
+      "product_type": "alat pertanian"
+    },
+    "qualification": {},
+    "disposition": "incomplete",
+    "escalation": {
+      "reason": "explicit_request",
+      "detail": "Customer asked to speak to a person.",
+      "created_at": "2026-08-19T06:56:52.980642+00:00"
+    },
+    "callback_slot": "Wednesday at 2 pm",
+    "transcript_ref": "data/transcripts/sim_q3_id_javanese.json",
+    "turns": 8
+  },
+  "latency_summary": {
+    "tts_ms": {
+      "n": 5,
+      "min_ms": 1750.7,
+      "p50_ms": 2976.1,
+      "p95_ms": 4818.4,
+      "max_ms": 4953.4,
+      "mean_ms": 3293.9
+    },
+    "asr_ms": {
+      "n": 4,
+      "min_ms": 404.9,
+      "p50_ms": 682.7,
+      "p95_ms": 895.7,
+      "max_ms": 915.5,
+      "mean_ms": 671.4
+    },
+    "understand_ms": {
+      "n": 4,
+      "min_ms": 496.4,
+      "p50_ms": 775.2,
+      "p95_ms": 1012.4,
+      "max_ms": 1025.8,
+      "mean_ms": 768.2
+    },
+    "retrieval_answer_ms": {
+      "n": 1,
+      "min_ms": 1540.5,
+      "p50_ms": 1540.5,
+      "p95_ms": 1540.5,
+      "max_ms": 1540.5,
+      "mean_ms": 1540.5
+    },
+    "agent_turn_total_ms": {
+      "n": 4,
+      "min_ms": 496.8,
+      "p50_ms": 821.5,
+      "p95_ms": 2259.6,
+      "max_ms": 2477.2,
+      "mean_ms": 1154.3
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Selamat pagi, saya Rani dari Sejahtera Multifinance. Apakah benar ini dengan Bapak atau Ibu pemilik kontrak pembiayaan? Sebelumnya, saya asisten AI ya Pak/Bu, bukan petugas manusia. Panggilan ini direkam untuk keperluan kualitas layanan. Saya tidak akan meminta OTP, PIN, atau pembayaran lewat telepon ini - pembayaran hanya melalui channel resmi. Boleh minta waktu sebentar? Ini mengenai angsuran yang akan jatuh tempo, supaya tidak kena denda.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "Selamat pagi Bapak Rangi Inggih, ini Pak Selamat Wibowo Soyo sudah transfer minggu lalu, namun belum masuk sistem Monggo bisa bantu cek statusnya",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "Silakan konfirmasi tanggal dan kanal pembayaran, lalu kirimkan bukti transfer ke kanal resmi; biasanya butuh satu sampai dua hari kerja untuk terkonfirmasi. Pembiayaannya untuk kendaraan, alat usaha, atau multiguna ya?",
+      "phase": "qualification",
+      "intent": "question",
+      "latency_ms": 2477.2,
+      "grounded": {
+        "text": "Silakan konfirmasi tanggal dan kanal pembayaran, lalu kirimkan bukti transfer ke kanal resmi; biasanya butuh satu sampai dua hari kerja untuk terkonfirmasi.",
+        "answered": true,
+        "top_score": 0.514,
+        "used_record_ids": [
+          "id_multifinance__006"
+        ],
+        "citations": [
+          "Pembayaran saya sudah ditransfer tapi belum masuk sistem, bagaimana? | section: Pembayaran saya sudah ditransfer tapi belum masuk sistem, bagaimana? | internal document (synthetic, authored for this assessment): Sejahtera Multifinance panduan produk (Indonesia, synthetic)"
+        ],
+        "rejected_reason": "",
+        "attempts": 1,
+        "retrieved": [
+          "id_multifinance__006",
+          "id_multifinance__010",
+          "id_multifinance__013",
+          "id_multifinance__005"
+        ]
+      },
+      "meta": {
+        "stages": {
+          "understand_ms": 936.4,
+          "retrieval_answer_ms": 1540.5
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Ibu, sampun soya bayar minggu kemarin lewat transfer Monggo dicek malih",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Kembali ke tadi ya Pak/Bu - Pembiayaannya untuk kendaraan, alat usaha, atau multiguna ya?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 1026.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 1025.8
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Maturnuun, Bapak Pembiayaannya untuk alat pertanian, Pak Selamet Wibowo",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Berapa angsuran per bulannya, Pak/Bu?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 496.8,
+      "meta": {
+        "stages": {
+          "understand_ms": 496.4
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "kok belum masuk nggih? Kalau begitu saya mau bicara dengan petugasnya saja.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Baik, saya sambungkan ke petugas kami. Saya konfirmasi dulu nomor dan waktunya ya. Sudah saya catat, nanti tim kami menghubungi di the number on file pada Wednesday at 2 pm.",
+      "phase": "escalated",
+      "intent": "request_human",
+      "latency_ms": 616.9,
+      "meta": {
+        "stages": {
+          "understand_ms": 613.9
+        }
+      }
+    }
+  ]
+}

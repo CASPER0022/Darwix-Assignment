@@ -1,0 +1,202 @@
+{
+  "call_id": "sim_q3_ph_objection",
+  "locale": "fil-PH",
+  "started_at": "2026-08-19T06:51:19.647111+00:00",
+  "ended_at": "2026-08-19T06:53:48.790900+00:00",
+  "ended_reason": "escalated:explicit_request",
+  "consent": true,
+  "disclosures_given": [
+    "ai_disclosure",
+    "no_payment_disclosure",
+    "recording_disclosure"
+  ],
+  "slots": {
+    "policy_holder_name": "Dennis Ramos",
+    "payment_status": "wala akong pambayad",
+    "policy_channel": "directly from Kabahean life"
+  },
+  "qualification": null,
+  "escalation": {
+    "reason": "explicit_request",
+    "detail": "Customer asked to speak to a person.",
+    "created_at": "2026-08-19T06:53:34.210240+00:00"
+  },
+  "lead": {
+    "lead_id": "LD-BJECTION",
+    "call_id": "sim_q3_ph_objection",
+    "created_at": "2026-08-19T06:53:34.213678+00:00",
+    "channel": "ai_voice_agent",
+    "locale": "fil-PH",
+    "consent_captured": true,
+    "disclosures_given": [
+      "ai_disclosure",
+      "no_payment_disclosure",
+      "recording_disclosure"
+    ],
+    "slots": {
+      "policy_holder_name": "Dennis Ramos",
+      "payment_status": "wala akong pambayad",
+      "policy_channel": "directly from Kabahean life"
+    },
+    "qualification": {},
+    "disposition": "incomplete",
+    "escalation": {
+      "reason": "explicit_request",
+      "detail": "Customer asked to speak to a person.",
+      "created_at": "2026-08-19T06:53:34.210240+00:00"
+    },
+    "callback_slot": "Wednesday at 2 pm",
+    "transcript_ref": "data/transcripts/sim_q3_ph_objection.json",
+    "turns": 10
+  },
+  "latency_summary": {
+    "tts_ms": {
+      "n": 6,
+      "min_ms": 11487.5,
+      "p50_ms": 11810.4,
+      "p95_ms": 13054.9,
+      "max_ms": 13184.1,
+      "mean_ms": 12108.8
+    },
+    "asr_ms": {
+      "n": 5,
+      "min_ms": 567.5,
+      "p50_ms": 608.1,
+      "p95_ms": 794.0,
+      "max_ms": 810.7,
+      "mean_ms": 660.1
+    },
+    "understand_ms": {
+      "n": 5,
+      "min_ms": 671.7,
+      "p50_ms": 820.5,
+      "p95_ms": 1064.9,
+      "max_ms": 1105.5,
+      "mean_ms": 844.2
+    },
+    "retrieval_answer_ms": {
+      "n": 1,
+      "min_ms": 1125.6,
+      "p50_ms": 1125.6,
+      "p95_ms": 1125.6,
+      "max_ms": 1125.6,
+      "mean_ms": 1125.6
+    },
+    "agent_turn_total_ms": {
+      "n": 5,
+      "min_ms": 672.0,
+      "p50_ms": 827.3,
+      "p95_ms": 1844.0,
+      "max_ms": 2028.6,
+      "mean_ms": 1070.9
+    }
+  },
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Magandang araw po, si Marissa po ito mula sa Kabuhayan Life. Kausap ko po ba ang policyholder? Bago po tayo magsimula, AI assistant po ako, hindi po tao. Naka-record po ang tawag na ito para sa quality at training. Hindi po ako hihingi ng OTP, card details, o bayad dito sa tawag - sa opisyal na channels lang po ang bayad. May dalawang minuto po ba kayo? Tungkol lang po sa premium ng policy niyo, para hindi po ma-lapse.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "customer",
+      "text": "I know ito. How did you get my number? Scambi ito.",
+      "phase": "consent"
+    },
+    {
+      "speaker": "agent",
+      "text": "Wala po sa records ko ang detalyeng iyan, at ayaw ko pong manghula tungkol sa policy niyo. Ipapa-check ko po sa officer namin at babalikan ko kayo. Pwede po bang makuha ang buong pangalan niyo, para ma-verify ko ang policy?",
+      "phase": "qualification",
+      "intent": "question",
+      "latency_ms": 2028.6,
+      "grounded": {
+        "text": "Wala po sa records ko ang detalyeng iyan, at ayaw ko pong manghula tungkol sa policy niyo. Ipapa-check ko po sa officer namin at babalikan ko kayo.",
+        "answered": false,
+        "top_score": 0.306,
+        "used_record_ids": [],
+        "citations": [],
+        "rejected_reason": "retrieval_below_threshold",
+        "attempts": 0,
+        "retrieved": [
+          "ph_life_insurance__012",
+          "ph_life_insurance__007",
+          "ph_life_insurance__009",
+          "ph_life_insurance__016"
+        ]
+      },
+      "meta": {
+        "stages": {
+          "understand_ms": 902.8,
+          "retrieval_answer_ms": 1125.6
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "My name is Dennis Ramos. I'm from Cebu.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sa branch po ba ng bangko niyo nakuha ang policy, o direkta po sa amin?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 721.1,
+      "meta": {
+        "stages": {
+          "understand_ms": 720.8
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "Okay fine. But honestly, wala akong pambayad na yon. Wala talaga akong para this month.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Balik lang po tayo sandali - Sa branch po ba ng bangko niyo nakuha ang policy, o direkta po sa amin?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 1105.7,
+      "meta": {
+        "stages": {
+          "understand_ms": 1105.5
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "got it directly from Kabahean life, not from a bank branch.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Magkano po ang premium niyo kada buwan?",
+      "phase": "qualification",
+      "intent": "answer",
+      "latency_ms": 672.0,
+      "meta": {
+        "stages": {
+          "understand_ms": 671.7
+        }
+      }
+    },
+    {
+      "speaker": "customer",
+      "text": "BA akong makosaping tao. Hindi AKO komportable SA robot.",
+      "phase": "qualification"
+    },
+    {
+      "speaker": "agent",
+      "text": "Sige po, ipapatawag ko po kayo sa tao. I-confirm ko lang po ang number at oras niyo. Na-note ko na po ito, at may tatawag po sa inyo sa the number on file sa Wednesday at 2 pm.",
+      "phase": "escalated",
+      "intent": "request_human",
+      "latency_ms": 827.3,
+      "meta": {
+        "stages": {
+          "understand_ms": 820.5
+        }
+      }
+    }
+  ]
+}

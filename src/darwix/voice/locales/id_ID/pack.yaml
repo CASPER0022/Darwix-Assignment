@@ -1,0 +1,277 @@
+# ---------------------------------------------------------------------------
+# Locale pack: Indonesia / Bahasa Indonesia (Q3)
+# Sector: multifinance (consumer financing). Flow: installment reminder with a
+# payment-difficulty / restructuring path.
+#
+# AGAIN, NOT A TRANSLATION. Different sector from both other packs, and the
+# conversational problem is different: this is a pre-due and collections-adjacent
+# call, where the risk is not losing a lead but breaching conduct rules.
+#
+# Language design decisions, and why:
+#
+# 1. REGISTER IS A DIAL, NOT A SETTING. Indonesian has a formal register
+#    (Bapak/Ibu, "tidak", "sudah", full sentences) and a colloquial one (Kak,
+#    "nggak", "udah", clipped). The agent opens formal and follows the customer
+#    down if they go colloquial. Opening colloquially with an older customer is
+#    disrespectful; staying rigidly formal with a younger one sounds robotic.
+#
+# 2. FINANCE VOCABULARY STAYS INDONESIAN. cicilan, angsuran, tenor, denda, DP,
+#    jatuh tempo, pembiayaan. These are the real words - "installment" and
+#    "penalty" in English would confuse the customer, and "pinjaman" is a
+#    different product from "pembiayaan".
+#
+# 3. INDIRECT REFUSAL IS THE HARD PART. Indonesian politeness avoids a flat no.
+#    "Nanti saya kabari", "iya nanti deh", "belum ada kabar" all frequently mean
+#    no. A bot that reads them as agreement books a promise-to-pay that will
+#    never happen and pollutes the collections queue. Detection of these is in
+#    the pack AND enforced in code (soft_refusal_markers).
+#
+# 4. REGIONAL ACCENT IS TESTED, NOT ASSUMED. Javanese and Sundanese speakers of
+#    Indonesian carry distinctive phonology and interjections (nggih, monggo,
+#    sampun / punten, hatur nuhun). The agent must understand them and must not
+#    mirror them back - mimicking a regional accent from a Jakarta institution
+#    reads as mockery.
+# ---------------------------------------------------------------------------
+locale: id-ID
+language_name: Bahasa Indonesia
+market: Indonesia
+sector: multifinance / consumer financing
+use_case: installment_reminder
+market_code: ID
+kb_language: en
+
+# An instalment reminder. Nothing is underwritten here either, so no rules
+# engine. The flow verifies the contract, establishes payment status, and -
+# critically - forces an indirect refusal to resolve into a real date or an
+# honest "no commitment".
+flow:
+  default_outcome: pass
+  slots:
+    - key: customer_name
+      parse: text
+      describe: 'their name as on the financing contract'
+      ask: "Boleh saya konfirmasi nama Bapak atau Ibu sesuai kontrak?"
+      retry: "Nama yang tercatat di kontrak pembiayaannya, Pak/Bu?"
+    - key: product_type
+      parse: text
+      describe: 'what the financing is for - motor, mobil, alat usaha'
+      ask: "Pembiayaannya untuk kendaraan, alat usaha, atau multiguna ya?"
+    - key: cicilan_amount
+      parse: amount
+      describe: 'the monthly instalment AS SPOKEN, e.g. "satu juta dua ratus ribu"'
+      ask: "Berapa angsuran per bulannya, Pak/Bu?"
+      retry: "Kira-kira saja tidak apa-apa - angsurannya berapa juta per bulan?"
+    - key: jatuh_tempo
+      parse: text
+      describe: 'the due date, e.g. "tanggal 5"'
+      ask: "Jatuh temponya tanggal berapa ya?"
+    - key: payment_status
+      parse: text
+      describe: 'whether this month is already paid, or not yet'
+      ask: "Untuk bulan ini sudah dibayar atau belum ya, Pak/Bu?"
+      retry: "Sudah ditransfer belum untuk bulan ini?"
+
+brand:
+  display_name: "Sejahtera Multifinance"
+  disclaimer: >-
+    Fictional multifinance company created for this assessment. Not a real
+    company, and not based on any real company's products or customer data.
+  agent_name: "Rani"
+
+voice:
+  tts_voice: agent_id_f           # id-ID-GadisNeural, standard Jakarta register
+  asr_language: null              # auto-detect; regional accents tested separately
+  # Javanese and Sundanese are the accent tests in Q3, so they are
+  # callers, not noise, and must stay on the list.
+  asr_languages: [Indonesian, Malay, Javanese, Sundanese, English,
+                  Minangkabau, Balinese, Madurese]
+  asr_prompt: >-
+    cicilan, angsuran, tenor, denda, DP, jatuh tempo, pembiayaan, keringanan,
+    restrukturisasi, transfer, virtual account, Indomaret, Alfamart, leasing,
+    customer service, juta, ribu, rupiah, nggih, monggo, punten
+
+disclosures:
+  - id: ai_disclosure
+    required_before: qualification
+    text: "Sebelumnya, saya asisten AI ya Pak/Bu, bukan petugas manusia."
+  - id: recording_disclosure
+    required_before: qualification
+    text: "Panggilan ini direkam untuk keperluan kualitas layanan."
+  - id: no_payment_disclosure
+    required_before: qualification
+    text: >-
+      Saya tidak akan meminta OTP, PIN, atau pembayaran lewat telepon ini -
+      pembayaran hanya melalui channel resmi.
+
+script:
+  greeting: >-
+    Selamat pagi, saya {agent_name} dari {brand}. Apakah benar ini dengan
+    Bapak atau Ibu pemilik kontrak pembiayaan?
+  consent: >-
+    Boleh minta waktu sebentar? Ini mengenai angsuran yang akan jatuh tempo,
+    supaya tidak kena denda.
+  consent_declined: >-
+    Baik, tidak apa-apa. Kira-kira jam berapa saya bisa hubungi kembali?
+  slot_questions:
+    business_name: "Boleh saya konfirmasi nama Bapak/Ibu sesuai kontrak?"
+    entity_type: "Pembiayaan ini untuk kendaraan, elektronik, atau modal usaha ya?"
+    industry: "Saat ini Bapak/Ibu bekerja atau usaha di bidang apa?"
+    business_vintage_months: "Sudah berjalan berapa lama kontrak pembiayaannya?"
+    annual_turnover_inr: "Berapa angsuran per bulannya, Pak/Bu?"
+    loan_amount_inr: "Sisa pokok pembiayaannya kira-kira berapa ya?"
+    loan_purpose: "Pembiayaan ini dipakai untuk keperluan apa?"
+    existing_emi_inr: "Ada cicilan lain yang sedang berjalan juga?"
+    gst_registered: "Pembayarannya lewat auto-debit atau transfer manual?"
+    city: "Domisilinya di kota mana sekarang?"
+    applicant_age: "Boleh tahu usia Bapak/Ibu, untuk verifikasi data?"
+    credit_score: "Nomor ini masih aktif untuk dihubungi, ya?"
+  slot_retry:
+    annual_turnover_inr: "Kira-kira saja tidak apa-apa - angsurannya berapa juta per bulan?"
+    business_vintage_months: "Kira-kira mulai kontraknya tahun berapa ya?"
+    existing_emi_inr: "Selain yang ini, ada cicilan lain tidak?"
+  clarify: "Maaf, suaranya kurang jelas - boleh diulang sekali lagi?"
+  resume: "Kembali ke tadi ya Pak/Bu -"
+  conflict_probe: >-
+    Mohon maaf, saya konfirmasi dulu - tadi Bapak/Ibu sebut {a}, tapi juga {b}.
+    Yang mana yang benar supaya datanya tidak keliru?
+  outcome:
+    pass: >-
+      Baik, terima kasih. Datanya sudah sesuai, jadi tinggal dibayar sebelum
+      jatuh tempo supaya tidak kena denda.
+    refer: >-
+      Terima kasih. Ada beberapa hal yang perlu dicek tim kami dulu, jadi saya
+      teruskan ke bagian terkait ya.
+    reject: >-
+      Terima kasih atas waktunya. Untuk kondisi ini memang perlu ditangani
+      bagian khusus, jadi saya arahkan ke sana ya.
+    # Used when the customer deferred and never named a date. It says out loud
+    # that nothing was promised, which is the honest close and also what stops
+    # the CRM from recording a promise-to-pay that does not exist.
+    no_commitment: >-
+      Baik Pak/Bu, saya catat belum ada tanggal pastinya ya - tidak saya
+      janjikan apa-apa. Kalau nanti butuh keringanan atau perpanjangan tenor,
+      tim kami bisa bantu ajukan, tinggal hubungi kami.
+  # Asked once, the first time an indirect refusal is heard. It does not argue
+  # and it does not pretend not to have understood - it asks for the one thing
+  # that turns a polite deferral into something the collections team can act on.
+  commitment_probe: >-
+    Baik Pak/Bu, tidak apa-apa. Supaya saya catat dengan benar - kira-kira
+    tanggal berapa Bapak/Ibu bisa transfer? Kalau memang belum bisa, tidak
+    masalah, saya catat apa adanya.
+  outcome_check: "Sebelum saya aturkan, ada yang mau ditanyakan dulu?"
+  next_step: >-
+    Nanti tim kami hubungi di nomor ini ya. Apakah {callback_slot} bisa?
+  closing: "Terima kasih banyak atas waktunya. Selamat beraktivitas, Pak/Bu."
+
+fallback:
+  # Language-locked, same rule as the PH pack.
+  unknown: >-
+    Untuk yang itu saya belum ada datanya, dan saya tidak mau menebak soal
+    kontrak Bapak/Ibu. Saya cek ke tim dulu, nanti kami kabari.
+  low_confidence: >-
+    Saya tidak mau memberi informasi yang belum pasti. Saya konfirmasikan dulu
+    ke tim kami ya.
+  out_of_scope: >-
+    Mohon maaf, saya hanya bisa bantu untuk angsuran dan kontrak pembiayaan.
+    Untuk itu saya teruskan ke bagian yang tepat ya.
+  asr_failure: "Maaf, sinyalnya terputus sebentar. Boleh diulang?"
+  repeated_failure: >-
+    Sepertinya sambungannya kurang bagus. Biar tim kami telepon kembali saja ya.
+
+escalation:
+  acknowledge: >-
+    Baik, saya sambungkan ke petugas kami. Saya konfirmasi dulu nomor dan
+    waktunya ya.
+  closing: >-
+    Sudah saya catat, nanti tim kami menghubungi di {phone} pada {callback_slot}.
+
+# Read by voice/session.py (`_note_commitment`). A turn matching one of these
+# is recorded as a refusal, never as agreement, and the call cannot close on
+# the default `pass` outcome unless a commitment marker below also appears.
+soft_refusal_markers:
+  - "nanti saya kabari"
+  - "nanti deh"
+  - "iya nanti"
+  - "belum ada kabar"
+  - "lihat nanti"
+  - "insya allah"
+  - "diusahakan"
+  - "kalau ada rezeki"
+
+# The other half of the rule: a date the customer actually named. Only these
+# cancel a soft refusal - "diusahakan" is not a date, and neither is "secepatnya".
+commitment_markers:
+  - "tanggal"
+  - "besok"
+  - "lusa"
+  - "hari ini"
+  - "minggu depan"
+  - "senin"
+  - "selasa"
+  - "rabu"
+  - "kamis"
+  - "jumat"
+  - "sabtu"
+  - "minggu ini"
+  - "awal bulan"
+  - "akhir bulan"
+  - "setelah gajian"
+
+style:
+  register: >-
+    Opens formal (Bapak/Ibu, full sentences). Follows the customer into
+    colloquial register (Kak, nggak, udah, aja) if they lead. Never opens
+    colloquially.
+  sentence_length: "Short. One question at a time. No stacked questions."
+  numbers: >-
+    Rupiah spoken naturally - "dua juta lima ratus ribu", not "2500000".
+    Dates as "tanggal 5", not ISO.
+  do_not:
+    - "Never ask for an OTP, PIN, or payment on the call."
+    - "Never threaten repossession, legal action, or contacting the customer's employer."
+    - "Never promise a waiver of denda - only that the request will be reviewed."
+    - "Never mimic a regional accent back at the customer."
+    - "Never call outside 08:00-19:00 local time."
+    - "Never switch to English in a fallback or escalation line."
+
+localization_examples:
+  - situation: "Customer says they cannot pay this month"
+    literal_translation: "Anda harus membayar angsuran Anda sebelum tanggal jatuh tempo."
+    adapted: >-
+      Baik Pak, saya mengerti. Kalau memang berat bulan ini, ada opsi keringanan
+      yang bisa saya ajukan - tapi keputusannya di tim terkait ya, saya tidak
+      bisa janjikan.
+    why: >-
+      The literal version uses "Anda", which is cold and confrontational in a
+      collections call - Indonesian uses Bapak/Ibu. It also just repeats the
+      demand. The adapted version acknowledges, offers the documented
+      restructuring path, and explicitly refuses to promise an outcome, which is
+      the conduct requirement.
+  - situation: "Customer gives an indirect refusal"
+    literal_translation: "Baik, terima kasih. Saya catat Anda akan membayar."
+    adapted: >-
+      Baik Pak. Supaya jelas ya - kira-kira tanggal berapa bisa dibayar? Kalau
+      belum bisa dipastikan, saya catat sebagai belum ada tanggal, bukan janji
+      bayar.
+    why: >-
+      "Nanti saya kabari" is a refusal expressed politely, not a commitment.
+      Recording it as a promise-to-pay corrupts the collections queue and leads
+      to a wrongly aggressive follow-up. The adapted version pins a date or
+      honestly records that there is none.
+  - situation: "Speaking to a Javanese-accented customer using regional words"
+    literal_translation: "Nggih Pak, monggo, sampun dipun bayar nggih?"
+    adapted: "Baik Pak, jadi pembayarannya sudah dilakukan ya?"
+    why: >-
+      The agent must UNDERSTAND nggih/monggo/sampun, but mirroring them back
+      from a Jakarta-based institution reads as mimicry or mockery. The adapted
+      version stays in neutral standard Indonesian while clearly having
+      understood the customer. Comprehension is localisation; imitation is not.
+  - situation: "Explaining the late fee"
+    literal_translation: "Ada biaya penalti keterlambatan sebesar dua persen."
+    adapted: >-
+      Kalau lewat jatuh tempo, ada denda ya Pak - makanya saya telepon sekarang,
+      supaya masih sempat sebelum tanggalnya.
+    why: >-
+      "Biaya penalti keterlambatan" is a translated phrase nobody uses; "denda"
+      is the actual word. The adapted version also reframes the call as helping
+      the customer avoid the denda rather than announcing a punishment.
