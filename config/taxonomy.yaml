@@ -1,0 +1,94 @@
+# ---------------------------------------------------------------------------
+# Product / policy taxonomy and terminology standardisation (Q2)
+#
+# `terminology` drives alias annotation during normalisation: a record whose
+# text uses any alias gets the canonical term appended as a searchable alias
+# line, without altering the quotable source text.
+#
+# `categories` is the retrieval-facing taxonomy. `products` maps a record to a
+# product so the voice agent can filter retrieval by the product under
+# discussion instead of searching the whole KB.
+# ---------------------------------------------------------------------------
+
+terminology:
+  emi:
+    canonical: "EMI (equated monthly instalment)"
+    aliases: ["emi", "instalment", "installment", "monthly payment", "monthly instalment",
+              "monthly repayment", "angsuran", "cicilan"]
+  processing_fee:
+    canonical: "processing fee"
+    aliases: ["processing fee", "processing charges", "login fee", "upfront fee",
+              "administration fee", "biaya administrasi"]
+  foreclosure:
+    canonical: "foreclosure / prepayment"
+    aliases: ["foreclosure", "pre-closure", "preclosure", "prepayment", "part payment",
+              "part-prepayment", "pelunasan dipercepat"]
+  business_vintage:
+    canonical: "business vintage"
+    aliases: ["business vintage", "vintage", "years in business", "years of operation",
+              "business continuity", "umur usaha"]
+  turnover:
+    canonical: "annual turnover"
+    aliases: ["turnover", "annual turnover", "annual sales", "gross receipts", "revenue",
+              "omzet"]
+  bureau_score:
+    canonical: "credit bureau score"
+    aliases: ["cibil", "cibil score", "bureau score", "credit score", "credit bureau score"]
+  collateral:
+    canonical: "collateral / security"
+    aliases: ["collateral", "security", "unsecured", "without collateral", "agunan",
+              "jaminan"]
+  overdue:
+    canonical: "overdue / past due"
+    aliases: ["overdue", "past due", "delinquent", "dpd", "arrears", "jatuh tempo",
+              "tunggakan", "lapse", "lapsed"]
+  penal_charge:
+    canonical: "penal charge"
+    aliases: ["penal charge", "penal interest", "late payment charge", "bounce charge",
+              "denda", "late fee"]
+  tenure:
+    canonical: "tenure"
+    aliases: ["tenure", "tenor", "loan term", "repayment period", "jangka waktu"]
+  disbursal:
+    canonical: "disbursal"
+    aliases: ["disbursal", "disbursement", "loan release", "pencairan"]
+  grievance:
+    canonical: "grievance redressal"
+    aliases: ["grievance", "complaint", "escalation", "nodal officer", "ombudsman",
+              "redressal"]
+  kyc:
+    canonical: "KYC documentation"
+    aliases: ["kyc", "know your customer", "identity proof", "address proof", "pan card",
+              "aadhaar"]
+
+categories:
+  product: "What we lend - amounts, tenure, security, product features"
+  eligibility: "Who qualifies - vintage, turnover, bureau, entity, age, documents"
+  pricing: "Interest rates, fees, charges, penalties"
+  policy: "Internal or regulatory rules governing lending conduct"
+  process: "How to apply, documents, turnaround, disbursal, forms"
+  faq: "Directly customer-asked questions and their published answers"
+  objection: "Sales objections and approved responses"
+  partnership: "Branch partner, DSA and lending-service-provider programme"
+  compliance: "Fair practices, grievance redressal, ombudsman, fraud awareness, privacy"
+  company: "About the lender, network, contact points"
+  lead_record: "Customer/lead records - always PII bearing, never retrievable by the bot"
+
+products:
+  unsecured_business_loan:
+    label: "Unsecured Business Loan"
+    match: ["business loan", "unsecured", "without collateral", "working capital"]
+  loan_against_property:
+    label: "Loan Against Property"
+    match: ["loan against property", "lap", "property-backed", "secured loan"]
+  machinery_finance:
+    label: "Machinery & Equipment Finance"
+    match: ["machinery", "equipment finance", "oem", "cnc"]
+  supply_chain_finance:
+    label: "Supply Chain / Embedded Finance"
+    match: ["supply chain", "anchor", "embedded financing", "retailer finance",
+            "merchant lending"]
+  partner_programme:
+    label: "Partner Programme"
+    match: ["branch partner", "dsa", "lending service provider", "connector", "referral",
+            "gem sahay"]

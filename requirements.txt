@@ -1,0 +1,24 @@
+# HTTP + validation (LLM/ASR providers are called over plain REST via httpx,
+# so there is no vendor SDK to pin or break)
+httpx>=0.27
+pydantic>=2.8
+pydantic-settings>=2.4
+python-dotenv>=1.0
+
+# web / streaming
+fastapi>=0.115
+uvicorn[standard]>=0.30
+websockets>=12.0
+python-multipart>=0.0.9
+
+# knowledge base
+pyyaml>=6.0
+numpy>=1.26
+playwright>=1.44
+pymupdf>=1.24
+
+# speech
+edge-tts>=6.1
+
+# tests
+pytest>=8.0

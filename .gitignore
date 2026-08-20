@@ -1,0 +1,26 @@
+# secrets
+.env
+*.key
+credentials*.json
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# data: raw scrapes and scratch are regenerable, KB output is committed
+data/raw/
+data/interim/
+data/kb/index.sqlite
+*.tmp.wav
+*.tmp.mp3
+
+# os
+Thumbs.db
+.DS_Store
+
+# call recordings: WAV is large and regenerable; mp3 copies are committed
+data/recordings/*.wav

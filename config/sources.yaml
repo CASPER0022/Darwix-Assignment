@@ -1,0 +1,100 @@
+# ---------------------------------------------------------------------------
+# Knowledge-base source registry (Q2)
+#
+# Two classes of source, deliberately:
+#
+#  1. `sites` - REAL public web content. U GRO Capital is a listed Indian NBFC
+#     whose public site carries exactly the mix the assessment asks for:
+#     product pages, pricing/policy documents, an FAQ, a lead form, and a
+#     branch/partner programme (which is what the assessment's own sample
+#     record `kb_product_001 / Branch Partnership Benefits` describes).
+#     Its robots.txt is `User-agent: * / Disallow:` - i.e. unrestricted - and
+#     the crawler still parses and honours it at run time.
+#
+#  2. `internal_documents` - SYNTHETIC but realistic. No lender publishes its
+#     credit policy, agent objection handbook, application form or lead export.
+#     Those are authored under data/raw/internal/ and are labelled
+#     `synthetic: true` here and in every record they produce, so nothing in
+#     the KB misrepresents the real company. They exist to exercise the parts
+#     of the pipeline the public web cannot: PDF parsing, tabular rules, form
+#     fields, duplicated content, inconsistent terminology, and PII.
+# ---------------------------------------------------------------------------
+
+sites:
+  ugro:
+    label: "U GRO Capital (public website)"
+    base_url: "https://www.ugrocapital.com"
+    sitemaps: ["/sitemap.xml"]
+    delay_seconds: 1.5
+    max_pages: 45
+    include_patterns:
+      - "ugrocapital\\.com/"
+    exclude_patterns:
+      # investor-relations PDFs and media pages are noise for a lending
+      # voice agent and would dilute retrieval
+      - "/investor-relation"
+      - "/media-room"
+      - "/press"
+      - "\\.pdf$"
+      - "/knowledge-series/"
+      - "@"           # mailto: links mis-resolved into paths by the site itself
+      - "/view-fair-practice/"
+    extra_paths:
+      - "/faq"
+      - "/lending-service-provider"
+      - "/pricing-policy-and-schedule-of-charges"
+      - "/fair-practices-code"
+      - "/ombudsman-scheme"
+      - "/lead-form"
+
+internal_documents:
+  - id: credit_policy
+    file: "internal/credit_policy_v2.pdf"
+    kind: pdf
+    synthetic: true
+    category: policy
+    label: "SME Credit Policy v2.1 (internal, synthetic)"
+  - id: qualification_rules
+    file: "internal/qualification_rules.csv"
+    kind: csv
+    synthetic: true
+    category: eligibility
+    label: "Loan qualification rules matrix (internal, synthetic)"
+  - id: objection_handbook
+    file: "internal/agent_objection_handbook.md"
+    kind: markdown
+    synthetic: true
+    category: objection
+    label: "Telecalling objection handbook (internal, synthetic)"
+  - id: application_form
+    file: "internal/loan_application_form.pdf"
+    kind: pdf
+    synthetic: true
+    category: process
+    label: "Business loan application form (internal, synthetic)"
+  - id: lead_export
+    file: "internal/crm_lead_export.csv"
+    kind: csv_pii
+    synthetic: true
+    category: lead_record
+    label: "CRM lead export containing PII (internal, synthetic)"
+  - id: ph_life_insurance
+    file: "markets/ph_life_insurance_kb.md"
+    kind: markdown
+    synthetic: true
+    market: PH
+    category: product
+    label: "Kabuhayan Life product and service guide (Philippines, synthetic)"
+  - id: id_multifinance
+    file: "markets/id_multifinance_kb.md"
+    kind: markdown
+    synthetic: true
+    market: ID
+    category: product
+    label: "Sejahtera Multifinance panduan produk (Indonesia, synthetic)"
+  - id: partner_faq
+    file: "internal/branch_partner_faq.md"
+    kind: markdown
+    synthetic: true
+    category: partnership
+    label: "Branch partner FAQ (internal, synthetic)"
